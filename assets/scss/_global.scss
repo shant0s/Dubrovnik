@@ -1,0 +1,355 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Aug 14, 2017, 1:24:27 PM
+    Author     : Sk0rn
+
+*/
+
+/*fonts*/
+@import url("http://fonts.googleapis.com/css?family=#{$p-family}");
+@import url("http://fonts.googleapis.com/css?family=#{$s-family}");
+
+
+
+body{
+    font-family: $primary-ff;
+    line-height: 1.6;
+    letter-spacing: .2px;
+    max-width: 1600px;
+    margin: 0 auto;
+}
+h1, h2, h3, h4, h5, h6{
+    font-family: $secondary-ff;
+    margin: 0;
+}
+.section{
+    padding: 70px 0;
+}
+.section-heading{
+    text-align: center;
+    margin-bottom: 65px;
+    h2{
+        color: $primary-color;
+        background: -webkit-linear-gradient(#071b09, #065d33);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        text-transform: uppercase;
+        margin-bottom: 10px;
+    }
+    span{
+        display: block;
+        margin: 0 auto 30px;
+    }
+    p{
+        width: 70%;
+        margin: 0 auto;
+    }
+}
+.cm-list {
+    list-style: none;
+    padding: 0;
+    margin-left: 0;
+    li {
+        padding-left: 45px; 
+        @include flexbox;
+        align-items: center;
+        padding: 5px 0 5px 35px;        
+        &::before { 
+            content: "";
+            background: url(../images/list-icon.png) no-repeat center center;
+            width: 55px;
+            height: 35px;
+            display: inline-block; 
+            margin-left: -45px;
+        }
+    }
+}
+.section-break{
+    padding: 0 0 70px;
+}
+.form-control{
+    height: 45px
+}
+.bg-light-gray{
+    background: darken($white, 3%);
+}
+.sidebar{
+    background: lighten($black, 30%);
+    padding: 15px;
+    color: $white;
+    h6{
+        color: $primary-color;
+        margin-bottom: 5px;
+    }
+    h3{
+        color: $secondary-color;
+        margin-bottom: 15px;
+    }
+    li{
+        padding: 5px 0;
+        p{
+            font-size: 16px;
+            a{
+                color: $white;
+                i{
+                    color: $secondary-color;
+                }
+            }
+        }
+    }
+}
+.custom-form{
+    background: $white;
+    padding: 15px;
+}
+.content{
+    p{
+        color: lighten($black, 40%);
+        &:last-child{
+            margin-bottom: 0;
+        }
+    }
+    ul{
+        list-style: none; 
+        padding: 0; 
+        margin-left: 0;
+        li { 
+            color: lighten($black, 40%);
+            padding-bottom: 5px;
+            padding-left: 1.3em;
+            &:before {
+                content: "\f105"; 
+                font-family: FontAwesome;
+                display: inline-block; 
+                margin-left: -1.3em;
+                width: 1.3em;
+                color: $primary-color;
+            }
+        }
+    }
+    h3{
+        margin-bottom: 15px;
+    }
+    a{
+        color: $primary-color;
+        font-weight: $regular;
+    }
+    a.btn.btn-orange{
+        color: $white;
+        font-weight: $light;
+    }
+}
+/******************************all btn css start******************************/
+.link{
+    display: inline-block;
+    padding: 5px;
+    font-family: $secondary-ff;
+    text-transform: uppercase;
+    color: lighten($black, 20%);
+    i{
+        padding-left: 15px;
+    }
+    &:hover{
+        i{
+            color: $primary-color;
+        }
+    }
+}
+.btn-green{
+    padding: 12px 20px;
+    color: $white;
+    background: $primary-color;
+    &:hover, &:focus{
+        background: darken($primary-color, 5%);
+        @include transition(0.3s linear);
+        color: $white;
+    }
+}
+.btn-gold{
+    background: $secondary-color;
+    padding: 12px 20px;
+    color: $white;
+    &:hover, &:focus{
+        background: darken($secondary-color, 5%);
+        @include transition(0.3s linear);
+        color: $white;
+    }
+}
+/******************************all btn css start******************************/
+
+/******************************media item css start******************************/
+.media-wrapper{
+    .media{
+        padding: 4px;
+        border: 1px solid $primary-color;
+        overflow: visible;
+        position: relative;
+        &:before, &:after{
+            position: absolute;
+            content: '';
+            left: -2px;
+            top: 30%;
+            width: 2px;
+            height: 200px;
+            background: $white;
+            z-index: 99;
+        }
+        &:after{
+            right: -2px;
+            left: auto;
+        }
+        figure{
+            height: 250px;
+        }
+        article{
+            text-align: center;
+            position: relative;
+            padding: 40px 10px 10px;
+            h3{
+                padding: 15px 0;
+                background: #c2ab48;  
+                background: -moz-linear-gradient(top,  #c2ab48 0%, #dcc87a 100%); /* FF3.6-15 */
+                background: -webkit-linear-gradient(top,  #c2ab48 0%,#dcc87a 100%); /* Chrome10-25,Safari5.1-6 */
+                background: linear-gradient(to bottom,  #c2ab48 0%,#dcc87a 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+                filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#c2ab48', endColorstr='#dcc87a',GradientType=0 ); /* IE6-9 */
+                position: absolute;
+                width: 95%;
+                left: 2.5%;
+                text-align: center;
+                color: $white;
+                letter-spacing: .4px;
+                top: -30px;
+                @include text-shadow(0px 2px 2px);
+                text-transform: uppercase;
+            }
+        }
+    }
+}
+/******************************media item css end******************************/
+
+/******************************why us css start******************************/
+.why-us-wrapper{
+    .why-us-list{
+        text-align: center;
+        figure{
+            margin-bottom: 20px;
+        }
+        article{
+            h3{
+                color: $primary-color;
+                background: -webkit-linear-gradient(#333333, #666666);
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+                text-transform: uppercase;
+                @include text-shadow(0px 2px 2px);
+                margin-bottom: 20px;
+            }
+        }
+    }
+}
+/******************************why us css end******************************/
+
+
+/******************************inner banner css start******************************/
+.inner-banner{
+    background: $primary-color;
+    height: 200px;
+    @include flexbox;
+    align-items: center;
+    text-align: center;
+    color: $white;
+    h1{
+        text-transform: uppercase;
+        margin-bottom: 10px;
+    }
+    p{
+        margin-bottom: 0;
+    }
+}
+/******************************inner banner css end******************************/
+
+
+/******************************custom modal css start******************************/
+.custom-modal{
+    .nav-tabs{
+        margin-bottom: 30px;
+        border: none;
+        @include flexbox;
+        justify-content: center;
+        >li{
+            &:last-child a {
+                margin-right: 0;
+            }
+            >a{
+                border-radius: 0;
+                border: 2px solid $secondary-color;;
+                color: lighten($black, 30%);
+                padding: 15px 35px;
+                text-transform: uppercase;
+                @include transition(0.3s linear);
+                margin-right: 22px;
+                &:hover, &:focus{
+                    background: $secondary-color;
+                    color: $white;
+                    @include transition(0.3s linear);
+                }
+            }
+        }
+        >li.active>a{
+            color: $white;
+            border: 2px solid $secondary-color;
+            background: $secondary-color;
+            @include transition(0.3s linear);
+            &:focus, &:hover{
+                color: $white;
+                @include transition(0.3s linear);
+            }
+        }
+    }
+}
+/******************************custom modal css end******************************/
+
+
+/******************************custom radio css start******************************/
+.cr {
+    position: relative;
+    display: inline-block;
+    background: #fff;
+    border: 1px solid #d2d6de;
+    width: 25px;
+    height: 25px;
+    line-height: 25px;
+    float: left;
+    text-align: center;
+    margin-right: 11px;
+    border-radius: 50%;
+}
+.radio label{
+    padding-left: 0;
+}
+.radio input[type=radio]:checked+.cr>.fa {
+    transform: scale(1) rotateZ(0);
+    opacity: 1;
+}
+.radio input[type=radio], .vec-listing input[type=checkbox] {
+    visibility: hidden;
+    opacity: 0;
+}
+.radio .cr .fa {
+    padding: 0;
+    color: $primary-color;
+    transform: scale(2) rotateZ(-20deg);
+    opacity: 0;
+    font-size: 16px;
+    transition: all .3s ease-in;
+}
+label{
+    font-size: 14px;
+    font-weight: 400;
+    color: #555;
+}
+/******************************custom radio css start******************************/

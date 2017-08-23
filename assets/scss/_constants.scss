@@ -1,0 +1,64 @@
+/*---------------------------------------->> Variables Declaration <<----------------------------------------*/
+$black: #000;
+$white: #fff;
+$light: 300;
+$regular: 400;
+$semi-bold: 600;
+$p-family: unquote("Oswald");
+$s-family: unquote("Source+Sans+Pro:400,600");
+/*$p-gradient: ;*/
+$primary-color: #065d33; 
+$secondary-color: #dcc87a; 
+$primary-ff: 'Source Sans Pro', sans-serif;
+$secondary-ff: 'Oswald', sans-serif;;
+ 
+/*---------------------------------------->> Mixin CSS <<----------------------------------------*/
+@mixin transition($transition) {
+    -moz-transition:    $transition;
+    -o-transition:      $transition;
+    -webkit-transition: $transition;
+    transition:         $transition;
+}
+@mixin box-shadow($box-shadow) {
+    -webkit-box-shadow: $box-shadow rgba($black, 0.3);  
+    -moz-box-shadow: $box-shadow rgba($black, 0.3);
+    box-shadow: $box-shadow rgba($black, 0.3);
+}
+@mixin text-shadow($text-shadow) {
+    -webkit-text-shadow: $text-shadow rgba($black,0.2);
+    -moz-text-shadow: $text-shadow rgba($black,0.2);
+    text-shadow: $text-shadow rgba($black,0.2);
+}
+@mixin transform($transform) {
+    -moz-transform: $transform;
+    -o-transform: $transform;
+    -webkit-transform: $transform;
+    transform: $transform;
+}
+@mixin user-select-drag {
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-drag:none;
+    -webkit-user-drag:none;
+    -ms-user-drag:none;
+    -moz-user-drag:none;
+}
+@mixin placeholder {
+    input::-webkit-input-placeholder {@content}
+    input:-moz-placeholder           {@content}
+    input::-moz-placeholder          {@content}
+    input:-ms-input-placeholder      {@content}  
+    textarea::-webkit-input-placeholder {@content}
+    textarea:-moz-placeholder           {@content}
+    textarea::-moz-placeholder          {@content}
+    textarea:-ms-input-placeholder      {@content}  
+} 
+@mixin flexbox{ 
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+}

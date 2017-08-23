@@ -1,0 +1,7 @@
+_backups
+nbproject/private
+uploads
+application/logs
+api/application/logs
+api/ci_sessions
+application/vendor/

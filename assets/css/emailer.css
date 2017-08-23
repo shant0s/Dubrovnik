@@ -1,0 +1,175 @@
+@import url(https://fonts.googleapis.com/css?family=Poppins:700);
+@import url(https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,300,700,600);
+
+
+/*Global*/
+*{
+    margin: 0;
+    font-family: 'Source Sans Pro', sans-serif;
+    font-size: 13px;
+    color: #333;
+}
+
+h1, h2, h3, h4, h5, p, ul{
+    margin: 0;
+    padding: 0;
+}
+h1, h2, h3{
+    font-family: 'Poppins', sans-serif;
+}
+h1{
+    font-size: 36px;
+}
+h2{
+    font-size: 30px;
+}
+h3{
+    font-size: 24px;
+}
+h4{
+    font-size: 18px;
+    
+}
+h5{
+    font-size: 16px;
+}
+img{width:90px;}
+table{
+    border-spacing: 0;
+    border-collapse: collapse;
+    width: 100%;
+}
+.container table tr td{
+    padding: 5px;
+    
+}
+.container table tr th{
+    padding: 5px;
+    text-align: left;
+}
+.container td, .container th {
+    display: table-cell;
+    vertical-align: inherit;
+}
+
+.bg-main {
+    width: 100%;
+    background-color: #fff;
+}
+.container{
+    width: 700px;
+    margin: 0 auto;
+    background: #fff;
+}
+
+.section {
+    padding: 10px;
+}
+
+.section table td {
+    vertical-align: top;
+}
+
+.text-right{
+    text-align: right;
+}
+.text-left{
+    text-align: left;
+}
+.text-center {
+    text-align: center;
+}
+
+
+/*template css*/
+.header .logo{
+    width: 150px;
+}
+.header {
+    padding-bottom: 20px;
+    border-bottom: 1px solid #ddd;
+    background-color: #333;
+}
+.header h4, .header a {
+    color: #e4b757;
+}
+.header-title{
+    color: #e4b757;
+}
+.emailer-details table td{
+    width: 50%;
+}
+.emailer-details table td li b{
+    padding-right: 5px;
+}
+.emailer-receipt{
+    margin-top: 60px;
+}
+.emailer-receipt table td{
+    height: auto;
+}
+.table-receipt tfoot td {
+    border-top: 1px solid #ddd;
+}
+.extra-info{
+    margin-bottom: 20px;
+}
+.footer {
+    padding-bottom: 10px;
+    margin-top: 50px;
+    background: #333;
+}
+.footer table td {
+    vertical-align: top;
+}
+.footer-links {
+    text-align: center;
+}
+.footer-links a, .footer-links p {
+    padding: 0 10px;
+    color: #e4b757;
+    text-decoration: none;
+}
+
+.table-details {
+    border-left: 1px solid #ddd;
+    border-right: 1px solid #ddd;
+    margin-bottom: 10px;
+}
+
+.table-details .table-details-title {
+    background-color: #333;
+    color: #fff;
+}
+
+.table-details tr th, .table-details tr td {
+    border-bottom: 1px solid #ddd;
+    text-align: left;
+}
+
+.table-data thead th {
+    background-color: #333;
+    color: #fff;
+}
+
+.table-data thead th i {
+    color: #fff;
+}
+
+.table-data tbody td {
+    border-bottom: 1px solid #ccc;
+}
+
+.table-data tfoot th {
+    background-color: #333;
+    color: #fff;
+}
+
+.h4{
+    text-transform: uppercase;
+    font-weight: 600;
+    margin-bottom: 15px;
+    font-size: 14px;
+    
+}
+
