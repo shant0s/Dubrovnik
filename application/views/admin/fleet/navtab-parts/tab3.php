@@ -59,24 +59,22 @@
     var SITE_URL = '<?= site_url() ?>';
     $(document).ready(function () {
 
-//        load_ajax_view_google_miles_rate();
+        load_ajax_view_google_miles_rate();
 
         $('#from-zone').change(function () {
-
             load_ajax_view_zone_rates($(this).val());
-
         });
 
     });
 
     function load_ajax_view_google_miles_rate() {
         $.ajax({
-            url: SITE_URL + "operator/fleet/ajax_google_miles_rate/" + fleet_id,
+            url: SITE_URL + "admin/fleet_manager/ajax_google_miles_rate/" + fleet_id,
             dataType: 'json',
             success: function (response) {
 
                 if (!response.status) {
-                    alert(response.msg);
+                    alert(response.message);
                     return;
                 }
 
@@ -96,7 +94,7 @@
 
         $.ajax({
             type: 'POST',
-            url: '<?= site_url('admin/zone_manager/ajaxZonerate') ?>',
+            url: '<?= site_url('admin/fleet_manager/ajaxZonerate') ?>',
             dataType: 'json',
             data: {
                 'from_id': from_id,
@@ -150,7 +148,7 @@
                         var to_id = $(this).parents('.rate-change').find('.rate').attr('data-to-id');
                         $.ajax({
                             type: 'POST',
-                            url: '<?= site_url('admin/zone_manager/ajaxPostZoneRate') ?>',
+                            url: '<?= site_url('admin/fleet_manager/ajaxPostZoneRate') ?>',
                             dataType: 'json',
                             context: this,
                             data: {

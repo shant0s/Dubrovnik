@@ -72,7 +72,7 @@ class Zone_manager extends Admin_Controller {
         $this->load->view(BACKEND, $this->data);
     }
 
-    function ajaxZoneRate() {
+    public function ajaxZoneRate() {
         $from_id = $this->input->post('from_id');
         $fleet_id = $this->input->post('fleet_id');
         $sql = "SELECT *,ST_AsText(points) as points FROM `zones`";

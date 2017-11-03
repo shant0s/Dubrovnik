@@ -1,4 +1,5 @@
 _backups
+.idea
 nbproject/private
 uploads
 application/logs

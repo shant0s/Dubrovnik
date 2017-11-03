@@ -6,7 +6,7 @@ class Rate_manager extends Admin_Controller {
         parent::__construct();
         $this->load->model('additional_rate_model');
         $this->load->model('fare_breakdown_model');
-        $this->load->model('fix_rate_by_model');
+//        $this->load->model('fix_rate_by_model');
     }
 
     function additional_rate() {
@@ -88,5 +88,6 @@ class Rate_manager extends Admin_Controller {
         set_flash('msg', 'Fare Breakdown Deleted Successfully');
         redirect('admin/rate_manager/fare_breakdown');
     }
+
 
 }
