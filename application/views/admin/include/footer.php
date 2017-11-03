@@ -56,7 +56,7 @@
 <!--Geo Location-->
 <!--<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA63EQfeU9KZGRHViThrJtTUTYH21zD1zQ&libraries=places,geometry"></script>-->
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyADOj7WC49jntL04864klhvXU4eJdVU7cE&libraries=places,geometry,drawing"></script>
-<script src="<?= base_url() ?>assets/js/jquery.geocomplete.js"></script>
+<!--<script src="--><?//= base_url() ?><!--assets/js/jquery.geocomplete.js"></script>-->
 
 <script>
     function drawMap(zone) {
@@ -121,23 +121,23 @@
     }
 </script>
 <script>
-    $(document).ready(function () {
-
-        var start = $("#start"), end = $('#end');
-        start.geocomplete({
-            country: 'uk',
-            details: ".start",
-            detailsAttribute: "data-geo",
-            types: ['geocode', 'establishment']
-        });
-        end.geocomplete({
-            country: 'uk',
-            details: ".end",
-            detailsAttribute: "data-geo",
-            types: ['geocode', 'establishment']
-        });
-
-    });
+//    $(document).ready(function () {
+//
+//        var start = $("#start"), end = $('#end');
+//        start.geocomplete({
+//            country: 'uk',
+//            details: ".start",
+//            detailsAttribute: "data-geo",
+//            types: ['geocode', 'establishment']
+//        });
+//        end.geocomplete({
+//            country: 'uk',
+//            details: ".end",
+//            detailsAttribute: "data-geo",
+//            types: ['geocode', 'establishment']
+//        });
+//
+//    });
 
 </script>
 

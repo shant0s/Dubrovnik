@@ -74,6 +74,7 @@ class Zone_manager extends Admin_Controller {
 
     function ajaxZoneRate() {
         $from_id = $this->input->post('from_id');
+        $fleet_id = $this->input->post('fleet_id');
         $sql = "SELECT *,ST_AsText(points) as points FROM `zones`";
         $zones = $this->db->query($sql)->result();
       
@@ -83,7 +84,7 @@ class Zone_manager extends Admin_Controller {
         }
         if ($zones) {
             foreach ($zones as $index => $zone) {
-                $sql = "SELECT * FROM `zones_rate` WHERE `from_id`='{$from_id}' AND `to_id`='{$zone->id}'";
+                $sql = "SELECT * FROM `zones_rate` WHERE `from_id`='{$from_id}' AND `to_id`='{$zone->id}' AND `fleet_id`='{$fleet_id}'";
                 $rate = $this->db->query($sql)->row();
                 if ($rate) {
                     $zones[$index]->rate = $rate->rate;
@@ -98,7 +99,7 @@ class Zone_manager extends Admin_Controller {
                     $zones[$index]->rate_type = "per_mile";
                     $zones[$index]->minimum_rate = 0;
                 }
-                $sql = "SELECT * FROM `zones_rate` WHERE `from_id`='{$zone->id}' AND `to_id`='{$from_id}'";
+                $sql = "SELECT * FROM `zones_rate` WHERE `from_id`='{$zone->id}' AND `to_id`='{$from_id}' AND `fleet_id`='{$fleet_id}'";
                 $reverse_rate = $this->db->query($sql)->row();             
                 if ($reverse_rate) {
                     $zones[$index]->reverse_rate = $reverse_rate->rate;
@@ -116,11 +117,13 @@ class Zone_manager extends Admin_Controller {
 
     public function ajaxPostZoneRate() {
         $post = $this->input->post();
-        $zone_from_to_rate = $this->zone_model->get_where_zone_rate(array('from_id' => $post['from_id'], 'to_id' => $post['to_id']));
+        $cond=['from_id' => $post['from_id'], 'to_id' => $post['to_id'],'fleet_id'=>$post['fleet_id']];
+        $zone_from_to_rate = $this->zone_model->get_where_zone_rate($cond);
         if ($post['rate'] != 0) {
 
             if ($zone_from_to_rate) {
                 $zone_from_to_rate->from_id = $post['from_id'];
+                $zone_from_to_rate->fleet_id = $post['fleet_id'];
                 $zone_from_to_rate->to_id = $post['to_id'];
                 $zone_from_to_rate->rate = $post['rate'];
                 $zone_from_to_rate->rate_type = $post['rate_type'];
@@ -131,6 +134,7 @@ class Zone_manager extends Admin_Controller {
             } else {
 
                 $zone_from_to_rate->from_id = $post['from_id'];
+                $zone_from_to_rate->fleet_id = $post['fleet_id'];
                 $zone_from_to_rate->to_id = $post['to_id'];
                 $zone_from_to_rate->rate_type = $post['rate_type'];
                 $zone_from_to_rate->rate = $post['rate'];
@@ -142,7 +146,7 @@ class Zone_manager extends Admin_Controller {
             $this->zone_model->delete_zone_rate($zone_from_to_rate->id);
         }
 
-        echo json_encode($response = array('status' => true));
+        echo json_encode(['status'=>true,'message'=>'Successfully Saved','data'=>'']);
     }
 
 }

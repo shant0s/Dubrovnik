@@ -29,10 +29,7 @@
                                         ?></td>                                    
                                     <td><?php echo $booking_info->booking_ref_id ?></td>
                                     <td>
-                                        <strong> Pickup Address:</strong> <?php echo $booking_info->pickup_address ?><br>                                    
-                                        <?php if ($booking_info->via_point): ?>
-                                            <strong>Via point:</strong> <?php echo $booking_info->via_point ?>
-                                        <?php endif; ?>
+                                        <strong> Pickup Address:</strong> <?php echo $booking_info->pickup_address ?><br>
                                         <strong>  Dropoff Address:</strong> <?php echo $booking_info->dropoff_address ?><br>
                                         <strong> Pickup Date/Time.:</strong> <?php echo $booking_info->pickup_date . " / " . $booking_info->pickup_time ?><br>
                                         <strong> Type:</strong> <?php echo ucwords(str_replace('_', " ", $booking_info->journey_type)) ?><br>

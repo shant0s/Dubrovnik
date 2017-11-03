@@ -26,9 +26,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
  */
 
 if (ENVIRONMENT == 'development') {
-    $config['base_url'] = 'http://localhost/luton/';
+    $config['base_url'] = 'http://192.168.100.49/luton/';
 } elseif (ENVIRONMENT == 'testing') {
-    $config['base_url'] = 'http://workupdate.net/alpes/';
+    $config['base_url'] = 'http://workupdate.net/luton/';
 }
 
 /*
@@ -382,7 +382,7 @@ $config['encryption_key'] = '';
 //$config['sess_regenerate_destroy'] = FALSE;
 
 $config['sess_driver'] = 'files';
-$config['sess_cookie_name'] = 'ci_session';
+$config['sess_cookie_name'] = 'ci_session_luton';
 $config['sess_expiration'] = 7200;
 $config['sess_save_path'] = NULL;
 $config['sess_match_ip'] = FALSE;

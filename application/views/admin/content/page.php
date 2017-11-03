@@ -11,7 +11,7 @@
                 </span>
             </div><!-- /.box-header -->
             <div class="box-body">
-                <table class="table table-bordered" id="dt-pages">
+                <table class="table table-striped" id="dt-pages">
                     <thead>
                         <tr>
                             <th style="width:3%"></th>

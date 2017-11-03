@@ -20,7 +20,7 @@ class Booking extends Admin_Controller {
     }
 
     function index() {
-        $this->data['booking_infos'] = $this->booking_info_model->get_all();
+        $this->data['booking_infos'] = $this->booking_info_model->order_by('id','DESC')->get_all();
         $this->data['main_content'] = 'admin/booking_info/index';
         $this->data['sub_content'] = 'admin/booking_info/client';
         $this->load->view(BACKEND, $this->data);

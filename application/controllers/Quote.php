@@ -145,7 +145,7 @@ class Quote extends Public_Controller {
         );
         $booking_id = $this->booking_info_model->insert($booking_infos);
 
-        if ($session_data['booking_post_info']['pay_method'] == 'paypall') {
+        if ($session_data['booking_post_info']['pay_method'] == 'paypal') {
             $query = array();
             $query['notify_url'] = site_url('quote/paypal_ipn/' . $booking_ref_id);
             $query['return'] = site_url('thank-you');
@@ -162,6 +162,7 @@ class Quote extends Public_Controller {
             $query_string = http_build_query($query);
 
             header('Location: https://www.sandbox.paypal.com/cgi-bin/webscr?' . $query_string);
+            return;
         } else {
             set_flash('msg', 'Thank you for booking. Please check the confirmation email and pay the full amount to the driver');
             $this->send_booking_received_email($booking_infos);
