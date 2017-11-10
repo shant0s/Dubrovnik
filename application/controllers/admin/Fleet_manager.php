@@ -36,8 +36,8 @@ class Fleet_manager extends Admin_Controller
     {
         $fleet_id = segment(4);
         $post = $this->input->post();
-        if ($post) {
 
+        if ($post) {
             if (!empty($_FILES['img_name']['name'])) {
                 if ($fleet_id) {
 
@@ -49,28 +49,58 @@ class Fleet_manager extends Admin_Controller
                     }
                 }
                 $files_data = $this->common_library->upload_image('img_name', 'uploads/fleet/', 'fleet' . time());
-                $post['img_name'] = $files_data['filename'];
+                $db_fleet['img_name'] = $files_data['filename'];
             }
+
+            $db_fleet = [
+                'title' => $post['title'],
+                'passengers' => $post['passengers'],
+                'suitcases' => $post['suitcases'],
+                'luggage' => $post['luggage'],
+                'baby_seats' => $post['baby_seats'],
+                'desc' => $post['desc'],
+            ];
+            $db_add_rate = [
+                'card_fee' => $post['card_fee'],
+                'card_fee_type' => $post['card_fee_type'],
+                'baby_seater' => $post['baby_seater'],
+                'airport_pickup_fee' => $post['airport_pickup_fee'],
+                'round_trip' => $post['round_trip'],
+                'meet_and_greet' => $post['meet_and_greet'],
+                'fleet_id' => $fleet_id,
+            ];
+
+            $is_add_rate = $this->additional_rate_model->get(['fleet_id' => $fleet_id]);
+            if (!$is_add_rate)
+                $this->additional_rate_model->insert($db_add_rate);
+
             if ($fleet_id == '') {
-                $this->fleet_model->insert($post);
-                $this->session->set_flashdata('msg', "Fleet Saved.");
+                $this->fleet_model->insert($db_fleet);
+                $this->additional_rate_model->insert($db_add_rate);
+                $this->session->set_flashdata('msg', "Data Saved.");
             } else {
-                $this->fleet_model->update($post, array('id' => $fleet_id));
-                $this->session->set_flashdata('msg', "Fleet Updated.");
+                $this->fleet_model->update($db_fleet, array('id' => $fleet_id));
+                $this->additional_rate_model->update($db_add_rate, array('fleet_id' => $fleet_id));
+                $this->session->set_flashdata('msg', "Data Updated.");
             }
             redirect('admin/fleet_manager');
         } else {
             $this->data['main_content'] = 'admin/fleet/index';
             $this->data['sub_content'] = 'admin/fleet/_form';
             $this->data['is_edit'] = FALSE;
+            $this->data['fleet'] = '';
+            $this->data['additional_rate'] = '';
 
             if ($fleet_id != '') {
-                $this->data['fleet'] = $this->fleet_model->get($fleet_id);
+                $this->data['fleet'] = $this->fleet_model->get(['id' => $fleet_id]);
+                $this->data['additional_rate'] = $this->additional_rate_model->get(array('fleet_id' => $fleet_id));
                 $this->data['is_edit'] = TRUE;
             }
 
+
             $sql = "SELECT *,ST_AsText(points) as points FROM `zones`";
             $this->data['zones'] = $this->db->query($sql)->result();
+
 
             $this->load->view(BACKEND, $this->data);
         }
@@ -89,7 +119,8 @@ class Fleet_manager extends Admin_Controller
         redirect('admin/fleet_manager');
     }
 
-    public function ajaxZoneRate() {
+    public function ajaxZoneRate()
+    {
         $from_id = $this->input->post('from_id');
         $fleet_id = $this->input->post('fleet_id');
         $sql = "SELECT *,ST_AsText(points) as points FROM `zones`";
@@ -132,9 +163,10 @@ class Fleet_manager extends Admin_Controller
         }
     }
 
-    public function ajaxPostZoneRate() {
+    public function ajaxPostZoneRate()
+    {
         $post = $this->input->post();
-        $cond=['from_id' => $post['from_id'], 'to_id' => $post['to_id'],'fleet_id'=>$post['fleet_id']];
+        $cond = ['from_id' => $post['from_id'], 'to_id' => $post['to_id'], 'fleet_id' => $post['fleet_id']];
         $zone_from_to_rate = $this->zone_model->get_where_zone_rate($cond);
         if ($post['rate'] != 0) {
 
@@ -163,16 +195,16 @@ class Fleet_manager extends Admin_Controller
             $this->zone_model->delete_zone_rate($zone_from_to_rate->id);
         }
 
-        echo json_encode(['status'=>true,'message'=>'Successfully Saved','data'=>'']);
+        echo json_encode(['status' => true, 'message' => 'Successfully Saved', 'data' => '']);
     }
 
 
     function ajax_google_miles_rate($fleet_id = null)
     {
 
-        $fleet = $this->fleet_model->get(['id'=>$fleet_id]);
+        $fleet = $this->fleet_model->get(['id' => $fleet_id]);
         if (!$fleet) {
-            echo json_encode(['status'=>false,'message'=>'Invalid fleet id','data'=>'']);
+            echo json_encode(['status' => false, 'message' => 'Invalid fleet id', 'data' => '']);
             exit;
         }
 
@@ -188,7 +220,7 @@ class Fleet_manager extends Admin_Controller
         $response_data = [
             'html' => $html
         ];
-        echo json_encode(['status'=>true,'message'=>'success','data'=>$response_data]);
+        echo json_encode(['status' => true, 'message' => 'success', 'data' => $response_data]);
 
     }
 
@@ -196,7 +228,8 @@ class Fleet_manager extends Admin_Controller
     {
 
         if (!$this->input->is_ajax_request()) {
-            echo json_encode(['status'=>false,'message'=>'Invalid request type','data'=>'']);
+            echo json_encode(['status' => false, 'message' => 'Invalid request type', 'data' => '']);
+            return;
         }
 
 
@@ -210,18 +243,18 @@ class Fleet_manager extends Admin_Controller
 
         $rate_id = $this->input->post('rate_id');
         if ($rate_id) {
-            $this->fare_breakdown_model->update($rate_data,['id'=>$rate_id]);
+            $this->fare_breakdown_model->update($rate_data, ['id' => $rate_id]);
             set_flash('msg', 'Update success.');
-            echo json_encode(['status'=>true,'message'=>'Update success.','data'=>'']);
+            echo json_encode(['status' => true, 'message' => 'Update success.', 'data' => '']);
             return;
 
         }
 
-        if($rate_data['is_min'] == 1){
+        if ($rate_data['is_min'] == 1) {
             $rate = $this->fare_breakdown_model->get(['is_min' => 1, 'fleet_id' => $rate_data['fleet_id']]);
-            if($rate){
-                $this->fare_breakdown_model->update($rate_data,['id'=>$rate->id]);
-                echo json_encode(['status'=>true,'message'=>'Update success.','data'=>'']);
+            if ($rate) {
+                $this->fare_breakdown_model->update($rate_data, ['id' => $rate->id]);
+                echo json_encode(['status' => true, 'message' => 'Update success.', 'data' => '']);
                 return;
 
             }
@@ -229,7 +262,7 @@ class Fleet_manager extends Admin_Controller
 
         $this->fare_breakdown_model->insert($rate_data);
         set_flash('msg', 'Insert success.');
-        echo json_encode(['status'=>true,'message'=>'Insert success.','data'=>'']);
+        echo json_encode(['status' => true, 'message' => 'Insert success.', 'data' => '']);
 
     }
 
@@ -237,31 +270,31 @@ class Fleet_manager extends Admin_Controller
     {
 
         if (!$this->input->is_ajax_request()) {
-            echo json_encode(['status'=>false,'message'=>'Invalid request type','data'=>'']);
+            echo json_encode(['status' => false, 'message' => 'Invalid request type', 'data' => '']);
             return;
         }
 
-        $this->fare_breakdown_model->delete(['id'=>$rate_id]);
+        $this->fare_breakdown_model->delete(['id' => $rate_id]);
 
         set_flash('msg', 'Delete success.');
-        echo json_encode(['status'=>true,'message'=>'Delete success.','data'=>'']);
+        echo json_encode(['status' => true, 'message' => 'Delete success.', 'data' => '']);
     }
 
     function ajax_google_rate($rate_id = null)
     {
 
         if (!$this->input->is_ajax_request()) {
-            echo json_encode(['status'=>false,'message'=>'Invalid request type','data'=>'']);
+            echo json_encode(['status' => false, 'message' => 'Invalid request type', 'data' => '']);
             return;
         }
 
         $rate = $this->fare_breakdown_model->get($rate_id);
         if (!$rate) {
-            echo json_encode(['status'=>false,'message'=>'rate not found.','data'=>'']);
+            echo json_encode(['status' => false, 'message' => 'rate not found.', 'data' => '']);
             return;
         }
 
-        echo json_encode(['status'=>true,'message'=>'rate.','data'=>$rate]);
+        echo json_encode(['status' => true, 'message' => 'rate.', 'data' => $rate]);
     }
 
 }

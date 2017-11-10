@@ -8,11 +8,13 @@
                     <button class="btn btn-primary" type="submit"><i class="fa fa-save"></i> Save</button>
                 </div>
             </div><!-- /.box-header -->
+
             <div class="box-body">
                 <ul class="nav nav-tabs" role="tablist">
                     <li role="presentation" class="active"><a href="#tab1" aria-controls="tab1" role="tab" data-toggle="tab">General Info</a></li>
                     <li role="presentation"><a href="#tab2" aria-controls="tab2" role="tab" data-toggle="tab">Photos</a></li>
                     <li role="presentation"><a href="#tab3" aria-controls="tab3" role="tab" data-toggle="tab">Rates</a></li>
+                    <li role="presentation"><a href="#tab4" aria-controls="tab4" role="tab" data-toggle="tab">Additional Rates</a></li>
                 </ul>
 
                 <!-- Tab panes -->
@@ -34,6 +36,9 @@
                                 <i class="fa fa-info-circle"></i> Please add rest of the info & save the fleet in order to manage rates.
                             </div>
                         <?php endif; ?>
+                    </div>
+                    <div role="tabpanel" class="tab-pane" id="tab4">
+                        <?php $this->load->view('admin/fleet/navtab-parts/tab4') ?>
                     </div>
                 </div>
             </div><!-- /.box-body -->

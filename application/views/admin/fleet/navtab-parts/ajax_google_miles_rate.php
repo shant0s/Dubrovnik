@@ -21,7 +21,7 @@
         <div class="form-group">
             <label>Fix base amount</label>
             <div class="input-group">
-                <span class="input-group-addon">£</span>
+                <span class="input-group-addon"><?= CURRENCY ?></span>
                 <input type="text" id="base-rate-rate" class="form-control" value="<?= $base_rate ? $base_rate->rate : '' ?>">
             </div>
         </div>

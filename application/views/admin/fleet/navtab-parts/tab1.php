@@ -1,4 +1,4 @@
-<div class="row login-box-body">
+<div class="row box-body">
     <div class="col-md-12">
         <label>Vehicle Name <span class="text-danger">*</span></label>
         <input class="form-control required" type="text" name="title" placeholder="Enter name of Vehicle"
@@ -28,6 +28,5 @@
         <label>Vehicle Description <span class="text-danger">*</span></label>
         <textarea name="desc" placeholder="Enter Vehicle description" rows="5"
                   class="form-control"><?php echo ($is_edit) ? $fleet->desc : '' ?></textarea>
-
     </div>
 </div>
