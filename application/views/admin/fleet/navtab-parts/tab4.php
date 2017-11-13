@@ -30,7 +30,7 @@
     </div>
 
     <div class="col-md-2">
-        <label class="control-label">Airport pickup fee<span class="text-danger">*</span></label>
+        <label class="control-label">Airport Pickup <span class="text-danger">*</span></label>
         <div class="input-group">
             <span class="input-group-addon"><?= CURRENCY ?></span>
             <input type="text" name="airport_pickup_fee" class="form-control"
@@ -48,13 +48,21 @@
         </div>
     </div>
     <div class="col-md-2">
-        <label class="control-label">Meet $ Greet<span class="text-danger">*</span></label>
+        <label class="control-label">Waiting Time<span class="text-danger">*</span></label>
         <div class="input-group">
             <span class="input-group-addon"><?= CURRENCY ?></span>
-            <input type="text" name="meet_and_greet" class="form-control"
-                   value="<?php echo ($is_edit && $additional_rate) ? $additional_rate->meet_and_greet : '' ?>">
+            <input type="text" name="waiting_time" class="form-control"
+                   value="<?php echo ($is_edit && $additional_rate) ? $additional_rate->waiting_time : '' ?>">
         </div>
     </div>
+<!--    <div class="col-md-2">-->
+<!--        <label class="control-label">Meet $ Greet<span class="text-danger">*</span></label>-->
+<!--        <div class="input-group">-->
+<!--            <span class="input-group-addon">--><?//= CURRENCY ?><!--</span>-->
+<!--            <input type="text" name="meet_and_greet" class="form-control"-->
+<!--                   value="--><?php //echo ($is_edit && $additional_rate) ? $additional_rate->meet_and_greet : '' ?><!--">-->
+<!--        </div>-->
+<!--    </div>-->
 </div>
 <div class="panel-group login-box-body">
     <div class="panel panel-default">

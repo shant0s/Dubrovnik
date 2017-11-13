@@ -25,7 +25,7 @@ class Fleet_manager extends Admin_Controller
         $this->load->model('holidays_model');
     }
 
-    function index()
+    public function index()
     {
 
         $this->data['fleets'] = $this->fleet_model->get_all();
@@ -34,26 +34,12 @@ class Fleet_manager extends Admin_Controller
         $this->load->view(BACKEND, $this->data);
     }
 
-    function add_update()
+    public function add_update()
     {
         $fleet_id = segment(4);
         $post = $this->input->post();
 
         if ($post) {
-            if (!empty($_FILES['img_name']['name'])) {
-                if ($fleet_id) {
-
-                    $fleetdata = $this->fleet_model->get($fleet_id);
-                    if ($fleetdata) {
-                        $url = 'uploads/fleet/' . $fleetdata->img_name;
-                        if (file_exists($url))
-                            unlink($url);
-                    }
-                }
-                $files_data = $this->common_library->upload_image('img_name', 'uploads/fleet/', 'fleet' . time());
-                $db_fleet['img_name'] = $files_data['filename'];
-            }
-
             $db_fleet = [
                 'title' => $post['title'],
                 'passengers' => $post['passengers'],
@@ -71,6 +57,20 @@ class Fleet_manager extends Admin_Controller
                 'meet_and_greet' => $post['meet_and_greet'],
                 'fleet_id' => $fleet_id,
             ];
+            if (!empty($_FILES['img_name']['name'])) {
+                if ($fleet_id) {
+
+                    $fleetdata = $this->fleet_model->get($fleet_id);
+                    if ($fleetdata) {
+                        $url = 'uploads/fleet/' . $fleetdata->img_name;
+                        if (file_exists($url))
+                            unlink($url);
+                    }
+                }
+                $files_data = $this->common_library->upload_image('img_name', 'uploads/fleet/', 'fleet' . time());
+                $db_fleet['img_name'] = $files_data['filename'];
+            }
+
 
             if ($fleet_id == '') {
                 $id = $this->fleet_model->insert($db_fleet);
@@ -132,7 +132,7 @@ class Fleet_manager extends Admin_Controller
         }
     }
 
-    function delete()
+    public function delete()
     {
         $fleet_id = segment(4);
         $fleet = $this->fleet_model->get($fleet_id);
@@ -140,7 +140,13 @@ class Fleet_manager extends Admin_Controller
         $url = 'uploads/fleet/' . $fleet->img_name;
         if (file_exists($url))
             unlink($url);
-        $this->fleet_model->delete($fleet_id);
+        $this->fleet_model->delete(['id' => $fleet_id]);
+        $this->additional_rate_model->delete(['fleet_id' => $fleet_id]);
+        $this->zone_model->DeleteZoneRateWhere(['fleet_id' => $fleet_id]);
+        $this->fare_breakdown_model->delete(['fleet_id' => $fleet_id]);
+        $this->rush_hour_model->delete(['fleet_id' => $fleet_id]);
+        $this->holidays_model->delete(['fleet_id' => $fleet_id]);
+
         $this->session->set_flashdata('msg', 'Successfully! Fleet Deleted');
         redirect('admin/fleet_manager');
     }
@@ -225,7 +231,7 @@ class Fleet_manager extends Admin_Controller
     }
 
 
-    function ajax_google_miles_rate($fleet_id = null)
+    public function ajax_google_miles_rate($fleet_id = null)
     {
 
         $fleet = $this->fleet_model->get(['id' => $fleet_id]);
@@ -250,7 +256,7 @@ class Fleet_manager extends Admin_Controller
 
     }
 
-    function ajax_save_google_rate()
+    public function ajax_save_google_rate()
     {
 
         if (!$this->input->is_ajax_request()) {
@@ -292,7 +298,7 @@ class Fleet_manager extends Admin_Controller
 
     }
 
-    function ajax_delete_google_rate($rate_id = null)
+    public function ajax_delete_google_rate($rate_id = null)
     {
 
         if (!$this->input->is_ajax_request()) {
@@ -306,7 +312,7 @@ class Fleet_manager extends Admin_Controller
         echo json_encode(['status' => true, 'message' => 'Delete success.', 'data' => '']);
     }
 
-    function ajax_google_rate($rate_id = null)
+    public function ajax_google_rate($rate_id = null)
     {
 
         if (!$this->input->is_ajax_request()) {
@@ -323,7 +329,7 @@ class Fleet_manager extends Admin_Controller
         echo json_encode(['status' => true, 'message' => 'rate.', 'data' => $rate]);
     }
 
-    function ajax_rush_hour_rate_view($fleet_id = null)
+    public function ajax_rush_hour_rate_view($fleet_id = null)
     {
         $rush_hour = $this->rush_hour_model->get_all(['fleet_id' => $fleet_id]);
 
@@ -354,7 +360,7 @@ class Fleet_manager extends Admin_Controller
         $cond = ['fleet_id' => $post['fleet_id'], 'id' => $post['rush_hrs_id']];
         $rush_hour_charge = $this->rush_hour_model->get($cond);
         if ($rush_hour_charge) {
-            $this->rush_hour_model->update($post,$cond);
+            $this->rush_hour_model->update($post, $cond);
         } else {
             unset($post['rush_hrs_id']);
             $this->rush_hour_model->insert($post);
@@ -363,7 +369,8 @@ class Fleet_manager extends Admin_Controller
 
     }
 
-    public function ajax_holiday_rate_view($fleet_id = null){
+    public function ajax_holiday_rate_view($fleet_id = null)
+    {
         $holiday_rates = $this->holidays_model->get_all(['fleet_id' => $fleet_id]);
 
         $html_data = [
@@ -387,16 +394,17 @@ class Fleet_manager extends Admin_Controller
         }
 
         $holiday_rate_data = [
-            'starting_date' => DateTime::createFromFormat('d/m/Y',$this->input->post('start_date'))->format('Y-m-d'),
-            'starting_time' =>DateTime::createFromFormat('h:i a',$this->input->post('start_time'))->format('H:i:s'),
-            'ending_date' => DateTime::createFromFormat('d/m/Y',$this->input->post('end_date'))->format('Y-m-d'),
-            'ending_time' => DateTime::createFromFormat('h:i a',$this->input->post('end_time'))->format('H:i:s'),
+            'starting_date' => DateTime::createFromFormat('d/m/Y', $this->input->post('start_date'))->format('Y-m-d'),
+            'starting_time' => DateTime::createFromFormat('h:i a', $this->input->post('start_time'))->format('H:i:s'),
+            'ending_date' => DateTime::createFromFormat('d/m/Y', $this->input->post('end_date'))->format('Y-m-d'),
+            'ending_time' => DateTime::createFromFormat('h:i a', $this->input->post('end_time'))->format('H:i:s'),
+            'charge' => $this->input->post('charge'),
             'is_active' => $this->input->post('is_active'),
             'fleet_id' => $this->input->post('fleet_id')
         ];
 
         $holiday_rate_id = $this->input->post('holiday_rate_id');
-//        debug($holiday_rate_data);
+//        debug($_POST);
         if ($holiday_rate_id) {
             $this->holidays_model->update($holiday_rate_data, ['id' => $holiday_rate_id]);
 
@@ -422,13 +430,14 @@ class Fleet_manager extends Admin_Controller
 
         $rate = $this->holidays_model->get($rate_id);
         $rate = [
-            'starting_date' => DateTime::createFromFormat('Y-m-d',$rate->starting_date)->format('d/m/Y'),
-            'starting_time' =>DateTime::createFromFormat('H:i:s',$rate->starting_time)->format('h:i a'),
-            'ending_date' => DateTime::createFromFormat('Y-m-d',$rate->ending_date)->format('d/m/Y'),
-            'ending_time' => DateTime::createFromFormat('H:i:s',$rate->ending_time)->format('h:i a'),
+            'starting_date' => DateTime::createFromFormat('Y-m-d', $rate->starting_date)->format('d/m/Y'),
+            'starting_time' => DateTime::createFromFormat('H:i:s', $rate->starting_time)->format('h:i a'),
+            'ending_date' => DateTime::createFromFormat('Y-m-d', $rate->ending_date)->format('d/m/Y'),
+            'ending_time' => DateTime::createFromFormat('H:i:s', $rate->ending_time)->format('h:i a'),
             'is_active' => $rate->is_active,
             'fleet_id' => $rate->fleet_id,
             'id' => $rate->id,
+            'charge' => $rate->charge,
         ];
 //        debug($rate);
 

@@ -12,6 +12,7 @@
                 <th>Start Time</th>
                 <th>End Date</th>
                 <th>End Time</th>
+                <th>Charge</th>
                 <th>Status</th>
                 <th>Action</th>
             </tr>
@@ -26,6 +27,7 @@
                     <td><?= $rate->starting_time ?></td>
                     <td><?= $rate->ending_date ?></td>
                     <td><?= $rate->ending_time ?></td>
+                    <td><?= CURRENCY.  $rate->charge ?></td>
                     <td>
                         <?= $rate->is_active ? "<span class='label label-success'>Active</span>" : "<span class='label label-danger'>Inactive</span>"; ?>
                     </td>
@@ -90,15 +92,20 @@
                     </div>
                 </div>
                 <div class="form-group">
-                    <label>Status </label>
+                    <label>Charge</label>
                     <div class="input-group">
-                        <label class="radio-inline">
-                            <input type="radio" name="is_active" value="1" required="">Active
-                        </label>
-                        <label class="radio-inline">
-                            <input type="radio" name="is_active" value="0" required="">Inactive
-                        </label>
+                        <span class="input-group-addon"><?=CURRENCY?></span>
+                        <input type="text" class="form-control" name="charge" value="">
                     </div>
+                </div>
+                <div class="form-group">
+                    <label>Status </label>
+                        <label class="radio-inline">
+                            <input type="radio" name="is_active"  value="1" checked>Active
+                        </label>
+                        <label class="radio-inline">
+                            <input type="radio" name="is_active" value="0" >Inactive
+                        </label>
                 </div>
             </div>
             <div class="modal-footer">
@@ -137,7 +144,8 @@
                     start_time: modal_holiday_rate_add_edit.find('[name=start_time]').val(),
                     end_date: modal_holiday_rate_add_edit.find('[name=end_date]').val(),
                     end_time: modal_holiday_rate_add_edit.find('[name=end_time]').val(),
-                    is_active: modal_holiday_rate_add_edit.find('[name=is_active]').val(),
+                    is_active: modal_holiday_rate_add_edit.find('[name=is_active]:checked').val(),
+                    charge: modal_holiday_rate_add_edit.find('[name=charge]').val(),
                 },
                 method: 'post',
                 dataType: 'json',
@@ -172,6 +180,7 @@
                     modal_holiday_rate_add_edit.find('[name=start_time]').val(response.data.starting_time);
                     modal_holiday_rate_add_edit.find('[name=end_date]').val(response.data.ending_date);
                     modal_holiday_rate_add_edit.find('[name=end_time]').val(response.data.ending_time);
+                    modal_holiday_rate_add_edit.find('[name=charge]').val(response.data.charge);
 //                    modal_holiday_rate_add_edit.find('[name=is_active]').val(response.data.is_active);
 
                     modal_holiday_rate_add_edit.modal();

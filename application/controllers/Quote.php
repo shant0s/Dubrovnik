@@ -36,7 +36,7 @@ class Quote extends Public_Controller {
         
         $google_data = calDistance($quote['start_lat'] . ',' . $quote['start_lng'], $quote['end_lat'] . ',' . $quote['end_lng']);
 
-        $this->_compute_rate_and_sotre_in_session($google_data['distance'], $quote);
+        $this->_compute_rate_and_store_in_session($google_data['distance'], $quote);
 
         $this->session->set_userdata('google_data', $google_data);
 //        debug($this->session->all_userdata());
@@ -170,7 +170,7 @@ class Quote extends Public_Controller {
         redirect(site_url('thank-you'));
     }
 
-    private function _compute_rate_and_sotre_in_session($distance, $quote) {
+    private function _compute_rate_and_store_in_session($distance, $quote) {
         $fare = 0;
 
         // 1. Zone Rate (By Amount) 
@@ -212,6 +212,7 @@ class Quote extends Public_Controller {
                 . "AND ST_WITHIN(Point({$quote['end_lng']},{$quote['end_lat']}), z2.points)";
 
         $zone_data = $this->db->query($sql)->row();
+        debug($zone_data);
 
         if (empty($zone_data)) {
             return false;
