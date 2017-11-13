@@ -7,7 +7,8 @@
     <div class="panel panel-default">
         <div class="panel-heading" role="tab" id="heading3">
             <h4 class="panel-title">
-                <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapse3" aria-expanded="true" aria-controls="collapse3">
+                <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapse3" aria-expanded="true"
+                   aria-controls="collapse3">
                     Zone Rates (Flat rates)
                 </a>
             </h4>
@@ -15,7 +16,8 @@
         <div id="collapse3" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading3">
             <div class="panel-body">
                 <div class="form-group">
-                    <a href="<?= site_url('admin/zone_manager') ?>" class="btn btn-success" target="_blank"><i class="fa fa-map-marker"></i> Manage Coverage Zones</a>
+                    <a href="<?= site_url('admin/zone_manager') ?>" class="btn btn-success" target="_blank"><i
+                                class="fa fa-map-marker"></i> Manage Coverage Zones</a>
                 </div>
                 <div class="form-group">
                     <label>Manage rate for zone (From)</label>
@@ -38,11 +40,12 @@
             </div>
         </div>
     </div>
-    
+
     <div class="panel panel-default">
         <div class="panel-heading" role="tab" id="heading4">
             <h4 class="panel-title">
-                <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapse4" aria-expanded="false" aria-controls="collapse4">
+                <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapse4"
+                   aria-expanded="false" aria-controls="collapse4">
                     Google Miles Rate
                 </a>
             </h4>
@@ -55,7 +58,7 @@
 </div>
 <script>
 
-    var fleet_id = <?= $fleet->id ?>;
+    var fleet_id =<?= $fleet->id ?>;
     var SITE_URL = '<?= site_url() ?>';
     $(document).ready(function () {
 
@@ -85,8 +88,8 @@
     }
 
     function load_ajax_view_zone_rates(from_id) {
-        
-        if(!from_id){
+
+        if (!from_id) {
             return;
         }
 

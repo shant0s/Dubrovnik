@@ -46,13 +46,3 @@
         </div><!-- /.box -->
     </div>
 </div><!-- /.row -->
-
-<!--<script>
-    function toggle_charge(type) {
-        if (type == 1) {
-            $('#charge').hide();
-        } else {
-            $('#charge').show();
-        }
-    }
-</script>

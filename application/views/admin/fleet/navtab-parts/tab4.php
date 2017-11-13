@@ -1,10 +1,4 @@
 <div class="row box-body">
-    <div id="add-success-indicator" style="display: none">
-        <div class="alert alert-success">
-            <strong>Successfully Saved!</strong>
-        </div>
-    </div>
-
     <div class="col-md-4">
         <label class="control-label">Card fee / Merchant fee / Paypal fee<span class="text-danger">*</span></label>
         <div class="col-md-12">
@@ -68,13 +62,67 @@
             <h4 class="panel-title">
                 <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#add-rush-hour"
                    aria-expanded="false" aria-controls="add-rush-hour">
-                    Google Miles Rate
+                    RUSH HOUR CHARGE
                 </a>
             </h4>
         </div>
         <div id="add-rush-hour" class="panel-collapse collapse" role="tabpanel" aria-labelledby="rush-hour">
-            <div class="panel-body" id="ajax-google-miles-rate">
+            <div class="panel-body" id="ajax-rush-hour-rate">
+            </div>
+        </div>
+    </div>
+    <div class="panel panel-default">
+        <div class="panel-heading" role="tab" id="holiday-rate">
+            <h4 class="panel-title">
+                <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#add-holiday-rate"
+                   aria-expanded="false" aria-controls="add-rush-hour">
+                    HOLIDAY CHARGE
+                </a>
+            </h4>
+        </div>
+        <div id="add-holiday-rate" class="panel-collapse collapse" role="tabpanel" aria-labelledby="holiday-rate">
+            <div class="panel-body" id="ajax-holiday-rate">
             </div>
         </div>
     </div>
 </div>
+
+<script>
+    var fleet_id = '<?= isset($fleet->id) ? $fleet->id : '' ?>';
+    var SITE_URL = '<?= site_url() ?>';
+    $(document).ready(function () {
+        load_ajax_view_rush_hour_rate();
+        load_ajax_view_holiday_rate();
+    });
+
+    function load_ajax_view_rush_hour_rate() {
+        $.ajax({
+            url: SITE_URL + "admin/fleet_manager/ajax_rush_hour_rate_view/" + fleet_id,
+            dataType: 'json',
+            success: function (response) {
+
+                if (!response.status) {
+                    $('#ajax-rush-hour-rate').html("<div class='alert alert-info'><i class='fa fa-info-circle'></i> Please add rest of the info & save the fleet in order to manage rush hour charge.</div>");
+                    return;
+                }
+                $('#ajax-rush-hour-rate').html(response.data.html);
+
+            }
+        });
+    }
+    function load_ajax_view_holiday_rate() {
+        $.ajax({
+            url: SITE_URL + "admin/fleet_manager/ajax_holiday_rate_view/" + fleet_id,
+            dataType: 'json',
+            success: function (response) {
+
+                if (!response.status) {
+                    $('#ajax-holiday-rate').html("<div class='alert alert-info'><i class='fa fa-info-circle'></i> Please add rest of the info & save the fleet in order to manage rush hour charge.</div>");
+                    return;
+                }
+                $('#ajax-holiday-rate').html(response.data.html);
+
+            }
+        });
+    }
+</script>

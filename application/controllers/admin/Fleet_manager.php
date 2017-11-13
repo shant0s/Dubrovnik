@@ -21,6 +21,8 @@ class Fleet_manager extends Admin_Controller
         $this->load->model('zone_model');
         $this->load->model('additional_rate_model');
         $this->load->model('fare_breakdown_model');
+        $this->load->model('rush_hour_model');
+        $this->load->model('holidays_model');
     }
 
     function index()
@@ -70,13 +72,37 @@ class Fleet_manager extends Admin_Controller
                 'fleet_id' => $fleet_id,
             ];
 
-            $is_add_rate = $this->additional_rate_model->get(['fleet_id' => $fleet_id]);
-            if (!$is_add_rate)
-                $this->additional_rate_model->insert($db_add_rate);
-
             if ($fleet_id == '') {
-                $this->fleet_model->insert($db_fleet);
+                $id = $this->fleet_model->insert($db_fleet);
+                $db_add_rate['fleet_id'] = $id;
                 $this->additional_rate_model->insert($db_add_rate);
+                $db_rush_hour = [
+                    [
+                        'fleet_id' => $id,
+                        'start_time' => '',
+                        'end_time' => '',
+                        'charge' => '',
+                        'shift' => 'morning',
+
+                    ],
+                    [
+                        'fleet_id' => $id,
+                        'start_time' => '',
+                        'end_time' => '',
+                        'charge' => '',
+                        'shift' => 'evening',
+
+                    ],
+                    [
+                        'fleet_id' => $id,
+                        'start_time' => '',
+                        'end_time' => '',
+                        'charge' => '',
+                        'shift' => 'night',
+
+                    ]
+                ];
+                $this->rush_hour_model->insert_batch($db_rush_hour);
                 $this->session->set_flashdata('msg', "Data Saved.");
             } else {
                 $this->fleet_model->update($db_fleet, array('id' => $fleet_id));
@@ -295,6 +321,67 @@ class Fleet_manager extends Admin_Controller
         }
 
         echo json_encode(['status' => true, 'message' => 'rate.', 'data' => $rate]);
+    }
+
+    function ajax_rush_hour_rate_view($fleet_id = null)
+    {
+        $rush_hour = $this->rush_hour_model->get_all(['fleet_id' => $fleet_id]);
+
+        if (!$rush_hour) {
+            echo json_encode(['status' => false, 'message' => 'Invalid fleet id', 'data' => '']);
+            exit;
+        }
+        $html_data = [
+            'rush_hour' => $rush_hour,
+        ];
+
+        $html = $this->load->view('admin/fleet/navtab-parts/ajax_rush_hour_rate', $html_data, true);
+//        debug($html);
+
+        $response_data = [
+            'html' => $html
+        ];
+        echo json_encode(['status' => true, 'message' => 'success', 'data' => $response_data]);
+
+
+    }
+
+    public function ajaxPostRushHoursCharge()
+    {
+        $post = $this->input->post();
+//        debug($post);
+
+        $cond = ['fleet_id' => $post['fleet_id'], 'id' => $post['rush_hrs_id']];
+        $rush_hour_charge = $this->rush_hour_model->get($cond);
+        if ($rush_hour_charge) {
+            $this->rush_hour_model->update($post,$cond);
+        } else {
+            unset($post['rush_hrs_id']);
+            $this->rush_hour_model->insert($post);
+        }
+        echo json_encode(['status' => true, 'message' => 'Data Saved!', 'data' => '']);
+
+    }
+
+    public function ajax_holiday_rate_view($fleet_id = null){
+        $holiday_rates = $this->holidays_model->get_all(['fleet_id' => $fleet_id]);
+//debug($holiday_rates);
+//        if (!$holiday_rates) {
+//            echo json_encode(['status' => false, 'message' => 'Invalid fleet id', 'data' => '']);
+//            exit;
+//        }
+        $html_data = [
+            'holiday_rates' => $holiday_rates,
+        ];
+
+        $html = $this->load->view('admin/fleet/navtab-parts/ajax_holiday_rate', $html_data, true);
+//        debug($html);
+
+        $response_data = [
+            'html' => $html
+        ];
+        echo json_encode(['status' => true, 'message' => 'success', 'data' => $response_data]);
+
     }
 
 }
