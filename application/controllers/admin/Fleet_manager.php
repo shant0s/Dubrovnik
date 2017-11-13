@@ -365,23 +365,93 @@ class Fleet_manager extends Admin_Controller
 
     public function ajax_holiday_rate_view($fleet_id = null){
         $holiday_rates = $this->holidays_model->get_all(['fleet_id' => $fleet_id]);
-//debug($holiday_rates);
-//        if (!$holiday_rates) {
-//            echo json_encode(['status' => false, 'message' => 'Invalid fleet id', 'data' => '']);
-//            exit;
-//        }
+
         $html_data = [
             'holiday_rates' => $holiday_rates,
         ];
 
         $html = $this->load->view('admin/fleet/navtab-parts/ajax_holiday_rate', $html_data, true);
-//        debug($html);
 
         $response_data = [
             'html' => $html
         ];
         echo json_encode(['status' => true, 'message' => 'success', 'data' => $response_data]);
 
+    }
+
+    public function AjaxSaveHolidayRate()
+    {
+        if (!$this->input->is_ajax_request()) {
+            echo json_encode(['status' => false, 'message' => 'Invalid request type', 'data' => '']);
+            return;
+        }
+
+        $holiday_rate_data = [
+            'starting_date' => DateTime::createFromFormat('d/m/Y',$this->input->post('start_date'))->format('Y-m-d'),
+            'starting_time' =>DateTime::createFromFormat('h:i a',$this->input->post('start_time'))->format('H:i:s'),
+            'ending_date' => DateTime::createFromFormat('d/m/Y',$this->input->post('end_date'))->format('Y-m-d'),
+            'ending_time' => DateTime::createFromFormat('h:i a',$this->input->post('end_time'))->format('H:i:s'),
+            'is_active' => $this->input->post('is_active'),
+            'fleet_id' => $this->input->post('fleet_id')
+        ];
+
+        $holiday_rate_id = $this->input->post('holiday_rate_id');
+//        debug($holiday_rate_data);
+        if ($holiday_rate_id) {
+            $this->holidays_model->update($holiday_rate_data, ['id' => $holiday_rate_id]);
+
+            set_flash('msg', 'Update success.');
+            echo json_encode(['status' => true, 'message' => 'Update success.', 'data' => '']);
+            return;
+
+        }
+
+        $this->holidays_model->insert($holiday_rate_data);
+        set_flash('msg', 'Insert success.');
+        echo json_encode(['status' => true, 'message' => 'Insert success.', 'data' => '']);
+
+    }
+
+    function AjaxHolidayRate($rate_id = null)
+    {
+
+        if (!$this->input->is_ajax_request()) {
+            echo json_encode(['status' => false, 'message' => 'Invalid request type', 'data' => '']);
+            return;
+        }
+
+        $rate = $this->holidays_model->get($rate_id);
+        $rate = [
+            'starting_date' => DateTime::createFromFormat('Y-m-d',$rate->starting_date)->format('d/m/Y'),
+            'starting_time' =>DateTime::createFromFormat('H:i:s',$rate->starting_time)->format('h:i a'),
+            'ending_date' => DateTime::createFromFormat('Y-m-d',$rate->ending_date)->format('d/m/Y'),
+            'ending_time' => DateTime::createFromFormat('H:i:s',$rate->ending_time)->format('h:i a'),
+            'is_active' => $rate->is_active,
+            'fleet_id' => $rate->fleet_id,
+            'id' => $rate->id,
+        ];
+//        debug($rate);
+
+        if (!$rate) {
+            echo json_encode(['status' => false, 'message' => 'Holiday Rate not found.', 'data' => '']);
+            return;
+        }
+
+        echo json_encode(['status' => true, 'message' => 'rate.', 'data' => $rate]);
+    }
+
+    function AjaxDeleteHolidayRate($rate_id = null)
+    {
+
+        if (!$this->input->is_ajax_request()) {
+            echo json_encode(['status' => false, 'message' => 'Invalid request type', 'data' => '']);
+            return;
+        }
+
+        $this->holidays_model->delete(['id' => $rate_id]);
+
+        set_flash('msg', 'Delete success.');
+        echo json_encode(['status' => true, 'message' => 'Delete success.', 'data' => '']);
     }
 
 }
