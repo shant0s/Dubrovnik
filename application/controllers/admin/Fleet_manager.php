@@ -356,14 +356,18 @@ class Fleet_manager extends Admin_Controller
     public function ajaxPostRushHoursCharge()
     {
         $post = $this->input->post();
+        $post['start_time']=DateTime::createFromFormat('h:i a',$post['start_time'])->format('H:i:s');
+        $post['end_time']=DateTime::createFromFormat('h:i a',$post['end_time'])->format('H:i:s');
 //        debug($post);
 
         $cond = ['fleet_id' => $post['fleet_id'], 'id' => $post['rush_hrs_id']];
         $rush_hour_charge = $this->rush_hour_model->get($cond);
         if ($rush_hour_charge) {
+            set_flash('msg', 'Update success.');
             $this->rush_hour_model->update($post, $cond);
         } else {
             unset($post['rush_hrs_id']);
+            set_flash('msg', 'Insert success.');
             $this->rush_hour_model->insert($post);
         }
         echo json_encode(['status' => true, 'message' => 'Data Saved!', 'data' => '']);

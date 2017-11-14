@@ -24,7 +24,8 @@ class Quote extends Public_Controller
         $this->load->model('booking_info_model');
         $this->load->model('additional_rate_model');
         $this->load->model('fleet_model');
-        $this->load->model('fix_rate_by_model');
+        $this->load->model('rush_hour_model');
+        $this->load->model('holidays_model');
         $this->load->model('run_query_model');
     }
 
@@ -42,7 +43,6 @@ class Quote extends Public_Controller
         $this->ComputerateAndStoreInSession($google_data['distance'], $quote);
 
         $this->session->set_userdata('google_data', $google_data);
-//        debug($this->session->all_userdata());
         redirect(base_url('quote/vehicle_select'));
     }
 
@@ -51,9 +51,8 @@ class Quote extends Public_Controller
         $this->data['google_data'] = $this->session->userdata('google_data');
         $this->data['quote'] = $this->session->userdata('quote');
 
-        $this->data['session_one_way_total_fare'] = $this->session->userdata('session_one_way_total_fare');
-        $this->data['session_two_way_total_fare'] = $this->session->userdata('session_two_way_total_fare');
-
+        $this->data['vehicle_fare'] = $this->session->userdata('session_vehicle_selection_fare');
+//        debug($this->data['vehicle_fare']);
         $this->data['fleets'] = $this->fleet_model->get_all();
         $this->data['main_content'] = 'frontend/quote/_vehicle_select';
         $this->load->view(FRONTEND, $this->data);
@@ -62,34 +61,43 @@ class Quote extends Public_Controller
     function booking()
     {
         $post = $this->input->post();
+        $this->data['google_data'] = $this->session->userdata('google_data');
+        $this->data['quote'] = $this->session->userdata('quote');
 
         if ($post) {
-            $this->data['vehicle_info'] = $post;
+//            $this->data['vehicle_info'] = $post;
             $this->session->set_userdata('vehicle_info', $post);
+
         }
+
+        $vehicleFare = $this->session->userdata('session_vehicle_selection_fare');
+        $this->data['vehicle_info'] = $this->session->userdata('vehicle_info');
+        foreach ($vehicleFare as $fare) {
+            if ($fare['fleet_id'] == $this->data['vehicle_info']['vehicle_id']) {
+                $vehicle_fare = $fare;
+                break;
+            }
+        }
+//        debug($vehicle_fare);
+        $this->data['is_edit'] = false;
         if (segment(3) != '') {
             $this->data['booking_post_infos'] = $this->session->userdata('booking_post_info');
-            $this->data['vehicle_quote_infos'] = $this->session->userdata('vehicle_info');
-            if ($this->session->userdata('quote_info')['journey_type'] == 'one_way') {
-                $this->data['vehicle_fare'] = $this->session->userdata('session_one_way_total_fare')[$vehical_id];
+
+            if ($this->data['vehicle_info']['journey_type'] == 'one_way') {
+                $this->data['vehicle_fare'] = $vehicle_fare['rate'];
             } else {
-                $this->data['vehicle_fare'] = $this->session->userdata('session_two_way_total_fare')[$vehical_id];
+                $this->data['vehicle_fare'] = $vehicle_fare['round_trip_rate'];
             }
-            $this->data['is_edit'] = FALSE;
-        } else {
-            $this->data['is_edit'] = TRUE;
+            $this->data['is_edit'] = true;
         }
-        $this->data['vehicle_info'] = $this->session->userdata('vehicle_info');
 
         if ($this->data['vehicle_info']['journey_type'] == 'one_way') {
-            $this->data['vehicle_fare'] = $this->session->userdata('session_one_way_total_fare')[$this->data['vehicle_info']['vehicle_id']];
+            $this->data['vehicle_fare'] = $vehicle_fare['rate'];
         } else {
-            $this->data['vehicle_fare'] = $this->session->userdata('session_two_way_total_fare')[$this->data['vehicle_info']['vehicle_id']];
+            $this->data['vehicle_fare'] = $vehicle_fare['round_trip_rate'];
         }
         $this->session->set_userdata('vehicle_fare', $this->data['vehicle_fare']);
         $this->data['fleet'] = $this->fleet_model->get(array('id' => $this->data['vehicle_info']['vehicle_id']));
-        $this->data['google_data'] = $this->session->userdata('google_data');
-        $this->data['quote'] = $this->session->userdata('quote');
 
 //        debug($this->data);
         $this->data['main_content'] = 'frontend/quote/_booking';
@@ -107,7 +115,8 @@ class Quote extends Public_Controller
         $this->data['vehicle_info'] = $this->session->userdata('vehicle_info');
         $this->data['fleet'] = $this->fleet_model->get(array('id' => $this->data['vehicle_info']['vehicle_id']));
 
-        $this->data['grand_total_charge'] = $this->_speciific_vehical_additional_rate_calculation($this->data['vehicle_info'], $this->session->userdata('vehicle_fare'), $this->data['quote']['start']);
+        $this->data['grand_total_charge'] = $this->VehicleSpecificAdditionalRate($this->data['vehicle_info'], $this->session->userdata('vehicle_fare'), $this->data['quote'], $this->data['booking_post']);
+//        debug($this->data['grand_total_charge']);
         $this->data['google_data'] = $this->session->userdata('google_data');
 
 //        debug($this->data);
@@ -209,13 +218,63 @@ class Quote extends Public_Controller
                     $main_fare[$key]['round_trip_rate'] = $fare['round_trip_rate'];
                 }
             }
-        debug($main_fare);
+//            Rush Hour Charge
+
+            $rush_hour_charge = $this->CheckRushHour($fleet, $quote);
+            if ($rush_hour_charge) {
+                $main_fare[$key]['rate'] += $rush_hour_charge;
+                $main_fare[$key]['round_trip_rate'] += $rush_hour_charge;
+            }
+
+//            Holiday Charge
+            $holiday_charge = $this->CheckHolidays($fleet, $quote);
+            if ($holiday_charge) {
+                $main_fare[$key]['rate'] += $holiday_charge;
+                $main_fare[$key]['round_trip_rate'] += $holiday_charge;
+            }
+
         }
-        debug($main_fare);
+//        debug($main_fare);
+        $this->session->set_userdata('session_vehicle_selection_fare', $main_fare);
+    }
 
-        $this->session->set_userdata('session_fare', $main_fare);
+    private function CheckRushHour($fleet, $quote)
+    {
+        $check_time = $this->rush_hour_model->get_all(['fleet_id' => $fleet->id, 'status' => 1]);
+        foreach ($check_time as $check) {
+            if ($this->IsBetween($check->start_time, $check->end_time, $quote['pickuptime'])) {
+                return $check->charge;
+                break;
+            }
+        }
 
-//        debug($this->session->userdata('session_one_way_total_fare'));
+    }
+
+    private function CheckHolidays($fleet, $quote)
+    {
+
+        $allHolidays = $this->holidays_model->get_all(['fleet_id' => $fleet->id, 'is_active' => 1]);
+        $userDateTime = DateTime::createFromFormat('d/m/Y h:i a', $quote['pickupdate'] . ' ' . $quote['pickuptime']);
+        if (!empty($allHolidays)) {
+            foreach ($allHolidays as $holiday) {
+                $ourStartingDate = DateTime::createFromFormat('Y-m-d H:i:s', $holiday->starting_date . ' ' . $holiday->starting_time);
+                $ourEndingDate = DateTime::createFromFormat('Y-m-d H:i:s', $holiday->ending_date . ' ' . $holiday->ending_time);
+                if ($ourStartingDate <= $userDateTime && $ourEndingDate >= $userDateTime) {
+                    return $holiday->charge;
+                    break;
+                }
+            }
+        }
+    }
+
+    private function IsBetween($from, $till, $input)
+    {
+        $f = DateTime::createFromFormat('!H:i:s', $from);
+        $t = DateTime::createFromFormat('!H:i:s', $till);
+        $i = DateTime::createFromFormat('!h:ia', $input);
+        if ($f > $t)
+            $t->modify('+1 day');
+        return ($f <= $i && $i <= $t) || ($f <= $i->modify('+1 day') && $i <= $t);
     }
 
     private function ZoneRateCalculation($quote, $distance, $fleet)
@@ -313,21 +372,22 @@ class Quote extends Public_Controller
         return (['rate' => $one_way_fare, 'round_trip_rate' => $two_way_fare]);
     }
 
-    private
-    function _speciific_vehical_additional_rate_calculation($vehicle_info, $vehical_fare, $start)
+    private function VehicleSpecificAdditionalRate($vehicle_info, $vehicle_fare, $quote, $client_infos)
     {
-        $additional_rate = $this->additional_rate_model->get();
-        $client_infos = $this->session->userdata('booking_post_info');
 
+        $additional_rate = $this->additional_rate_model->get(['fleet_id' => $vehicle_info['vehicle_id']]);
+
+        $additional_airport_pickup = (isAirport($quote['start'])) ? $additional_rate->airport_pickup_fee : 0;
+        $additional_waiting_time = ($client_infos['waiting_time']) ? $additional_rate->waiting_time : 0;
+        $additional_meet_and_greet = isset($client_infos['meet_and_greet']) && $client_infos['meet_and_greet'] == 'yes' ? $additional_rate->meet_and_greet : 0;
         if ($client_infos['pay_method'] == 'cash') {
-            $additional_meet_and_greet = isset($client_infos['meet_and_greet']) && $client_infos['meet_and_greet'] == 'yes' ? $additional_rate->meet_and_greet : 0;
-            $additional_charge = ($additional_rate->baby_seater) * ($client_infos['client_baby_no']) + $additional_meet_and_greet;
-            $total = ($vehical_fare) + $additional_charge;
-            $additional_airport_pickup = (isAirport($start)) ? $additional_rate->airport_pickup_fee : 0;
+            $additional_charge = ($additional_rate->baby_seater) * ($client_infos['client_baby_no']) + $additional_meet_and_greet+$additional_waiting_time;
+            $total = ($vehicle_fare) + $additional_charge;
             $grand_total_charge = array(
-                'additional_airport_pickup_charge' => (isAirport($start) == 'yes') ? $additional_rate->airport_pickup_fee : 0,
-                'additional_airport_baby_seater_charge' => ($additional_rate->baby_seater) * ($client_infos['client_baby_no']),
+                'additional_airport_pickup_charge' => (isAirport($quote['start'])) ? $additional_rate->airport_pickup_fee : 0,
+                'additional_baby_seater_charge' => ($additional_rate->baby_seater) * ($client_infos['client_baby_no']),
                 'additional_card_service_charge' => '0',
+                'additional_waiting_time' => $additional_waiting_time,
                 'additional_meet_and_greet' => $additional_meet_and_greet,
                 'additional_charge' => $additional_charge + $additional_airport_pickup,
                 'total' => $total
@@ -335,26 +395,26 @@ class Quote extends Public_Controller
         } else {
             $additional_charge = 0;
             $total = 0;
-            $additional_meet_and_greet = isset($client_infos['meet_and_greet']) && $client_infos['meet_and_greet'] == 'yes' ? $additional_rate->meet_and_greet : 0;
             $grand_total_charge = array(
-                'additional_airport_pickup_charge' => (isAirport($start)) ? $additional_rate->airport_pickup_fee : 0,
-                'additional_airport_baby_seater_charge' => ($additional_rate->baby_seater) * ($client_infos['client_baby_no']),
+                'additional_airport_pickup_charge' => (isAirport($quote['start'])) ? $additional_rate->airport_pickup_fee : 0,
+                'additional_baby_seater_charge' => ($additional_rate->baby_seater) * ($client_infos['client_baby_no']),
                 'additional_meet_and_greet' => $additional_meet_and_greet,
+                'additional_waiting_time' => $additional_waiting_time,
             );
             if ($additional_rate->card_fee_type == 'By_Percentage') {
-                $additional_charge = ($additional_rate->baby_seater) * ($client_infos['client_baby_no']);
-                $sub_additional_charge = $vehical_fare + $additional_charge;
+                $additional_charge = ($additional_rate->baby_seater) * ($client_infos['client_baby_no'])+$additional_waiting_time;
+                $sub_additional_charge = $vehicle_fare + $additional_charge;
                 $additional_card_service_charge = $sub_additional_charge * (($additional_rate->card_fee) / 100);
                 $subtotal = $sub_additional_charge + $additional_card_service_charge + $additional_meet_and_greet;
                 $total = $subtotal;
-                $additional_airport_pickup = (isAirport($start)) ? $additional_rate->airport_pickup_fee : 0;
+
                 $grand_total_charge['additional_charge'] = $additional_charge + $additional_card_service_charge + $additional_airport_pickup + $additional_meet_and_greet;
                 $grand_total_charge['additional_card_service_charge'] = $additional_card_service_charge;
                 $grand_total_charge['total'] = $total;
             } else {
-                $additional_charge = ($additional_rate->baby_seater) * ($client_infos['client_baby_no']) + $additional_rate->card_fee;
-                $total = $additional_charge + $vehical_fare + $additional_meet_and_greet;
-                $additional_airport_pickup = (isAirport($start)) ? $additional_rate->airport_pickup_fee : 0;
+                $additional_charge = ($additional_rate->baby_seater) * ($client_infos['client_baby_no']) + $additional_rate->card_fee+$additional_waiting_time;
+                $total = $additional_charge + $vehicle_fare + $additional_meet_and_greet;
+
                 $grand_total_charge['additional_charge'] = $additional_charge + $additional_airport_pickup + $additional_meet_and_greet;
                 $grand_total_charge['additional_card_service_charge'] = $additional_rate->card_fee;
                 $grand_total_charge['total'] = $total;

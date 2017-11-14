@@ -72,15 +72,15 @@
                                                         </div>
 
                                                         <div class="desc one_way">
-                                                            <h2 class="rate"><?= CURRENCY ?><?= $session_one_way_total_fare[$fleet->id] ?></h2>
+                                                            <h2 class="rate"><?= CURRENCY ?><?= $vehicle_fare[$index]['rate'] ?></h2>
                                                         </div>
                                                         <div class="desc two_way" style="display: none;">
-                                                            <h2 class="rate"><?= CURRENCY ?><?= $session_two_way_total_fare[$fleet->id] ?></h2>
+                                                            <h2 class="rate"><?= CURRENCY ?><?= $vehicle_fare[$index]['round_trip_rate'] ?></h2>
                                                         </div>
 
                                                         <input type="hidden" name="vehicle_id" value="<?= $fleet->id; ?>">
                                                         <input type="hidden" name="vehicle_name" value="<?= $fleet->title; ?>">  
-                                                        <input type="hidden" name="vehicle_img_name" value="<?= $fleet->img_name; ?>">  
+                                                        <input type="hidden" name="vehicle_img_name" value="<?= $fleet->img_name; ?>">
                                                         <button type="submit" class="btn btn-gold">Book Now</button>
                                                     </form>                                                 
                                                 </div>

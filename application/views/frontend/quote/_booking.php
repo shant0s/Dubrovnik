@@ -65,13 +65,13 @@
                                             <div class="col-sm-6">
                                                 <div class="form-group">
             <!--                                       <label class="control-label">Name of Passenger <span class="text-danger">*</span></label> -->
-                                                    <input type="text" name="client_name" class="form-control" placeholder="Enter Your Name" value="<?php echo (!$is_edit || isset($passenger) && $passenger) ? $passenger->full_name : '' ?>" required="">
+                                                    <input type="text" name="client_name" class="form-control" placeholder="Enter Your Name" value="<?php echo ($is_edit || isset($passenger) && $passenger) ? $passenger->full_name : '' ?>" required="">
                                                 </div>
                                             </div>
                                             <div class="col-sm-6">
                                                 <div class="form-group">
                                                    <!--<label class="control-label">Address <span class="text-danger">*</span></label>--> 
-                                                    <input type="text" name="client_address" class="form-control" placeholder="Enter Your Address" value="<?php echo (!$is_edit || isset($passenger) && $passenger) ? $passenger->address : '' ?>" required="">
+                                                    <input type="text" name="client_address" class="form-control" placeholder="Enter Your Address" value="<?php echo ($is_edit || isset($passenger) && $passenger) ? $passenger->address : '' ?>" required="">
                                                 </div>
                                             </div>
                                         </div>
@@ -79,13 +79,13 @@
                                             <div class="col-sm-6">
                                                 <div class="form-group">
                                                     <!--<label class="control-label">Tel</label>--> 
-                                                    <input type="text" name="client_phone" class="form-control" placeholder="Enter Your Telephone/Mobile no" value="<?php echo (!$is_edit || isset($passenger) && $passenger) ? $passenger->phone_no : '' ?>" required="">
+                                                    <input type="text" name="client_phone" class="form-control" placeholder="Enter Your Telephone/Mobile no" value="<?php echo ($is_edit || isset($passenger) && $passenger) ? $passenger->phone_no : '' ?>" required="">
                                                 </div>
                                             </div>                                            
                                             <div class="col-sm-6">
                                                 <div class="form-group">
                                                     <!--<label class="control-label">Email <span class="text-danger">*</span></label>--> 
-                                                    <input type="email" name="client_email" class="form-control" placeholder="Enter Your E-mail Address" value="<?php echo (!$is_edit || isset($passenger) && $passenger) ? $passenger->email : '' ?>" required="">
+                                                    <input type="email" name="client_email" class="form-control" placeholder="Enter Your E-mail Address" value="<?php echo ($is_edit || isset($passenger) && $passenger) ? $passenger->email : '' ?>" required="">
                                                 </div>
                                             </div>
                                         </div>
@@ -98,7 +98,7 @@
                                             <div class="form-group col-md-3">
                                                 <label class="control-label">No. Of Passengers <span class="text-danger">*</span></label>
                                                 <select class="form-control" name="client_passanger_no" placeholder="Pax." required="">
-                                                    <option value="<?php echo (!$is_edit) ? $booking_post_infos['client_passanger_no'] : '' ?>"><?php echo (!$is_edit) ? $booking_post_infos['client_passanger_no'] : '-Pax-' ?></option>                                                
+                                                    <option value="<?php echo ($is_edit) ? $booking_post_infos['client_passanger_no'] : '' ?>"><?php echo ($is_edit) ? $booking_post_infos['client_passanger_no'] : '-Pax-' ?></option>
                                                     <?php for ($i = 1; $i <= $fleet->passengers; $i++): ?>
                                                         <option value="<?= $i ?>"><?= $i ?></option>
                                                     <?php endfor; ?>   
@@ -107,7 +107,7 @@
                                             <div class="form-group col-md-3">
                                                 <label class="control-label">No. Of Child Seats <span class="text-danger">*</span></label>
                                                 <select class="form-control" name="client_baby_no" placeholder="Baby Seat">
-                                                    <option value="<?php echo (!$is_edit) ? $booking_post_infos['client_baby_no'] : 0 ?>"><?php echo (!$is_edit) ? $booking_post_infos['client_baby_no'] : '-Baby Seat-' ?></option>
+                                                    <option value="<?php echo ($is_edit) ? $booking_post_infos['client_baby_no'] : 0 ?>"><?php echo ($is_edit) ? $booking_post_infos['client_baby_no'] : '-Baby Seat-' ?></option>
                                                     <?php for ($i = 0; $i <= $fleet->baby_seats; $i++): ?>
                                                         <option value="<?= $i ?>"><?= $i ?></option>
                                                     <?php endfor; ?> 
@@ -116,7 +116,7 @@
                                             <div class="form-group col-md-3">
                                                 <label class="control-label">Luggage <span class="text-danger">*</span></label>
                                                 <select class="form-control" name="client_luggage">
-                                                    <option value="<?php echo (!$is_edit) ? $booking_post_infos['client_luggage'] : 0 ?>"><?php echo (!$is_edit) ? $booking_post_infos['client_luggage'] : '-Lugg.-' ?></option>
+                                                    <option value="<?php echo ($is_edit) ? $booking_post_infos['client_luggage'] : 0 ?>"><?php echo ($is_edit) ? $booking_post_infos['client_luggage'] : '-Lugg.-' ?></option>
                                                     <?php for ($i = 0; $i <= $fleet->luggage; $i++): ?>
                                                         <option value="<?= $i ?>"><?= $i ?></option>
                                                     <?php endfor; ?> 
@@ -125,7 +125,7 @@
                                             <div class="form-group col-md-3">
                                                 <label class="control-label">Suitcase <span class="text-danger">*</span></label>
                                                 <select class="form-control" name="client_hand_luggage">
-                                                    <option value="<?php echo (!$is_edit) ? $booking_post_infos['client_luggage'] : 0 ?>"><?php echo (!$is_edit) ? $booking_post_infos['client_luggage'] : '-Suitcase.-' ?></option>
+                                                    <option value="<?php echo ($is_edit) ? $booking_post_infos['client_luggage'] : 0 ?>"><?php echo ($is_edit) ? $booking_post_infos['client_luggage'] : '-Suitcase.-' ?></option>
                                                     <?php for ($i = 0; $i <= $fleet->suitcases; $i++): ?>
                                                         <option value="<?= $i ?>"><?= $i ?></option>
                                                     <?php endfor; ?> 
@@ -138,8 +138,8 @@
                                                     <label class="control-label">Waiting Time <span class="text-danger">*</span></label>
                                                     <div class="row">
                                                         <div class="col-sm-12">
-                                                            <select class="form-control" name="waiting_time" required="">
-                                                                <option value="<?php echo (!$is_edit) ? $booking_post_infos['waiting_time'] : '' ?>"><?php echo (!$is_edit) ? $booking_post_infos['waiting_time'] : 'Waiting Time' ?></option>
+                                                            <select class="form-control" name="waiting_time">
+                                                                <option value="<?php echo ($is_edit) ? $booking_post_infos['waiting_time'] : '' ?>"><?php echo ($is_edit) ? $booking_post_infos['waiting_time'] : 'Waiting Time' ?></option>
                                                                 <option value="30">30 Mins</option>
                                                                 <option value="60">1 Hr</option>
                                                                 <option value="90">1 Hr 30 Mins</option>
@@ -172,11 +172,11 @@
                                         <div class="row cstm-col">
                                             <div class="form-group col-md-6">
                                                 <label class="control-label">Pickup address line</label>
-                                                <textarea class="form-control" rows="2" name="pickup_address_line" placeholder="Pickup Address Line (If Any)" ><?php echo (!$is_edit) ? $booking_post_infos['pickup_address_line'] : '' ?></textarea>
+                                                <textarea class="form-control" rows="2" name="pickup_address_line" placeholder="Pickup Address Line (If Any)" ><?php echo ($is_edit) ? $booking_post_infos['pickup_address_line'] : '' ?></textarea>
                                             </div>
                                             <div class="form-group col-md-6">
                                                 <label class="control-label">Dropoff address line</label>
-                                                <textarea class="form-control" rows="2" name="dropoff_address_line" placeholder="Dropoff Address Line (If Any)" ><?php echo (!$is_edit) ? $booking_post_infos['dropoff_address_line'] : '' ?></textarea>
+                                                <textarea class="form-control" rows="2" name="dropoff_address_line" placeholder="Dropoff Address Line (If Any)" ><?php echo ($is_edit) ? $booking_post_infos['dropoff_address_line'] : '' ?></textarea>
                                             </div>
                                         </div>
                                     </fieldset>
@@ -189,13 +189,13 @@
                                                 <div class="col-md-6">
                                                     <div class="form-group">
                                                         <label class="control-label">Flight Number <span class="text-danger">*</span></label>
-                                                        <input type="text" class="form-control" placeholder="Enter Flght Number" name="flight_no" value="<?php echo (!$is_edit) ? $booking_post_infos['flight_no'] : '' ?>" required="">
+                                                        <input type="text" class="form-control" placeholder="Enter Flght Number" name="flight_no" value="<?php echo ($is_edit) ? $booking_post_infos['flight_no'] : '' ?>" required="">
                                                     </div>
                                                 </div>
                                                 <div class="col-md-6">
                                                     <div class="form-group">
                                                         <label class="control-label">Flight Arrival From <span class="text-danger">*</span></label>
-                                                        <input type="text" class="form-control" placeholder="Enter Flight Arrival From" name="flight_arrive_from" value="<?php echo (!$is_edit) ? $booking_post_infos['flight_arrive_from'] : '' ?>" required="">
+                                                        <input type="text" class="form-control" placeholder="Enter Flight Arrival From" name="flight_arrive_from" value="<?php echo ($is_edit) ? $booking_post_infos['flight_arrive_from'] : '' ?>" required="">
                                                     </div>
                                                 </div>
                                                 <div class="col-md-12">
@@ -203,10 +203,10 @@
                                                         <label class="control-label">Meet &amp; Greet? <span class="text-danger">*</span></label>
                                                         <br>
                                                         <label class="radio-inline">
-                                                           <input type="radio" name="meet_and_greet" value="yes" required="" <?php echo (!$is_edit && $booking_post_infos['meet_and_greet'] == 'yes') ? 'checked' : '' ?>> Yes
+                                                           <input type="radio" name="meet_and_greet" value="yes" required="" <?php echo ($is_edit && $booking_post_infos['meet_and_greet'] == 'yes') ? 'checked' : '' ?>> Yes
                                                         </label>
                                                         <label class="radio-inline">
-                                                            <input type="radio" name="meet_and_greet" value="no" required="" <?php echo (!$is_edit && $booking_post_infos['meet_and_greet'] == 'no') ? 'checked' : '' ?>> No
+                                                            <input type="radio" name="meet_and_greet" value="no" required="" <?php echo ($is_edit && $booking_post_infos['meet_and_greet'] == 'no') ? 'checked' : '' ?>> No
                                                         </label>
                                                     </div>
                                                 </div>
@@ -222,14 +222,14 @@
                                             <div class="row cstm-col radio">
                                                 <div class="col-sm-5">
                                                     <label class="control-label">
-                                                         <input type="radio" name="pay_method" value="cash" required="" <?php echo (!$is_edit && $booking_post_infos['pay_method'] == 'cash') ? 'checked' : '' ?>>
+                                                         <input type="radio" name="pay_method" value="cash" required="" <?php echo ($is_edit && $booking_post_infos['pay_method'] == 'cash') ? 'checked' : '' ?>>
                                                         <span class="cr"><i class="fa fa-circle"></i></span>
                                                         Cash on completion of journey
                                                     </label>
                                                 </div>                                                
                                                 <div class="col-sm-4">
                                                     <label class="control-label">
-                                                        <input type="radio" name="pay_method" value="paypal" required="" <?php echo (!$is_edit && $booking_post_infos['pay_method'] == 'paypal') ? 'checked' : '' ?>>
+                                                        <input type="radio" name="pay_method" value="paypal" required="" <?php echo ($is_edit && $booking_post_infos['pay_method'] == 'paypal') ? 'checked' : '' ?>>
                                                         <span class="cr"><i class="fa fa-circle"></i></span>
                                                         Paypal
                                                     </label>

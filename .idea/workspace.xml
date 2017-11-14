@@ -2,11 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="643428c3-c0b0-4f64-9ae0-84701d9dc4ac" name="Default" comment="">
+      <change type="DELETED" beforePath="$PROJECT_DIR$/application/views/frontend/quote/_booking-.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/application/views/frontend/quote/_confirm-.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/application/views/frontend/quote/_vehicle_select-.php" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/controllers/Quote.php" afterPath="$PROJECT_DIR$/application/controllers/Quote.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/controllers/admin/Fleet_manager.php" afterPath="$PROJECT_DIR$/application/controllers/admin/Fleet_manager.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/admin/fleet/navtab-parts/tab3.php" afterPath="$PROJECT_DIR$/application/views/admin/fleet/navtab-parts/tab3.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/admin/fleet/navtab-parts/ajax_rush_hour_rate.php" afterPath="$PROJECT_DIR$/application/views/admin/fleet/navtab-parts/ajax_rush_hour_rate.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/admin/fleet/navtab-parts/tab4.php" afterPath="$PROJECT_DIR$/application/views/admin/fleet/navtab-parts/tab4.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/frontend/quote/_booking.php" afterPath="$PROJECT_DIR$/application/views/frontend/quote/_booking.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/frontend/quote/_vehicle_select.php" afterPath="$PROJECT_DIR$/application/views/frontend/quote/_vehicle_select.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.php" afterPath="$PROJECT_DIR$/index.php" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -20,19 +26,45 @@
       <file leaf-file-name="Quote.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/application/controllers/Quote.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="480">
-              <caret line="211" column="26" lean-forward="false" selection-start-line="211" selection-start-column="26" selection-end-line="211" selection-end-column="26" />
+            <state relative-caret-position="320">
+              <caret line="118" column="7" lean-forward="false" selection-start-line="118" selection-start-column="7" selection-end-line="118" selection-end-column="7" />
               <folding>
+                <element signature="n#vehicle_select#0;n#Quote#0;n#!!top" expanded="false" />
+                <element signature="n#booking#0;n#Quote#0;n#!!top" expanded="false" />
+                <element signature="n#ComputerateAndStoreInSession#0;n#Quote#0;n#!!top" expanded="false" />
+                <element signature="n#CheckRushHour#0;n#Quote#0;n#!!top" expanded="false" />
+                <element signature="n#CheckHolidays#0;n#Quote#0;n#!!top" expanded="false" />
+                <element signature="n#IsBetween#0;n#Quote#0;n#!!top" expanded="false" />
                 <element signature="n#ZoneRateCalculation#0;n#Quote#0;n#!!top" expanded="false" />
                 <element signature="n#BreakDownCalculation#0;n#Quote#0;n#!!top" expanded="false" />
                 <element signature="n#RoundTripRateCalculationForZone#0;n#Quote#0;n#!!top" expanded="false" />
                 <element signature="n#RoundTripRateCalculationForFareBreakDown#0;n#Quote#0;n#!!top" expanded="false" />
-                <marker date="1510634807451" expanded="true" signature="10492:10843" ph="SELECT * FRO... zones_rate" />
-                <marker date="1510634807451" expanded="true" signature="10492:10844" ph="SELECT * FRO... zones_rate" />
-                <marker date="1510634807451" expanded="true" signature="10492:10877" ph="SELECT * FRO... zones_rate" />
-                <marker date="1510634807451" expanded="true" signature="10492:10889" ph="SELECT * FRO... zones_rate" />
-                <marker date="1510634807451" expanded="true" signature="10492:10890" ph="SELECT * FRO... zones_rate" />
+                <marker date="1510644120211" expanded="true" signature="12547:12898" ph="SELECT * FRO... zones_rate" />
+                <marker date="1510644120211" expanded="true" signature="12547:12899" ph="SELECT * FRO... zones_rate" />
+                <marker date="1510644120211" expanded="true" signature="12547:12932" ph="SELECT * FRO... zones_rate" />
+                <marker date="1510644120211" expanded="true" signature="12547:12944" ph="SELECT * FRO... zones_rate" />
+                <marker date="1510644120211" expanded="true" signature="12547:12945" ph="SELECT * FRO... zones_rate" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="_confirm.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/application/views/frontend/quote/_confirm.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="_booking.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/application/views/frontend/quote/_booking.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="383">
+              <caret line="140" column="108" lean-forward="false" selection-start-line="140" selection-start-column="108" selection-end-line="140" selection-end-column="108" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -41,23 +73,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>SetExtendedDate</find>
-      <find>modal-extended-date</find>
-      <find>heading3</find>
-      <find>isset($additional_rate)</find>
-      <find>collapse3</find>
-      <find>collapse4</find>
-      <find>rush</find>
-      <find>pay</find>
-      <find>batch</find>
-      <find>ui</find>
-      <find>datatable-google-miles-rate</find>
-      <find>btn-add-rate</find>
-      <find>modal-rate-add-edit</find>
-      <find>btn-save-rate</find>
-      <find>n update(</find>
-      <find>modal-backdrop</find>
-      <find>btn-edit-rate</find>
       <find>fleet_id</find>
       <find>modal_rate_add_edit</find>
       <find>btn-edit-holiday-rate</find>
@@ -70,10 +85,26 @@
       <find>$this-&gt;_table</find>
       <find>$fare</find>
       <find>_compute_rate_and_store_in_session</find>
+      <find>ajax_rush_hour_rate_view</find>
+      <find>ajax_rush</find>
+      <find>ajaxPostRushHoursCharge</find>
+      <find>_isBetween</find>
+      <find>rushHourRate</find>
       <find>start</find>
+      <find>holidays_model</find>
+      <find>$session_two_way_total_fare</find>
+      <find>ComputerateAndStoreInSession</find>
+      <find>!$is_edit</find>
+      <find>vehicle_info</find>
+      <find>vehicle_quote_infos</find>
+      <find>booking_post_infos</find>
+      <find>quote_info</find>
+      <find>_speciific_vehical_additional_rate_calculation</find>
+      <find>$vehical_fare</find>
+      <find>VehicalSpeciificAdditionalRate</find>
+      <find>$additional_airport_pickup</find>
     </findStrings>
     <replaceStrings>
-      <replace>$is_edit</replace>
       <replace>fleet_manager</replace>
       <replace>CURRENCY</replace>
       <replace>admin/fleet_manager</replace>
@@ -84,6 +115,8 @@
       <replace>$additional_rate</replace>
       <replace>add-rush-hour</replace>
       <replace>$this-&gt;table</replace>
+      <replace>$is_edit</replace>
+      <replace>$vehicle_fare</replace>
     </replaceStrings>
   </component>
   <component name="Git.Settings">
@@ -92,9 +125,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$USER_HOME$/AppData/Local/Temp/fz3temp-3/constants.php" />
-        <option value="$PROJECT_DIR$/../silverstar/application/views/emailer/_emailer_invoice_bulk.php" />
-        <option value="$PROJECT_DIR$/../silverstar/application/models/invoice_model.php" />
         <option value="$PROJECT_DIR$/../silverstar/application/views/admin/bookings/_raise_invoice_bulk.php" />
         <option value="$PROJECT_DIR$/../silverstar/application/models/driver_model.php" />
         <option value="$PROJECT_DIR$/../silverstar/application/views/admin/driver/_payments.php" />
@@ -129,7 +159,6 @@
         <option value="$PROJECT_DIR$/application/models/Rush_hour_model.php" />
         <option value="$PROJECT_DIR$/application/views/admin/include/header.php" />
         <option value="$PROJECT_DIR$/application/views/admin/fleet/_form.php" />
-        <option value="$PROJECT_DIR$/application/views/admin/fleet/navtab-parts/ajax_rush_hour_rate.php" />
         <option value="$PROJECT_DIR$/application/views/admin/include/navbar.php" />
         <option value="$PROJECT_DIR$/application/views/admin/fleet/navtab-parts/ajax_holiday_rate.php" />
         <option value="$PROJECT_DIR$/application/views/admin/zone_manager/zone_update.php" />
@@ -140,8 +169,12 @@
         <option value="$USER_HOME$/AppData/Local/Temp/fz3temp-3/_sms_job_remove_assigned.php" />
         <option value="$PROJECT_DIR$/application/views/admin/zone_manager/zones.php" />
         <option value="$PROJECT_DIR$/application/views/admin/fleet/navtab-parts/tab3.php" />
+        <option value="$PROJECT_DIR$/application/views/admin/fleet/navtab-parts/ajax_rush_hour_rate.php" />
         <option value="$PROJECT_DIR$/application/controllers/admin/Fleet_manager.php" />
+        <option value="$PROJECT_DIR$/index.php" />
+        <option value="$PROJECT_DIR$/application/views/frontend/quote/_vehicle_select.php" />
         <option value="$PROJECT_DIR$/application/views/admin/fleet/navtab-parts/tab4.php" />
+        <option value="$PROJECT_DIR$/application/views/frontend/quote/_booking.php" />
         <option value="$PROJECT_DIR$/application/controllers/Quote.php" />
       </list>
     </option>
@@ -213,7 +246,15 @@
               <item name="luton" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="application" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="views" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="admin" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="frontend" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="luton" type="b2602c69:ProjectViewProjectNode" />
+              <item name="luton" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="application" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="views" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="frontend" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="quote" type="2a2b976b:PhpTreeStructureProvider$1" />
             </path>
           </expand>
           <select />
@@ -261,12 +302,12 @@
       <workItem from="1509680887206" duration="12522000" />
       <workItem from="1510297705762" duration="13471000" />
       <workItem from="1510544391187" duration="28746000" />
-      <workItem from="1510629303437" duration="5175000" />
+      <workItem from="1510629303437" duration="14343000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="89974000" />
+    <option name="totallyTimeSpent" value="99142000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
@@ -329,42 +370,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/application/config/config.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="320">
-          <caret line="384" column="47" lean-forward="false" selection-start-line="384" selection-start-column="47" selection-end-line="384" selection-end-column="47" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/admin/content/page.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="833">
-          <caret line="49" column="0" lean-forward="false" selection-start-line="49" selection-start-column="0" selection-end-line="53" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/admin/zone_manager/zone_rate.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="282">
-          <caret line="119" column="53" lean-forward="true" selection-start-line="119" selection-start-column="53" selection-end-line="119" selection-end-column="53" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/helpers/my_helper.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="355">
-          <caret line="25" column="9" lean-forward="false" selection-start-line="25" selection-start-column="9" selection-end-line="25" selection-end-column="9" />
-          <folding>
-            <marker date="1503309518476" expanded="true" signature="285:497" ph="..." />
-            <marker date="1503309518476" expanded="true" signature="381:388" ph="×" />
-            <marker date="1503309518476" expanded="true" signature="642:855" ph="..." />
-            <marker date="1503309518476" expanded="true" signature="738:745" ph="×" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/AppData/Local/Temp/fz3temp-2/book.php" />
-    <entry file="file://$USER_HOME$/AppData/Local/Temp/fz3temp-3/_sms_job_reemove_assigned.php" />
     <entry file="file://$USER_HOME$/AppData/Local/Temp/fz3temp-3/_sms_job_assigned.php" />
     <entry file="file://$USER_HOME$/AppData/Local/Temp/fz3temp-3/_sms_driver_assigned.php" />
     <entry file="file://$USER_HOME$/AppData/Local/Temp/fz3temp-3/Booking.php" />
@@ -465,6 +470,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-173">
           <caret line="477" column="30" lean-forward="false" selection-start-line="477" selection-start-column="21" selection-end-line="477" selection-end-column="30" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -472,14 +478,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="82">
           <caret line="211" column="6" lean-forward="true" selection-start-line="211" selection-start-column="6" selection-end-line="228" selection-end-column="11" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/admin/fleet/navtab-parts/ajax_rush_hour_rate.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="316">
-          <caret line="93" column="90" lean-forward="true" selection-start-line="93" selection-start-column="23" selection-end-line="93" selection-end-column="90" />
           <folding />
         </state>
       </provider>
@@ -570,14 +568,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/admin/fleet/navtab-parts/ajax_holiday_rate.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="408">
-          <caret line="146" column="89" lean-forward="false" selection-start-line="146" selection-start-column="89" selection-end-line="146" selection-end-column="89" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/application/views/admin/zone_manager/add_edit.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -621,38 +611,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/controllers/admin/Fleet_manager.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="399">
-          <caret line="58" column="17" lean-forward="true" selection-start-line="58" selection-start-column="17" selection-end-line="58" selection-end-column="17" />
-          <folding>
-            <element signature="n#index#0;n#Fleet_manager#0;n#!!top" expanded="false" />
-            <element signature="e#1890#2468#0#PHP" expanded="false" />
-            <element signature="e#2715#3514#0#PHP" expanded="false" />
-            <element signature="n#delete#0;n#Fleet_manager#0;n#!!top" expanded="false" />
-            <element signature="n#ajax_google_miles_rate#0;n#Fleet_manager#0;n#!!top" expanded="false" />
-            <element signature="n#ajax_save_google_rate#0;n#Fleet_manager#0;n#!!top" expanded="false" />
-            <element signature="n#ajax_delete_google_rate#0;n#Fleet_manager#0;n#!!top" expanded="false" />
-            <element signature="n#ajax_google_rate#0;n#Fleet_manager#0;n#!!top" expanded="false" />
-            <element signature="n#ajax_rush_hour_rate_view#0;n#Fleet_manager#0;n#!!top" expanded="false" />
-            <element signature="n#ajaxPostRushHoursCharge#0;n#Fleet_manager#0;n#!!top" expanded="false" />
-            <element signature="n#ajax_holiday_rate_view#0;n#Fleet_manager#0;n#!!top" expanded="false" />
-            <marker date="1510633454353" expanded="true" signature="4580:4639" ph="SELECT *,ST_... zones" />
-            <marker date="1510633454353" expanded="true" signature="5708:5767" ph="SELECT *,ST_... zones" />
-            <marker date="1510633454353" expanded="true" signature="6090:6200" ph="SELECT * FRO... zones_rate" />
-            <marker date="1510633454353" expanded="true" signature="6873:6983" ph="SELECT * FRO... zones_rate" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/admin/fleet/navtab-parts/tab4.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="425">
-          <caret line="61" column="71" lean-forward="false" selection-start-line="61" selection-start-column="71" selection-end-line="61" selection-end-column="71" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/application/views/admin/fleet/_form.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="481">
@@ -669,20 +627,122 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/admin/fleet/navtab-parts/ajax_rush_hour_rate.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="263">
+          <caret line="50" column="64" lean-forward="true" selection-start-line="50" selection-start-column="64" selection-end-line="50" selection-end-column="64" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/admin/fleet/navtab-parts/ajax_holiday_rate.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="374">
+          <caret line="105" column="52" lean-forward="true" selection-start-line="105" selection-start-column="52" selection-end-line="105" selection-end-column="52" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/controllers/admin/Fleet_manager.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="286">
+          <caret line="361" column="0" lean-forward="true" selection-start-line="361" selection-start-column="0" selection-end-line="361" selection-end-column="0" />
+          <folding>
+            <element signature="n#index#0;n#Fleet_manager#0;n#!!top" expanded="false" />
+            <element signature="e#1890#2468#0#PHP" expanded="false" />
+            <element signature="e#2715#3514#0#PHP" expanded="false" />
+            <element signature="n#delete#0;n#Fleet_manager#0;n#!!top" expanded="false" />
+            <element signature="n#ajax_google_miles_rate#0;n#Fleet_manager#0;n#!!top" expanded="false" />
+            <element signature="n#ajax_save_google_rate#0;n#Fleet_manager#0;n#!!top" expanded="false" />
+            <element signature="n#ajax_delete_google_rate#0;n#Fleet_manager#0;n#!!top" expanded="false" />
+            <element signature="n#ajax_google_rate#0;n#Fleet_manager#0;n#!!top" expanded="false" />
+            <element signature="n#ajax_holiday_rate_view#0;n#Fleet_manager#0;n#!!top" expanded="false" />
+            <marker date="1510638720544" expanded="true" signature="4580:4639" ph="SELECT *,ST_... zones" />
+            <marker date="1510638720544" expanded="true" signature="5708:5767" ph="SELECT *,ST_... zones" />
+            <marker date="1510638720544" expanded="true" signature="6090:6200" ph="SELECT * FRO... zones_rate" />
+            <marker date="1510638720544" expanded="true" signature="6873:6983" ph="SELECT * FRO... zones_rate" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../bostonairporttaxis/application/models/Vehicle_model.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="35" column="45" lean-forward="false" selection-start-line="35" selection-start-column="45" selection-end-line="35" selection-end-column="45" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/index.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="1" column="41" lean-forward="false" selection-start-line="1" selection-start-column="41" selection-end-line="1" selection-end-column="41" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../bostonairporttaxis/application/controllers/Quote.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="194">
+          <caret line="297" column="3" lean-forward="true" selection-start-line="297" selection-start-column="3" selection-end-line="314" selection-end-column="5" />
+          <folding>
+            <marker date="1508325444557" expanded="true" signature="1916:2168" ph="SELECT * FRO... tbl_minimum_hours_for_booking" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/frontend/quote/_vehicle_select.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="280">
+          <caret line="82" column="134" lean-forward="false" selection-start-line="82" selection-start-column="134" selection-end-line="82" selection-end-column="134" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/admin/fleet/navtab-parts/tab4.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="65" column="0" lean-forward="false" selection-start-line="65" selection-start-column="0" selection-end-line="72" selection-end-column="10" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/frontend/quote/_booking.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="383">
+          <caret line="140" column="108" lean-forward="false" selection-start-line="140" selection-start-column="108" selection-end-line="140" selection-end-column="108" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/frontend/quote/_confirm.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/application/controllers/Quote.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="480">
-          <caret line="211" column="26" lean-forward="false" selection-start-line="211" selection-start-column="26" selection-end-line="211" selection-end-column="26" />
+        <state relative-caret-position="320">
+          <caret line="118" column="7" lean-forward="false" selection-start-line="118" selection-start-column="7" selection-end-line="118" selection-end-column="7" />
           <folding>
+            <element signature="n#vehicle_select#0;n#Quote#0;n#!!top" expanded="false" />
+            <element signature="n#booking#0;n#Quote#0;n#!!top" expanded="false" />
+            <element signature="n#ComputerateAndStoreInSession#0;n#Quote#0;n#!!top" expanded="false" />
+            <element signature="n#CheckRushHour#0;n#Quote#0;n#!!top" expanded="false" />
+            <element signature="n#CheckHolidays#0;n#Quote#0;n#!!top" expanded="false" />
+            <element signature="n#IsBetween#0;n#Quote#0;n#!!top" expanded="false" />
             <element signature="n#ZoneRateCalculation#0;n#Quote#0;n#!!top" expanded="false" />
             <element signature="n#BreakDownCalculation#0;n#Quote#0;n#!!top" expanded="false" />
             <element signature="n#RoundTripRateCalculationForZone#0;n#Quote#0;n#!!top" expanded="false" />
             <element signature="n#RoundTripRateCalculationForFareBreakDown#0;n#Quote#0;n#!!top" expanded="false" />
-            <marker date="1510634807451" expanded="true" signature="10492:10843" ph="SELECT * FRO... zones_rate" />
-            <marker date="1510634807451" expanded="true" signature="10492:10844" ph="SELECT * FRO... zones_rate" />
-            <marker date="1510634807451" expanded="true" signature="10492:10877" ph="SELECT * FRO... zones_rate" />
-            <marker date="1510634807451" expanded="true" signature="10492:10889" ph="SELECT * FRO... zones_rate" />
-            <marker date="1510634807451" expanded="true" signature="10492:10890" ph="SELECT * FRO... zones_rate" />
+            <marker date="1510644120211" expanded="true" signature="12547:12898" ph="SELECT * FRO... zones_rate" />
+            <marker date="1510644120211" expanded="true" signature="12547:12899" ph="SELECT * FRO... zones_rate" />
+            <marker date="1510644120211" expanded="true" signature="12547:12932" ph="SELECT * FRO... zones_rate" />
+            <marker date="1510644120211" expanded="true" signature="12547:12944" ph="SELECT * FRO... zones_rate" />
+            <marker date="1510644120211" expanded="true" signature="12547:12945" ph="SELECT * FRO... zones_rate" />
           </folding>
         </state>
       </provider>
