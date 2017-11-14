@@ -97,8 +97,8 @@
                                         <div class="row">
                                             <div class="form-group col-md-3">
                                                 <label class="control-label">No. Of Passengers <span class="text-danger">*</span></label>
-                                                <select class="form-control" name="client_passanger_no" placeholder="Pax." required="">
-                                                    <option value="<?php echo ($is_edit) ? $booking_post_infos['client_passanger_no'] : '' ?>"><?php echo ($is_edit) ? $booking_post_infos['client_passanger_no'] : '-Pax-' ?></option>
+                                                <select class="form-control" name="client_passenger_no" placeholder="Pax." required="">
+                                                    <option value="<?php echo ($is_edit) ? $booking_post_infos['client_passenger_no'] : '' ?>"><?php echo ($is_edit) ? $booking_post_infos['client_passenger_no'] : '-Pax-' ?></option>
                                                     <?php for ($i = 1; $i <= $fleet->passengers; $i++): ?>
                                                         <option value="<?= $i ?>"><?= $i ?></option>
                                                     <?php endfor; ?>   

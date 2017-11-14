@@ -56,8 +56,10 @@
                             <p class="clearfix"><strong class="text-uppercase">Total Fare:</strong> <span><big><?= CURRENCY . $grand_total_charge['total'] ?></big> </span></p>
                             <h6>Inclusive of <?= CURRENCY . $grand_total_charge['additional_charge'] ?> additional charges.</h6>
                             <h6>Airport Parking Fee: <?= CURRENCY . $grand_total_charge['additional_airport_pickup_charge'] ?></h6>
-                            <h6>Baby Seat Charge: <?= CURRENCY . $grand_total_charge['additional_airport_baby_seater_charge'] ?></h6>                            
+                            <h6>Baby Seat Charge: <?= CURRENCY . $grand_total_charge['additional_baby_seater_charge'] ?></h6>
                             <h6>Meet & Greet Charge: <?= CURRENCY . $grand_total_charge['additional_meet_and_greet'] ?></h6>                            
+                            <h6>Waiting Time Charge: <?= CURRENCY . $grand_total_charge['additional_waiting_time'] ?></h6>
+                            <h6>Paypal/Card Charge: <?= CURRENCY . $grand_total_charge['additional_card_service_charge'] ?></h6>
                         </div>
                     </div>
                     <div class="col-md-8">
@@ -102,7 +104,7 @@
                                         <div class="row">
                                             <div class="form-group col-md-3">
                                                 <label class="control-label">Passengers <span class="text-danger">*</span></label>
-                                                <p class="form-control-static"><?php echo $booking_post['client_passanger_no'] ?></p>
+                                                <p class="form-control-static"><?php echo $booking_post['client_passenger_no'] ?></p>
                                             </div>
                                             <div class="form-group col-md-3">
                                                 <label class="control-label">Child Seats <span class="text-danger">*</span></label>

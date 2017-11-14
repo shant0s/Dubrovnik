@@ -128,7 +128,7 @@ class Quote extends Public_Controller
     {
         $booking_ref_id = $this->booking_info_model->generate_ref_id();
         $session_data = $this->session->all_userdata();
-//debug($session_data);
+//        debug($session_data);
         $booking_infos = array(
             'booking_ref_id' => $booking_ref_id,
 //            'passenger_id' => isset($this->data['passenger']) ? $this->data['passenger']->id : '',
@@ -149,7 +149,7 @@ class Quote extends Public_Controller
             'client_email' => $session_data['booking_post_info']['client_email'],
             'client_phone' => $session_data['booking_post_info']['client_phone'],
             'client_address' => $session_data['booking_post_info']['client_address'],
-            'client_passanger_no' => $session_data['booking_post_info']['client_passanger_no'],
+            'client_passenger_no' => $session_data['booking_post_info']['client_passenger_no'],
             'client_baby_no' => $session_data['booking_post_info']['client_baby_no'],
             'client_luggage' => $session_data['booking_post_info']['client_luggage'],
             'client_hand_luggage' => $session_data['booking_post_info']['client_hand_luggage'],
@@ -161,7 +161,7 @@ class Quote extends Public_Controller
         );
         $booking_id = $this->booking_info_model->insert($booking_infos);
 
-        if ($session_data['booking_post_info']['pay_method'] == 'paypal') {
+        if ($session_data['booking_post_info']['pay_method'] == 'paypall') {
             $query = array();
             $query['notify_url'] = site_url('quote/paypal_ipn/' . $booking_ref_id);
             $query['return'] = site_url('thank-you');
@@ -181,7 +181,7 @@ class Quote extends Public_Controller
             return;
         } else {
             set_flash('msg', 'Thank you for booking. Please check the confirmation email and pay the full amount to the driver');
-            $this->send_booking_received_email($booking_infos);
+            $this->SendBookingReceivedEmail($booking_infos);
         }
         redirect(site_url('thank-you'));
     }
@@ -381,7 +381,7 @@ class Quote extends Public_Controller
         $additional_waiting_time = ($client_infos['waiting_time']) ? $additional_rate->waiting_time : 0;
         $additional_meet_and_greet = isset($client_infos['meet_and_greet']) && $client_infos['meet_and_greet'] == 'yes' ? $additional_rate->meet_and_greet : 0;
         if ($client_infos['pay_method'] == 'cash') {
-            $additional_charge = ($additional_rate->baby_seater) * ($client_infos['client_baby_no']) + $additional_meet_and_greet+$additional_waiting_time;
+            $additional_charge = ($additional_rate->baby_seater) * ($client_infos['client_baby_no']) + $additional_meet_and_greet + $additional_waiting_time;
             $total = ($vehicle_fare) + $additional_charge;
             $grand_total_charge = array(
                 'additional_airport_pickup_charge' => (isAirport($quote['start'])) ? $additional_rate->airport_pickup_fee : 0,
@@ -402,7 +402,7 @@ class Quote extends Public_Controller
                 'additional_waiting_time' => $additional_waiting_time,
             );
             if ($additional_rate->card_fee_type == 'By_Percentage') {
-                $additional_charge = ($additional_rate->baby_seater) * ($client_infos['client_baby_no'])+$additional_waiting_time;
+                $additional_charge = ($additional_rate->baby_seater) * ($client_infos['client_baby_no']) + $additional_waiting_time;
                 $sub_additional_charge = $vehicle_fare + $additional_charge;
                 $additional_card_service_charge = $sub_additional_charge * (($additional_rate->card_fee) / 100);
                 $subtotal = $sub_additional_charge + $additional_card_service_charge + $additional_meet_and_greet;
@@ -412,7 +412,7 @@ class Quote extends Public_Controller
                 $grand_total_charge['additional_card_service_charge'] = $additional_card_service_charge;
                 $grand_total_charge['total'] = $total;
             } else {
-                $additional_charge = ($additional_rate->baby_seater) * ($client_infos['client_baby_no']) + $additional_rate->card_fee+$additional_waiting_time;
+                $additional_charge = ($additional_rate->baby_seater) * ($client_infos['client_baby_no']) + $additional_rate->card_fee + $additional_waiting_time;
                 $total = $additional_charge + $vehicle_fare + $additional_meet_and_greet;
 
                 $grand_total_charge['additional_charge'] = $additional_charge + $additional_airport_pickup + $additional_meet_and_greet;
@@ -425,8 +425,7 @@ class Quote extends Public_Controller
         return $grand_total_charge;
     }
 
-    private
-    function send_booking_received_email($booking_infos)
+    private function SendBookingReceivedEmail($booking_infos)
     {
         $admin_emailer_template = $this->load->view('emailer/booking_emailler', array('data' => $booking_infos, 'emailer_to' => 'admin'), true);
         $client_emailer_template = $this->load->view('emailer/booking_emailler', array('data' => $booking_infos, 'emailer_to' => 'client'), true);
@@ -453,7 +452,7 @@ class Quote extends Public_Controller
         $booking_data = $this->booking_info_model->get(array('booking_ref_id' => $booking_ref_id));
 
         if ($booking_data) {
-            $this->send_booking_received_email($booking_data);
+            $this->SendBookingReceivedEmail((array)$booking_data);
             $this->session->set_flashdata('msg_success', 'Thank you for the payment. Your booking has been received. We will get back to you shortly.');
         }
     }
