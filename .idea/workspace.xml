@@ -2,10 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="643428c3-c0b0-4f64-9ae0-84701d9dc4ac" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/controllers/Quote.php" afterPath="$PROJECT_DIR$/application/controllers/Quote.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/frontend/quote/_booking.php" afterPath="$PROJECT_DIR$/application/views/frontend/quote/_booking.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/frontend/quote/_confirm.php" afterPath="$PROJECT_DIR$/application/views/frontend/quote/_confirm.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/controllers/admin/Booking.php" afterPath="$PROJECT_DIR$/application/controllers/admin/Booking.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/admin/booking_info/_client_more_info.php" afterPath="$PROJECT_DIR$/application/views/admin/booking_info/_client_more_info.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/admin/booking_info/client.php" afterPath="$PROJECT_DIR$/application/views/admin/booking_info/client.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/emailer/booking_emailler.php" afterPath="$PROJECT_DIR$/application/views/emailer/booking_emailler.php" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -16,7 +16,7 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="Quote.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Quote.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/application/controllers/Quote.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="745">
@@ -43,10 +43,42 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="client.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/application/views/admin/booking_info/client.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="314">
+              <caret line="66" column="104" lean-forward="false" selection-start-line="66" selection-start-column="92" selection-end-line="66" selection-end-column="104" />
+              <folding>
+                <element signature="n#style#0;n#th#0;n#tr#0;n#thead#0;n#table#0;n#div#1;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Booking.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/application/controllers/admin/Booking.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="464">
+              <caret line="41" column="42" lean-forward="true" selection-start-line="41" selection-start-column="42" selection-end-line="41" selection-end-column="42" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="page.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/application/views/admin/content/page.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="124">
+              <caret line="32" column="22" lean-forward="false" selection-start-line="32" selection-start-column="22" selection-end-line="32" selection-end-column="22" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="_confirm.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/application/views/frontend/quote/_confirm.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="128">
+            <state relative-caret-position="-1351">
               <caret line="101" column="46" lean-forward="true" selection-start-line="101" selection-start-column="46" selection-end-line="101" selection-end-column="46" />
               <folding />
             </state>
@@ -57,8 +89,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>btn-save-holiday-rate</find>
-      <find>btn-delete-rate</find>
       <find>btn-save-rush-hour</find>
       <find>is_active</find>
       <find>_compute_rate_and_sotre_in_session</find>
@@ -87,6 +117,8 @@
       <find>client_passanger_noclient_passenger_no</find>
       <find>client_passanger_no</find>
       <find>send_booking_received_email</find>
+      <find>passanger</find>
+      <find>passa</find>
     </findStrings>
     <replaceStrings>
       <replace>fleet_manager</replace>
@@ -109,10 +141,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/../silverstar/application/models/driver_model.php" />
-        <option value="$PROJECT_DIR$/../silverstar/application/views/admin/driver/_payments.php" />
-        <option value="$USER_HOME$/AppData/Local/Temp/fz3temp-3/driver_model.php" />
-        <option value="$USER_HOME$/AppData/Local/Temp/fz3temp-3/_payments.php" />
         <option value="$PROJECT_DIR$/../silverstar/application/views/admin/bookings/_bookings.php" />
         <option value="$PROJECT_DIR$/../silverstar/application/controllers/admin/bookings.php" />
         <option value="$USER_HOME$/AppData/Local/Temp/fz3temp-2/database.php" />
@@ -160,6 +188,10 @@
         <option value="$PROJECT_DIR$/application/views/frontend/quote/_confirm.php" />
         <option value="$PROJECT_DIR$/application/views/frontend/quote/_booking.php" />
         <option value="$PROJECT_DIR$/application/controllers/Quote.php" />
+        <option value="$PROJECT_DIR$/application/views/emailer/booking_emailler.php" />
+        <option value="$PROJECT_DIR$/application/views/admin/booking_info/_client_more_info.php" />
+        <option value="$PROJECT_DIR$/application/views/admin/booking_info/client.php" />
+        <option value="$PROJECT_DIR$/application/controllers/admin/Booking.php" />
       </list>
     </option>
   </component>
@@ -219,6 +251,27 @@
               <item name="controllers" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="admin" type="2a2b976b:PhpTreeStructureProvider$1" />
             </path>
+            <path>
+              <item name="luton" type="b2602c69:ProjectViewProjectNode" />
+              <item name="luton" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="application" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="views" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="luton" type="b2602c69:ProjectViewProjectNode" />
+              <item name="luton" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="application" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="views" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="admin" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="luton" type="b2602c69:ProjectViewProjectNode" />
+              <item name="luton" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="application" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="views" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="admin" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="booking_info" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
           </expand>
           <select />
         </subPane>
@@ -265,12 +318,12 @@
       <workItem from="1509680887206" duration="12522000" />
       <workItem from="1510297705762" duration="13471000" />
       <workItem from="1510544391187" duration="28746000" />
-      <workItem from="1510629303437" duration="15364000" />
+      <workItem from="1510629303437" duration="16753000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="100163000" />
+    <option name="totallyTimeSpent" value="101552000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
@@ -333,10 +386,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$USER_HOME$/AppData/Local/Temp/fz3temp-3/_sms_driver_assigned.php" />
-    <entry file="file://$USER_HOME$/AppData/Local/Temp/fz3temp-3/Booking.php" />
-    <entry file="file://$USER_HOME$/AppData/Local/Temp/fz3temp-3/Booking_model.php" />
-    <entry file="file://$USER_HOME$/AppData/Local/Temp/fz3temp-2/driver.php" />
     <entry file="file://$PROJECT_DIR$/application/views/admin/fleet/navtab-parts/tab2.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="51">
@@ -677,22 +726,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/emailer/booking_emailler.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-561">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/frontend/quote/_confirm.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="128">
-          <caret line="101" column="46" lean-forward="true" selection-start-line="101" selection-start-column="46" selection-end-line="101" selection-end-column="46" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/application/controllers/Quote.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="745">
@@ -714,6 +747,56 @@
             <marker date="1510645082555" expanded="true" signature="12553:12938" ph="SELECT * FRO... zones_rate" />
             <marker date="1510645082555" expanded="true" signature="12553:12950" ph="SELECT * FRO... zones_rate" />
             <marker date="1510645082555" expanded="true" signature="12553:12951" ph="SELECT * FRO... zones_rate" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/emailer/booking_emailler.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="298">
+          <caret line="65" column="95" lean-forward="false" selection-start-line="65" selection-start-column="95" selection-end-line="65" selection-end-column="95" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/admin/content/page.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="124">
+          <caret line="32" column="22" lean-forward="false" selection-start-line="32" selection-start-column="22" selection-end-line="32" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/frontend/quote/_confirm.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1351">
+          <caret line="101" column="46" lean-forward="true" selection-start-line="101" selection-start-column="46" selection-end-line="101" selection-end-column="46" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/admin/booking_info/_client_more_info.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-51">
+          <caret line="228" column="36" lean-forward="false" selection-start-line="228" selection-start-column="36" selection-end-line="228" selection-end-column="36" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/controllers/admin/Booking.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="464">
+          <caret line="41" column="42" lean-forward="true" selection-start-line="41" selection-start-column="42" selection-end-line="41" selection-end-column="42" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/admin/booking_info/client.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="314">
+          <caret line="66" column="104" lean-forward="false" selection-start-line="66" selection-start-column="92" selection-end-line="66" selection-end-column="104" />
+          <folding>
+            <element signature="n#style#0;n#th#0;n#tr#0;n#thead#0;n#table#0;n#div#1;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>

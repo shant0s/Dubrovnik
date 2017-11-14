@@ -26,17 +26,22 @@ class Booking extends Admin_Controller {
         $this->load->view(BACKEND, $this->data);
     }
 
-    function view($id) {        
+    function view($id=null) {
         $this->data['booking_infos'] = $this->booking_info_model->get(array('id'=>$id));
         $this->data['fleet'] = $this->fleet_model->get(array('title'=>$this->data['booking_infos']->vehicle_name));       
         $this->data['main_content'] = 'admin/booking_info/index';
         $this->data['sub_content'] = 'admin/booking_info/_client_more_info';
         $this->load->view(BACKEND, $this->data);
     }
-    function delete($id){        
-        $this->booking_info_model->delete($id);
+    function delete($id=null){
+        $this->booking_info_model->delete(['id'=>$id]);
         $this->session->set_flashdata('msg', 'Successfully! Booking Information Deleted');
         redirect('admin/booking');        
+    }
+    function mark_as_paid($id=null){
+        $this->booking_info_model->update(['is_paid'=>1],['id'=>$id]);
+        $this->session->set_flashdata('msg', 'Mark As Paid Successfully');
+        redirect('admin/booking');
     }
 
 }
