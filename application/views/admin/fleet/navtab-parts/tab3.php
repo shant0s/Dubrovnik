@@ -27,7 +27,7 @@
                         if ($zones):
                             foreach ($zones as $zone):
                                 ?>
-                                <option value="<?= $zone->id ?>"><?= $zone->name ?></option>
+                                <option value="<?= $zone->id ?>"><?= $zone->title ?></option>
                                 <?php
                             endforeach;
                         endif;
@@ -124,7 +124,7 @@
                     for (var i = 0; i < response_data.length; i++) {
                         locationsTable += '<tr>';
                         locationsTable += '<td>' + (i + 1) + '</td>';
-                        locationsTable += '<td>' + response_data[i].name + '</td>';
+                        locationsTable += '<td>' + response_data[i].title + '</td>';
                         locationsTable += '<td><div class="input-group rate-change"><span class="input-group-addon"><?=CURRENCY?></span><input type="text" class="form-control rate" data-from-id="' + from_id + '" data-to-id="' + response_data[i].id + '" value="' + response_data[i].rate + '"><span class="input-group-addon"><select class="rate_type">'
 
                         var rate_types = ['per_mile', 'fix'];

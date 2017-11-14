@@ -11,9 +11,11 @@
  *
  * @author Sujendra
  */
-class Quote extends Public_Controller {
+class Quote extends Public_Controller
+{
 
-    public function __construct() {
+    public function __construct()
+    {
         parent::__construct();
         $this->load->library('email');
         $this->load->helper('form');
@@ -26,24 +28,26 @@ class Quote extends Public_Controller {
         $this->load->model('run_query_model');
     }
 
-    function index() {
+    function index()
+    {
         $quote = $this->input->post();
         if (!$quote) {
             redirect(site_url());
         }
         $this->session->set_userdata('quote', $quote);
 
-        
+
         $google_data = calDistance($quote['start_lat'] . ',' . $quote['start_lng'], $quote['end_lat'] . ',' . $quote['end_lng']);
 
-        $this->_compute_rate_and_store_in_session($google_data['distance'], $quote);
+        $this->ComputerateAndStoreInSession($google_data['distance'], $quote);
 
         $this->session->set_userdata('google_data', $google_data);
 //        debug($this->session->all_userdata());
         redirect(base_url('quote/vehicle_select'));
     }
 
-    function vehicle_select() {
+    function vehicle_select()
+    {
         $this->data['google_data'] = $this->session->userdata('google_data');
         $this->data['quote'] = $this->session->userdata('quote');
 
@@ -55,7 +59,8 @@ class Quote extends Public_Controller {
         $this->load->view(FRONTEND, $this->data);
     }
 
-    function booking() {
+    function booking()
+    {
         $post = $this->input->post();
 
         if ($post) {
@@ -91,7 +96,8 @@ class Quote extends Public_Controller {
         $this->load->view(FRONTEND, $this->data);
     }
 
-    function confirm() {
+    function confirm()
+    {
         $post = $this->input->post();
         if ($post) {
             $this->session->set_userdata('booking_post_info', $post);
@@ -109,7 +115,8 @@ class Quote extends Public_Controller {
         $this->load->view(FRONTEND, $this->data);
     }
 
-    function finish() {
+    function finish()
+    {
         $booking_ref_id = $this->booking_info_model->generate_ref_id();
         $session_data = $this->session->all_userdata();
 //debug($session_data);
@@ -170,103 +177,145 @@ class Quote extends Public_Controller {
         redirect(site_url('thank-you'));
     }
 
-    private function _compute_rate_and_store_in_session($distance, $quote) {
-        $fare = 0;
+    private function ComputerateAndStoreInSession($distance, $quote)
+    {
+        $fleets = $this->fleet_model->get_all();
 
-        // 1. Zone Rate (By Amount) 
-        $fare = $this->_zone_rate_calculation($quote, $distance);
-        if ($fare) {
-            $total_fare = $this->_additional_rate_calculation($fare, $quote['start'], $quote['end']);
-        }
-//        debug($total_fare);
-        // 2.Airport / Normal Rate : Break Down        
-        if (!$fare) {
-            $min_rate = $this->fare_breakdown_model->get(array('is_min' => 1));
-            if ($distance > $min_rate->end) {
-                $fare = $min_rate->rate;
-                $this->fare_breakdown_model->where('start <=', $distance);
-                $fare_ranges = $this->fare_breakdown_model->get_all(array('is_min' => 0));
+        foreach ($fleets as $key => $fleet) {
+            // 1. Zone Rate (By Amount)
+            $main_fare[$key] = $this->ZoneRateCalculation($quote, $distance, $fleet);
 
-                $new_dist = $distance - $min_rate->end;
-
-                foreach ($fare_ranges as $fare_range) {
-                    $fare += ($new_dist < $fare_range->end - $fare_range->start) ? ($new_dist * $fare_range->rate) : (($fare_range->end - $fare_range->start) * $fare_range->rate);
-                    $new_dist = $new_dist - ($fare_range->end - $fare_range->start);
-                }
-            } else {
-                $fare = $min_rate->rate;
+            if ($main_fare[$key]['rate']) {
+                $fare = $this->RoundTripRateCalculationForZone($main_fare[$key]['rate'], $fleet, $quote);
+                $main_fare[$key]['rate'] = $fare['rate'];
+                $main_fare[$key]['round_trip_rate'] = $fare['round_trip_rate'];
             }
+            // 2. Normal Rate : Break Down
+            if (!$main_fare[$key]['rate']) {
+                $min_rate = $this->fare_breakdown_model->get(['is_min' => 1, 'fleet_id' => $fleet->id]);
+                if (!$min_rate) {
+                    $main_fare[$key] = [
+                        'fleet_id' => $fleet->id,
+                        'rate' => 0,
+                        'round_trip_rate' => 0
+                    ];
+                    continue;
+                }
+                $main_fare[$key] = $this->BreakDownCalculation($distance, $min_rate, $fleet, $key);
 
-            $total_fare = $this->_additional_rate_calculation_for_breakdown($fare, $quote['start']);
+                if ($main_fare[$key]['rate']) {
+                    $fare = $this->RoundTripRateCalculationForFareBreakDown($main_fare[$key]['rate'], $fleet, $quote);
+                    $main_fare[$key]['rate'] = $fare['rate'];
+                    $main_fare[$key]['round_trip_rate'] = $fare['round_trip_rate'];
+                }
+            }
+        debug($main_fare);
         }
-        $this->session->set_userdata('session_one_way_total_fare', $total_fare[0]); // Here index "0" denotes for One Way Travelling cost
-        $this->session->set_userdata('session_two_way_total_fare', $total_fare[1]); // Here index "1" denotes for Two Way Travelling cost
+        debug($main_fare);
+
+        $this->session->set_userdata('session_fare', $main_fare);
+
 //        debug($this->session->userdata('session_one_way_total_fare'));
     }
 
-    private function _zone_rate_calculation($quote, $distance) {
+    private function ZoneRateCalculation($quote, $distance, $fleet)
+    {
         $sql = "SELECT *  FROM `zones_rate` as zr "
-                . "INNER JOIN `zones` as z1 on z1.id=zr.from_id "
-                . "INNER JOIN `zones` as z2 on z2.id=zr.to_id "
-                . "WHERE ST_WITHIN(Point({$quote['start_lng']},{$quote['start_lat']}), z1.points) "
-                . "AND ST_WITHIN(Point({$quote['end_lng']},{$quote['end_lat']}), z2.points)";
+            . "INNER JOIN `zones` as z1 on z1.id=zr.from_id "
+            . "INNER JOIN `zones` as z2 on z2.id=zr.to_id "
+            . "WHERE ST_WITHIN(Point({$quote['start_lng']},{$quote['start_lat']}), z1.coordinates) "
+            . "AND ST_WITHIN(Point({$quote['end_lng']},{$quote['end_lat']}), z2.coordinates) "
+            . "AND `fleet_id`= {$fleet->id}";
 
         $zone_data = $this->db->query($sql)->row();
-        debug($zone_data);
+//        debug($zone_data);
 
         if (empty($zone_data)) {
-            return false;
+            $fare = [
+                'fleet_id' => $fleet->id,
+                'rate' => 0,
+            ];
+            return $fare;
         }
 
 //       Zone Fare rate calculation
         if ($zone_data->rate_type == "fix") {
-            $fare = $zone_data->rate;
+            $fare = [
+                'fleet_id' => $zone_data->fleet_id,
+                'rate' => $zone_data->rate,
+            ];
         } else {
-            $fare = $zone_data->rate * $distance;
-            ($zone_data->minimum_rate >= $fare) ? $fare = $zone_data->minimum_rate : '';
+            $fare = [
+                'fleet_id' => $zone_data->fleet_id,
+                'rate' => $zone_data->rate * $distance,
+            ];
+            ($zone_data->minimum_rate >= $fare['rate']) ? $fare['rate'] = $zone_data->minimum_rate : '';
         }
         return $fare;
     }
 
-    private function _additional_rate_calculation($fare, $start, $end) {
+    private function BreakDownCalculation($distance, $min_rate, $fleet, $key)
+    {
+        if ($distance > $min_rate->end) {
+            $fare = $min_rate->rate;
+            $this->fare_breakdown_model->where('start <=', $distance);
+            $fare_ranges = $this->fare_breakdown_model->get_all(['is_min' => 0, 'fleet_id' => $fleet->id]);
+
+            $new_dist = $distance - $min_rate->end;
+
+            foreach ($fare_ranges as $fare_range) {
+                $fare += ($new_dist < $fare_range->end - $fare_range->start) ? ($new_dist * $fare_range->rate) : (($fare_range->end - $fare_range->start) * $fare_range->rate);
+                $new_dist = $new_dist - ($fare_range->end - $fare_range->start);
+            }
+            $breakdown_fare = [
+                'fleet_id' => $fleet->id,
+                'rate' => $fare
+            ];
+        } else {
+            $breakdown_fare = [
+                'fleet_id' => $fleet->id,
+                'rate' => $min_rate->rate
+            ];
+        }
+        return $breakdown_fare;
+    }
+
+    private function RoundTripRateCalculationForZone($fare, $fleet, $quote)
+    {
 //        $fare=1;
-        $fleets = $this->fleet_model->get_all();
-        $additional_rate = $this->additional_rate_model->get();
 
-        foreach ($fleets as $index => $fleet):
-            if (isAirport($start)) {
-                $total_one_way[$fleet->id] = round(($fare + $fare * ($fleet->raise_by / 100) + $additional_rate->airport_pickup_fee), 2);
-                $total_two_way[$fleet->id] = round($total_one_way[$fleet->id] + ($total_one_way[$fleet->id] - ($total_one_way[$fleet->id] * ($additional_rate->round_trip / 100))), 2);
-            } else {
-                $total_one_way[$fleet->id] = round(($fare + $fare * ($fleet->raise_by / 100)), 2);
-                $total_two_way[$fleet->id] = round($total_one_way[$fleet->id] + ($total_one_way[$fleet->id] - ($total_one_way[$fleet->id] * ($additional_rate->round_trip / 100))), 2);
-            }
-        endforeach;
-        $total_fare = array($total_one_way, $total_two_way);
+        $additional_rate = $this->additional_rate_model->get(['fleet_id' => $fleet->id]);
 
-        return $total_fare;
+        if (isAirport($quote['start'])) {
+            $one_way_fare = round(($fare + $additional_rate->airport_pickup_fee), 2);
+            $two_way_fare = round($one_way_fare + ($one_way_fare - ($one_way_fare * ($additional_rate->round_trip / 100))), 2);
+        } else {
+            $one_way_fare = round(($fare), 2);
+            $two_way_fare = round($one_way_fare + ($one_way_fare - ($one_way_fare * ($additional_rate->round_trip / 100))), 2);
+        }
+
+        return (['rate' => $one_way_fare, 'round_trip_rate' => $two_way_fare]);
     }
 
-    private function _additional_rate_calculation_for_breakdown($fare, $start) {    // $subtotal is subtotal fare
-        $fleets = $this->fleet_model->get_all();
+    private function RoundTripRateCalculationForFareBreakDown($fare, $fleet, $quote)
+    {    // $subtotal is subtotal fare
 
-        $additional_rate = $this->additional_rate_model->get();
+        $additional_rate = $this->additional_rate_model->get(['fleet_id' => $fleet->id]);
 
-        foreach ($fleets as $fleet):
-            if (isAirport($start) == 'yes') {
-                $total_one_way[$fleet->id] = round(($fare + $fare * ($fleet->raise_by / 100) + $additional_rate->airport_pickup_fee), 2);
-                $total_two_way[$fleet->id] = round($total_one_way[$fleet->id] + ($total_one_way[$fleet->id] - ($total_one_way[$fleet->id] * ($additional_rate->round_trip / 100))), 2);
-            } else {
-                $total_one_way[$fleet->id] = round(($fare + $fare * ($fleet->raise_by / 100)), 2);
-                $total_two_way[$fleet->id] = round($total_one_way[$fleet->id] + ($total_one_way[$fleet->id] - ($total_one_way[$fleet->id] * ($additional_rate->round_trip / 100))), 2);
-            }
-        endforeach;
-        $total_fare = array($total_one_way, $total_two_way);
-//debug($total_fare);
-        return $total_fare;
+        if (isAirport($quote['start'])) {
+            $one_way_fare = round(($fare + $fare * ($additional_rate->raise_by / 100) + $additional_rate->airport_pickup_fee), 2);
+            $two_way_fare = round($one_way_fare + ($one_way_fare - ($one_way_fare * ($additional_rate->round_trip / 100))), 2);
+        } else {
+            $one_way_fare = round(($fare + $fare * ($additional_rate->raise_by / 100)), 2);
+            $two_way_fare = round($one_way_fare + ($one_way_fare - ($one_way_fare * ($additional_rate->round_trip / 100))), 2);
+        }
+
+        return (['rate' => $one_way_fare, 'round_trip_rate' => $two_way_fare]);
     }
 
-    private function _speciific_vehical_additional_rate_calculation($vehicle_info, $vehical_fare, $start) {
+    private
+    function _speciific_vehical_additional_rate_calculation($vehicle_info, $vehical_fare, $start)
+    {
         $additional_rate = $this->additional_rate_model->get();
         $client_infos = $this->session->userdata('booking_post_info');
 
@@ -316,7 +365,9 @@ class Quote extends Public_Controller {
         return $grand_total_charge;
     }
 
-    private function send_booking_received_email($booking_infos) {
+    private
+    function send_booking_received_email($booking_infos)
+    {
         $admin_emailer_template = $this->load->view('emailer/booking_emailler', array('data' => $booking_infos, 'emailer_to' => 'admin'), true);
         $client_emailer_template = $this->load->view('emailer/booking_emailler', array('data' => $booking_infos, 'emailer_to' => 'client'), true);
         $admin_mergedHtml = common_emogrifier($admin_emailer_template);
@@ -327,7 +378,8 @@ class Quote extends Public_Controller {
         $is_email_sent_pax = email_help($booking_infos['client_email'], "[RefID: {$booking_infos['booking_ref_id']}] Booking received - " . SITE_NAME, $client_mergedHtml, array(SITE_EMAIL => SITE_NAME));
     }
 
-    function paypal_ipn($booking_ref_id = null) {
+    function paypal_ipn($booking_ref_id = null)
+    {
         if (!$booking_ref_id) {
             show_404();
         }

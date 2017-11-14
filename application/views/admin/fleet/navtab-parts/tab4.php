@@ -55,6 +55,14 @@
                    value="<?php echo ($is_edit && $additional_rate) ? $additional_rate->waiting_time : '' ?>">
         </div>
     </div>
+    <div class="col-md-4">
+        <label class="control-label">Raise By(only apply for Fare Breakdown)<span class="text-danger">*</span></label>
+        <div class="input-group">
+            <input type="text" name="raise_by" class="form-control"
+                   value="<?php echo ($is_edit && $additional_rate) ? $additional_rate->raise_by : '' ?>">
+            <span class="input-group-addon">%</span>
+        </div>
+    </div>
 <!--    <div class="col-md-2">-->
 <!--        <label class="control-label">Meet $ Greet<span class="text-danger">*</span></label>-->
 <!--        <div class="input-group">-->

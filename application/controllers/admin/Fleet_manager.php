@@ -56,6 +56,7 @@ class Fleet_manager extends Admin_Controller
                 'round_trip' => $post['round_trip'],
                 'meet_and_greet' => $post['meet_and_greet'],
                 'fleet_id' => $fleet_id,
+                'raise_by' => $post['raise_by'],
             ];
             if (!empty($_FILES['img_name']['name'])) {
                 if ($fleet_id) {
@@ -124,7 +125,7 @@ class Fleet_manager extends Admin_Controller
             }
 
 
-            $sql = "SELECT *,ST_AsText(points) as points FROM `zones`";
+            $sql = "SELECT *,ST_AsText(coordinates) as coordinates FROM `zones`";
             $this->data['zones'] = $this->db->query($sql)->result();
 
 
@@ -155,7 +156,7 @@ class Fleet_manager extends Admin_Controller
     {
         $from_id = $this->input->post('from_id');
         $fleet_id = $this->input->post('fleet_id');
-        $sql = "SELECT *,ST_AsText(points) as points FROM `zones`";
+        $sql = "SELECT *,ST_AsText(coordinates) as coordinates FROM `zones`";
         $zones = $this->db->query($sql)->result();
 
         if (!$from_id) {
