@@ -40,6 +40,7 @@
                     <div class="col-md-8">
                         <div class="quote-inr-wrap">
                             <?php foreach ($fleets as $index => $fleet): ?>
+                                <?php if($vehicle_fare[$index]['rate']):?>
                                 <div class="quote-fleet">
                                     <div class="row">
                                         <div class="col-md-4">
@@ -79,15 +80,16 @@
                                                         </div>
 
                                                         <input type="hidden" name="vehicle_id" value="<?= $fleet->id; ?>">
-                                                        <input type="hidden" name="vehicle_name" value="<?= $fleet->title; ?>">  
+                                                        <input type="hidden" name="vehicle_name" value="<?= $fleet->title; ?>">
                                                         <input type="hidden" name="vehicle_img_name" value="<?= $fleet->img_name; ?>">
                                                         <button type="submit" class="btn btn-gold">Book Now</button>
-                                                    </form>                                                 
+                                                    </form>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
+                            <?php endif; ?>
                             <?php endforeach; ?>
                         </div>
                     </div>

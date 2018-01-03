@@ -183,7 +183,7 @@
                                                         <div class="row cstm-col radio">
                                                             <div class="col-sm-4">
                                                                 <label class="control-label">
-                                                                    <input type="radio" name="option" checked="">
+                                                                    <input type="radio" name="meet_and_greet" checked="">
                                                                     <span class="cr"><i class="fa fa-circle"></i></span>
                                                                     <?php echo ucfirst($booking_post['meet_and_greet']) ?>
                                                                 </label>
@@ -203,7 +203,7 @@
                                             <div class="row cstm-col radio">
                                                 <div class="col-sm-4">
                                                     <label class="control-label">
-                                                        <input type="radio" name="option" checked="">
+                                                        <input type="radio" name="pay_method" checked="">
                                                         <span class="cr"><i class="fa fa-circle"></i></span>
                                                         <?php echo ucfirst($booking_post['pay_method']) ?>
                                                     </label>

@@ -65,7 +65,6 @@ class Quote extends Public_Controller
         $this->data['quote'] = $this->session->userdata('quote');
 
         if ($post) {
-//            $this->data['vehicle_info'] = $post;
             $this->session->set_userdata('vehicle_info', $post);
 
         }
