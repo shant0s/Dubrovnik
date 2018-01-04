@@ -31,8 +31,8 @@
                             <article>
                                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
                             </article>
-                            <a href="price.php" class="btn-custom1">View Prices</a>
-                            <a href="rent.php" class="btn-custom2">Book Now</a>
+                            <a href="<?= site_url('price'); ?>" class="btn-custom1">View Prices</a>
+                            <a href="<?= site_url('rent'); ?>" class="btn-custom2">Book Now</a>
                         </div>
                     </div>
                 </div>
