@@ -71,19 +71,19 @@
                     <li class="dropdown">
                         <a href="service.php" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Service <span class="caret"></span></a>
                         <ul class="dropdown-menu">
-                            <li><a href="<?= site_url('airport_transfer'); ?>">Airport transfers</a></li>
-                            <li><a href="service-template.php">Minibus Service</a></li>
-                            <li><a href="service-template.php">Bus (coach) service</a></li>
-                            <li><a href="service-template.php">Chauffer Service</a></li>
-                            <li><a href="service-template.php">Excursions</a></li>
-                            <li><a href="service-template.php">Group Travel</a></li>
-                            <li><a href="service-template.php">Other Services</a></li>
+                            <li><a href="<?= site_url('services'); ?>">Airport transfers</a></li>
+                            <li><a href="<?= site_url('services'); ?>">Minibus Service</a></li>
+                            <li><a href="<?= site_url('services'); ?>">Bus (coach) service</a></li>
+                            <li><a href="<?= site_url('services'); ?>">Chauffer Service</a></li>
+                            <li><a href="<?= site_url('services'); ?>">Excursions</a></li>
+                            <li><a href="<?= site_url('services'); ?>">Group Travel</a></li>
+                            <li><a href="<?= site_url('services'); ?>">Other Services</a></li>
                         </ul>
                     </li>
                     <li><a href="<?= site_url('fleet'); ?>">Fleet</a></li>
-                    <li><a href="price.php">Price</a></li>
-                    <li><a href="rent.php">Rent a car</a></li>
-                    <li><a href="contact.php">Contact</a></li>
+                    <li><a href="<?= site_url('price'); ?>">Price</a></li>
+                    <li><a href="<?= site_url('rent'); ?>">Rent a car</a></li>
+                    <li><a href="<?= site_url('contact'); ?>">Contact</a></li>
                 </ul>
             </div>
         </nav>
