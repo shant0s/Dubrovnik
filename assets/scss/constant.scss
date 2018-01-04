@@ -1,0 +1,43 @@
+@mixin flex-box{
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+}
+@mixin transition ($time){
+    transition: $time ease-in-out;
+    -moz-transition: $time ease-in-out;
+    -o-transition: $time ease-in-out;
+    -webkit-transition: $time ease-in-out ;
+}
+@mixin placeholder {
+    input::-webkit-input-placeholder {@content}
+    input:-moz-placeholder           {@content}
+    input::-moz-placeholder          {@content}
+    input:-ms-input-placeholder      {@content}  
+    textarea::-webkit-input-placeholder {@content}
+    textarea:-moz-placeholder           {@content}
+    textarea::-moz-placeholder          {@content}
+    textarea:-ms-input-placeholder      {@content}  
+}
+@mixin user-select-drag {
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-drag: none;
+    -webkit-user-drag:none;
+    -ms-user-drag:none;
+    -moz-user-drag:none;
+}
+@mixin transform($transform) {
+    -moz-transform: $transform;
+    -o-transform: $transform;
+    -webkit-transform: $transform;
+    transform: $transform;
+}
+
+$font-stack-1: 'Montserrat', sans-serif;;
+$font-stack-2: 'Muli', sans-serif;
+$primary-color: #65ae7f;

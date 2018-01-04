@@ -15,7 +15,7 @@
         <!-- Bxslider -->
         <link href="<?= base_url('assets') ?>/bower_components/bxslider-4/dist/jquery.bxslider.css" rel="stylesheet">
         <!-- Datatables -->
-        <link href="<?= base_url() ?>/assets/bower_components/datatables/media/css/dataTables.bootstrap.min.css" rel="stylesheet" type="text/css"/>
+        <link href="<?= base_url() ?>/assets/admin/bower_components/datatables/media/css/dataTables.bootstrap.min.css" rel="stylesheet" type="text/css"/>
   
         <!--Hover-->
         <link href="<?= base_url('assets') ?>/bower_components/hover/css/hover.css" rel="stylesheet" type="text/css"/>

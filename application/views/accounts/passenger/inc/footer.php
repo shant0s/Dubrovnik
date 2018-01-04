@@ -35,8 +35,8 @@
 <script src="<?= base_url('assets') ?>/drawer/js/main.js"></script> 
 <!-- CC Validator -->
 <script src="<?= base_url('assets') ?>/bower_components/jquery-creditcardvalidator/jquery.creditCardValidator.js" type="text/javascript"></script>
-<script src="<?= base_url() ?>/assets/bower_components/datatables/media/js/jquery.dataTables.min.js" type="text/javascript"></script>
-<script src="<?= base_url() ?>/assets/bower_components/datatables/media/js/dataTables.bootstrap.min.js" type="text/javascript"></script>
+<script src="<?= base_url() ?>/assets/admin/bower_components/datatables/media/js/jquery.dataTables.min.js" type="text/javascript"></script>
+<script src="<?= base_url() ?>/assets/admin/bower_components/datatables/media/js/dataTables.bootstrap.min.js" type="text/javascript"></script>
 <!--custom-->
 <script src="<?= base_url('assets') ?>/js/custom.js" type="text/javascript"></script>
 <script src="<?= base_url('assets') ?>/js/bootbox.min.js" type="text/javascript"></script>

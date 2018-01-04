@@ -21,9 +21,9 @@
 
 
 <!-- Datatables -->
-<link href="<?= base_url('assets/bower_components/datatables/media/css/dataTables.bootstrap.min.css') ?>" rel="stylesheet" type="text/css"/>
-<script src="<?= base_url('assets/bower_components/datatables/media/js/jquery.dataTables.min.js') ?>"></script>
-<script src="<?= base_url('assets/bower_components/datatables/media/js/dataTables.bootstrap.min.js') ?>"></script>
+<link href="<?= base_url('assets/admin/bower_components/datatables/media/css/dataTables.bootstrap.min.css') ?>" rel="stylesheet" type="text/css"/>
+<script src="<?= base_url('assets/admin/bower_components/datatables/media/js/jquery.dataTables.min.js') ?>"></script>
+<script src="<?= base_url('assets/admin/bower_components/datatables/media/js/dataTables.bootstrap.min.js') ?>"></script>
 
 <!-- Sparkline -->
 <script src="<?= base_url('assets/admin') ?>/plugins/sparkline/jquery.sparkline.min.js"></script>
@@ -37,7 +37,7 @@
 <script src="<?= base_url('assets/admin') ?>/plugins/daterangepicker/daterangepicker.js"></script>
 <!-- datepicker -->
 <script src="<?= base_url('assets/admin') ?>/plugins/datepicker/bootstrap-datepicker.js"></script>
-<script src="<?= base_url() ?>assets/bower_components/jt.timepicker/jquery.timepicker.min.js"></script>
+<script src="<?= base_url() ?>assets/admin/bower_components/jt.timepicker/jquery.timepicker.min.js"></script>
 <!-- Bootstrap WYSIHTML5 -->
 <script src="<?= base_url('assets/admin') ?>/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.min.js"></script>
 <!-- Slimscroll -->

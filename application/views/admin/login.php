@@ -123,7 +123,7 @@
         <script src="<?= base_url('assets/admin') ?>/bootstrap/js/bootstrap.min.js"></script>
 
         <!--JqyeryValidation-->
-        <script type="text/javascript" src="<?= base_url('assets') ?>/bower_components/jquery-validation/dist/jquery.validate.min.js"></script>
+        <script type="text/javascript" src="<?= base_url('assets') ?>/admin/bower_components/jquery-validation/dist/jquery.validate.min.js"></script>
         <script type="text/javascript" src="<?= base_url('assets') ?>/js/form-validation.js"></script>
         <!-- iCheck -->
         <script src="<?= base_url('assets/admin') ?>/plugins/iCheck/icheck.min.js"></script>

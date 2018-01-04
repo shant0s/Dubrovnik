@@ -31,7 +31,7 @@
         <link rel="stylesheet" href="<?= base_url('assets/admin') ?>/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css">
         <link rel="stylesheet" href="<?= base_url('assets/admin') ?>/css/custom.css">
         <!-- jquery timepicker -->
-        <link rel="stylesheet" href="<?= base_url() ?>assets/bower_components/jt.timepicker/jquery.timepicker.css">
+        <link rel="stylesheet" href="<?= base_url() ?>assets/admin/bower_components/jt.timepicker/jquery.timepicker.css">
 
         <!-- jQuery 2.2.3 -->
         <script src="<?= base_url('assets/admin') ?>/plugins/jQuery/jquery-2.2.3.min.js"></script>
