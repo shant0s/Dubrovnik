@@ -1,8 +1,3 @@
-
-<?php
-include_once 'includes/header.php';
-?>
-
 <section class="banner" style="background: url(assets/images/banner.jpg);">
     <div class="container">
         <h1 class="text">Ride in style <br>
@@ -308,6 +303,3 @@ include_once 'includes/header.php';
     </div>
 </section>
 
-<?php
-include_once 'includes/header.php';
-?>

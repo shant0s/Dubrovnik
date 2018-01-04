@@ -41,9 +41,8 @@ class Page extends Public_Controller {
                 $this->data['main_content'] = 'frontend/pages/services';
                 $this->load->view(FRONTEND, $this->data);
                 break;
-            case "fare-guide":
-                $this->data['fleets'] = $this->fleet_model->get_all();
-                $this->data['main_content'] = 'frontend/pages/fare-guide';
+            case "fleet":
+                $this->data['main_content'] = 'frontend/pages/fleet';
                 $this->load->view(FRONTEND, $this->data);
                 break;
             case "terms-and-conditions":

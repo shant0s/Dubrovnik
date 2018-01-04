@@ -1,9 +1,4 @@
 
-<?php
-
-include './includes/header.php';
-?>
-
 <section class="banner-inner" style="background: url(assets/images/airporttransfer.jpg);">
     <div class="container">
         <h1 class="text">Airport <span>Transfer</span>
@@ -39,11 +34,4 @@ include './includes/header.php';
         </div>
     </div>
 </section>
-
-
-<?php
-
-@include './inc/footer.php';
-?>
-
 
