@@ -67,17 +67,17 @@
                     </li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a href="index.php">Home</a></li>
+                    <li><a href="<?= site_url(); ?>">Home</a></li>
                     <li class="dropdown">
-                        <a href="service.php" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Service <span class="caret"></span></a>
+                        <a href="<?= site_url('services'); ?>" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Service <span class="caret"></span></a>
                         <ul class="dropdown-menu">
-                            <li><a href="<?= site_url('services'); ?>">Airport transfers</a></li>
-                            <li><a href="<?= site_url('services'); ?>">Minibus Service</a></li>
-                            <li><a href="<?= site_url('services'); ?>">Bus (coach) service</a></li>
-                            <li><a href="<?= site_url('services'); ?>">Chauffer Service</a></li>
-                            <li><a href="<?= site_url('services'); ?>">Excursions</a></li>
-                            <li><a href="<?= site_url('services'); ?>">Group Travel</a></li>
-                            <li><a href="<?= site_url('services'); ?>">Other Services</a></li>
+                            <li><a href="<?= site_url('airport_transfer'); ?>">Airport transfers</a></li>
+                            <li><a href="<?= site_url('minibus_services'); ?>">Minibus Service</a></li>
+                            <li><a href="<?= site_url('bus_services'); ?>">Bus (coach) service</a></li>
+                            <li><a href="<?= site_url('chauffer_services'); ?>">Chauffer Service</a></li>
+                            <li><a href="<?= site_url('excursions'); ?>">Excursions</a></li>
+                            <li><a href="<?= site_url('group_travel'); ?>">Group Travel</a></li>
+                            <li><a href="<?= site_url('other_services'); ?>">Other Services</a></li>
                         </ul>
                     </li>
                     <li><a href="<?= site_url('fleet'); ?>">Fleet</a></li>

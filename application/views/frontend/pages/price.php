@@ -17,17 +17,17 @@
         </div>
         <ul class="price-list">
             <li>Transfers rate from Dubrovnik Airport are listed below:</li>
-            <li><i class="fa fa-angle-right"></i><a href="price-inner.php">Transfers from Dubrovnik Airport to Dubrovnik
+            <li><i class="fa fa-angle-right"></i><a href="<?= site_url('price-inner'); ?>">Transfers from Dubrovnik Airport to Dubrovnik
                     Hotels</a></li>
-            <li><i class="fa fa-angle-right"></i><a href="price-inner.php">Transfers from Dubrovnik Airport to Cavtat
+            <li><i class="fa fa-angle-right"></i><a href="<?= site_url('price-inner'); ?>">Transfers from Dubrovnik Airport to Cavtat
                     Hotels</a></li>
-            <li><i class="fa fa-angle-right"></i><a href="price-inner.php">Transfers from Dubrovnik Airport to Zupa
+            <li><i class="fa fa-angle-right"></i><a href="<?= site_url('price-inner'); ?>">Transfers from Dubrovnik Airport to Zupa
                     Dubrovacka Hotels</a></li>
-            <li><i class="fa fa-angle-right"></i><a href="price-inner.php">Transfers from Dubrovnik Airport to Slano &
+            <li><i class="fa fa-angle-right"></i><a href="<?= site_url('price-inner'); ?>">Transfers from Dubrovnik Airport to Slano &
                     Ston hotels</a></li>
-            <li><i class="fa fa-angle-right"></i><a href="price-inner.php">Transfers from Dubrovnik Airport to other
+            <li><i class="fa fa-angle-right"></i><a href="<?= site_url('price-inner'); ?>">Transfers from Dubrovnik Airport to other
                     places in surrounding area</a></li>
-            <li><i class="fa fa-angle-right"></i><a href="price-inner.php">Transfers from Dubrovnik Airport to
+            <li><i class="fa fa-angle-right"></i><a href="<?= site_url('price-inner'); ?>">Transfers from Dubrovnik Airport to
                     Montenegro destinations</a></li>
         </ul>
     </div>

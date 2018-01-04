@@ -22,7 +22,7 @@ class Page extends Public_Controller
 
         if ($data['result']) {
             $this->data['airport_data'] = $data['result'];
-            $this->data['main_content'] = 'frontend/pages/airport-template';
+            $this->data['main_content'] = 'frontend/pages/home';
             $this->load->view(FRONTEND, $this->data);
             return;
         }
@@ -32,16 +32,24 @@ class Page extends Public_Controller
                 $this->data['main_content'] = 'frontend/pages/about';
                 $this->load->view(FRONTEND, $this->data);
                 break;
+
             case "services":
                 $this->data['main_content'] = 'frontend/pages/services';
                 $this->load->view(FRONTEND, $this->data);
                 break;
+
+
             case "fleet":
                 $this->data['main_content'] = 'frontend/pages/fleet';
                 $this->load->view(FRONTEND, $this->data);
                 break;
             case "price":
                 $this->data['main_content'] = 'frontend/pages/price';
+                $this->load->view(FRONTEND, $this->data);
+                break;
+
+            case "price-inner":
+                $this->data['main_content'] = 'frontend/pages/price-inner';
                 $this->load->view(FRONTEND, $this->data);
                 break;
             case "rent":
@@ -69,7 +77,7 @@ class Page extends Public_Controller
                     $this->data['main_content'] = 'frontend/pages/default_page';
                     $this->load->view(FRONTEND, $this->data);
                 } else {
-                    $this->data['main_content'] = 'frontend/pages/404';
+                    $this->data['main_content'] = 'frontend/pages/services';
                     $this->load->view(FRONTEND, $this->data);
                 }
                 break;
