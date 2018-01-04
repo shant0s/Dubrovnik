@@ -71,13 +71,13 @@
                     <li class="dropdown">
                         <a href="<?= site_url('services'); ?>" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Service <span class="caret"></span></a>
                         <ul class="dropdown-menu">
-                            <li><a href="<?= site_url('airport_transfer'); ?>">Airport transfers</a></li>
-                            <li><a href="<?= site_url('minibus_services'); ?>">Minibus Service</a></li>
-                            <li><a href="<?= site_url('bus_services'); ?>">Bus (coach) service</a></li>
-                            <li><a href="<?= site_url('chauffer_services'); ?>">Chauffer Service</a></li>
+                            <li><a href="<?= site_url('airport-transfer'); ?>">Airport transfers</a></li>
+                            <li><a href="<?= site_url('minibus-service'); ?>">Minibus Service</a></li>
+                            <li><a href="<?= site_url('bus-coach-service'); ?>">Bus (coach) service</a></li>
+                            <li><a href="<?= site_url('chauffer-service'); ?>">Chauffer Service</a></li>
                             <li><a href="<?= site_url('excursions'); ?>">Excursions</a></li>
-                            <li><a href="<?= site_url('group_travel'); ?>">Group Travel</a></li>
-                            <li><a href="<?= site_url('other_services'); ?>">Other Services</a></li>
+                            <li><a href="<?= site_url('group-travel'); ?>">Group Travel</a></li>
+                            <li><a href="<?= site_url('other-services'); ?>">Other Services</a></li>
                         </ul>
                     </li>
                     <li><a href="<?= site_url('fleet'); ?>">Fleet</a></li>

@@ -38,7 +38,6 @@ class Page extends Public_Controller
                 $this->load->view(FRONTEND, $this->data);
                 break;
 
-
             case "fleet":
                 $this->data['main_content'] = 'frontend/pages/fleet';
                 $this->load->view(FRONTEND, $this->data);
@@ -56,28 +55,21 @@ class Page extends Public_Controller
                 $this->data['main_content'] = 'frontend/pages/rent';
                 $this->load->view(FRONTEND, $this->data);
                 break;
-            case "terms-and-conditions":
-                $this->data['main_content'] = 'frontend/pages/terms-and-conditions';
-                $this->load->view(FRONTEND, $this->data);
-                break;
-            case "cancellation-policy":
-                $this->data['main_content'] = 'frontend/pages/cancellation-policy';
-                $this->load->view(FRONTEND, $this->data);
-                break;
 
             case"contact":
                 $this->data['main_content'] = 'frontend/pages/contact';
                 $this->load->view(FRONTEND, $this->data);
                 break;
 
-
             default:
-                $this->data['check'] = $this->pages_model->get(array('slug' => $slug));
-                if ($this->data['check']) {
-                    $this->data['main_content'] = 'frontend/pages/default_page';
+                $page = $this->pages_model->get(array('slug' => $slug));
+
+                if ($page) {
+                    $this->data['page'] = $page;
+                    $this->data['main_content'] = 'frontend/templates/service';
                     $this->load->view(FRONTEND, $this->data);
                 } else {
-                    $this->data['main_content'] = 'frontend/pages/services';
+                    $this->data['main_content'] = 'frontend/pages/404';
                     $this->load->view(FRONTEND, $this->data);
                 }
                 break;
