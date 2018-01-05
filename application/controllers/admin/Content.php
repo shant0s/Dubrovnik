@@ -92,6 +92,8 @@ class Content extends Admin_Controller {
         $banner_id = segment(4);
         $post = $this->input->post();
         if ($post) {
+
+
             $banner = $_FILES['banner'];
             $banner_name = '';
 
@@ -156,8 +158,23 @@ class Content extends Admin_Controller {
 
 
         if ($post) {
+            if (!empty($_FILES['profile_image']['name'])) {
+                if ($testimonial_id) {
 
-            if ($testimonial_id == '') {              
+                    $testimonial_data = $this->testimonials_model->get($fleet_id);
+                    if ($testimonial_data) {
+                        $url = 'uploads/fleet/' . $testimonial_data->img_name;
+                        if (file_exists($url))
+                            unlink($url);
+                    }
+                }
+                $files_data = $this->common_library->upload_image('profile_image', 'uploads/testimonial/', 'testimonial' . time());
+                $post['image'] = $files_data['filename'];
+            }
+
+
+            if ($testimonial_id == '') {
+
                 $this->testimonials_model->insert($post);
             } else {
                 $this->testimonials_model->update($post, array('id' => $testimonial_id));

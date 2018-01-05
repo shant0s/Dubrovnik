@@ -1,3 +1,11 @@
+<?php
+$isNew = true;
+if ($this->uri->segment(4) != '') {
+    $testimonial = $testimonial;
+    $isNew = false;
+    $filename = $testimonial->image;
+}
+?>
 <!-- Small boxes (Stat box) -->
 <div class="row">
     <div class="col-md-12">
@@ -30,7 +38,23 @@
                                         <label class="error" style="display:none;">This field is required</label>                                      
                                     </td>
                                 </tr>
+                                <tr>
+                                    <td>
+                                        <label>Select Image <span class="text-danger">*</span> </label>
+                                        <input type="file" name="profile_image" class="<?php echo ($isNew) ? 'required' : '' ?>">
+                                    </td>
+                                </tr>
+                                    <?php if (!$isNew) { ?>
+                                        <tr>
+                                            <td>
+                                                <div>
+                                                    <img src="<?php echo base_url('uploads/testimonial/' . $filename) ?>"
+                                                         width="250px" class="img-responsive">
+                                                </div>
 
+                                            </td>
+                                        </tr>
+                                    <?php } ?>
                             </tbody>
                         </table>
                         <!--  </form> -->

@@ -279,7 +279,7 @@
 <section class="book-xtra" style="background: url(assets/images/booking-bg.jpg);">
     <div class="container">
         <article>Have a awesome ride with us.</article>
-        <a href="rent.php" class="btn-custom3 pull-right">Book now</a>
+        <a href="<?= site_url('rent')?>" class="btn-custom3 pull-right">Book now</a>
     </div>
 </section>
 
@@ -292,7 +292,7 @@
                 <article><?= $testimonial->content ?></article>
                 <div class="media">
                     <div class="media-left media-middle">
-                        <img src="assets/images/testimonial.jpg" class="media-object" alt="testimonials">
+                        <img src="<?= base_url('uploads/testimonial/'.$testimonial->image)?>" class="media-object" alt="testimonials">
                     </div>
                     <div class="media-body">
                         <h4 class="media-heading"><?= $testimonial->designation ?></h4>
