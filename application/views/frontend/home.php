@@ -205,73 +205,25 @@
     <div class="container">
         <h2 class="prime-title">Fleet</h2>
         <div class="fleet-slider">
-            <div class="item-wrap">
-                <div class="fleet-item">
-                    <div class="fleet-img">
-                        <img src="assets/images/mercedes.png">
-                    </div>
-                    <h3>Mercedes S Class</h3>
-                    <article>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna liqua.
-                    </article>
-                    <div class="car-details">
-                        <div class="row">
-                            <div class="col-xs-6"><span>3 pax</span></div>
-                            <div class="col-xs-6"><span>3 lugg</span></div>
+            <?php foreach ($fleets as $fleet): ?>
+                <div class="item-wrap">
+                    <div class="fleet-item">
+                        <div class="fleet-img">
+                            <img src="<?= base_url('uploads/fleet/' . $fleet->img_name) ?>">
+                        </div>
+                        <h3><?= $fleet->title ?></h3>
+                        <article>
+                            <?= $fleet->desc ?>
+                        </article>
+                        <div class="car-details">
+                            <div class="row">
+                                <div class="col-xs-6"><span><?= $fleet->passengers ?> pass</span></div>
+                                <div class="col-xs-6"><span><?= $fleet->luggage ?> lugg</span></div>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="item-wrap">
-                <div class="fleet-item">
-                    <div class="fleet-img">
-                        <img src="assets/images/van.png">
-                    </div>
-                    <h3>Mercedes S Class</h3>
-                    <article>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna liqua.
-                    </article>
-                    <div class="car-details">
-                        <div class="row">
-                            <div class="col-xs-6"><span>3 pax</span></div>
-                            <div class="col-xs-6"><span>3 lugg</span></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="item-wrap">
-                <div class="fleet-item">
-                    <div class="fleet-img">
-                        <img src="assets/images/mercedes.png">
-                    </div>
-                    <h3>Mercedes S Class</h3>
-                    <article>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna liqua.
-                    </article>
-                    <div class="car-details">
-                        <div class="row">
-                            <div class="col-xs-6"><span>3 pax</span></div>
-                            <div class="col-xs-6"><span>3 lugg</span></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="item-wrap">
-                <div class="fleet-item">
-                    <div class="fleet-img">
-                        <img src="assets/images/mercedes.png">
-                    </div>
-                    <h3>Mercedes S Class</h3>
-                    <article>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna liqua.
-                    </article>
-                    <div class="car-details">
-                        <div class="row">
-                            <div class="col-xs-6"><span>3 pax</span></div>
-                            <div class="col-xs-6"><span>3 lugg</span></div>
-                        </div>
-                    </div>
-                </div>
+            <?php endforeach; ?>
             </div>
         </div>
     </div>

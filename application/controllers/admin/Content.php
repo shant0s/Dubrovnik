@@ -161,9 +161,9 @@ class Content extends Admin_Controller {
             if (!empty($_FILES['profile_image']['name'])) {
                 if ($testimonial_id) {
 
-                    $testimonial_data = $this->testimonials_model->get($fleet_id);
+                    $testimonial_data = $this->testimonials_model->get($testimonial_id);
                     if ($testimonial_data) {
-                        $url = 'uploads/fleet/' . $testimonial_data->img_name;
+                        $url = 'uploads/testimonial/' . $testimonial_data->img_name;
                         if (file_exists($url))
                             unlink($url);
                     }

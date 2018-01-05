@@ -12,7 +12,7 @@ class Index extends Public_Controller {
 
     function index() {
 //        $this->session->sess_destroy();
-//        $this->data['fleet'] = $this->fleet_model->get_all();     
+        $this->data['fleets'] = $this->fleet_model->get_all();
         $this->data['banner_imgs'] = $this->banners_model->get_all();        
         $this->data['testimonials'] = $this->testimonials_model->get_all();        
         $this->data['main_content'] = 'frontend/home';
