@@ -8,7 +8,10 @@
 <section class="about section">
     <div class="container">
         <h2 class="prime-title">About us</h2>
-        <article>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</article>
+        <article>
+            <?php $about_us = get_page_by_slug('home-page-about-dubrovnik-airport-taxis') ?>
+            <?= $about_us->desc ?>
+        </article>
     </div>
 </section>
 <section class="service section">
@@ -53,8 +56,8 @@
                             <article class="">
                                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
                             </article>
-                            <a href="price.php" class="btn-custom1">View Prices</a>
-                            <a href="rent.php" class="btn-custom2">Book Now</a>
+                            <a href="<?= site_url('price'); ?>" class="btn-custom1">View Prices</a>
+                            <a href="<?= site_url('rent'); ?>" class="btn-custom2">Book Now</a>
                         </div>
                     </div>
                 </div>
@@ -75,8 +78,8 @@
                             <article class="">
                                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
                             </article>
-                            <a href="price.php" class="btn-custom1">View Prices</a>
-                            <a href="rent.php" class="btn-custom2">Book Now</a>
+                            <a href="<?= site_url('price'); ?>" class="btn-custom1">View Prices</a>
+                            <a href="<?= site_url('rent'); ?>" class="btn-custom2">Book Now</a>
                         </div>
                     </div>
                 </div>
@@ -97,8 +100,8 @@
                             <article class="">
                                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
                             </article>
-                            <a href="price.php" class="btn-custom1">View Prices</a>
-                            <a href="rent.php" class="btn-custom2">Book Now</a>
+                            <a href="<?= site_url('price'); ?>" class="btn-custom1">View Prices</a>
+                            <a href="<?= site_url('rent'); ?>" class="btn-custom2">Book Now</a>
                         </div>
                     </div>
                 </div>
@@ -119,8 +122,8 @@
                             <article class="">
                                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
                             </article>
-                            <a href="price.php" class="btn-custom1">View Prices</a>
-                            <a href="rent.php" class="btn-custom2">Book Now</a>
+                            <a href="<?= site_url('price'); ?>" class="btn-custom1">View Prices</a>
+                            <a href="<?= site_url('rent'); ?>" class="btn-custom2">Book Now</a>
                         </div>
                     </div>
                 </div>
@@ -141,8 +144,8 @@
                             <article class="">
                                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
                             </article>
-                            <a href="price.php" class="btn-custom1">View Prices</a>
-                            <a href="rent.php" class="btn-custom2">Book Now</a>
+                            <a href="<?= site_url('price'); ?>" class="btn-custom1">View Prices</a>
+                            <a href="<?= site_url('rent'); ?>" class="btn-custom2">Book Now</a>
                         </div>
                     </div>
                 </div>
@@ -163,8 +166,8 @@
                             <article class="">
                                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
                             </article>
-                            <a href="price.php" class="btn-custom1">View Prices</a>
-                            <a href="rent.php" class="btn-custom2">Book Now</a>
+                            <a href="<?= site_url('price'); ?>" class="btn-custom1">View Prices</a>
+                            <a href="<?= site_url('rent'); ?>" class="btn-custom2">Book Now</a>
                         </div>
                     </div>
                 </div>
