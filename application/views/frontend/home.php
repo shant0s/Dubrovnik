@@ -32,7 +32,8 @@
                                 <h3>Airport Transfer</h3>
                             </div>
                             <article>
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                                <?php $airport = get_page_by_slug('home-page-airport-transfer') ?>
+                                <?= $airport->desc ?>
                             </article>
                             <a href="<?= site_url('price'); ?>" class="btn-custom1">View Prices</a>
                             <a href="<?= site_url('rent'); ?>" class="btn-custom2">Book Now</a>
@@ -54,7 +55,8 @@
                                 <h3>Minibus Service</h3>
                             </div>
                             <article class="">
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                                <?php $minibus = get_page_by_slug('home-page-minibus-service') ?>
+                                <?= $minibus->desc ?>
                             </article>
                             <a href="<?= site_url('price'); ?>" class="btn-custom1">View Prices</a>
                             <a href="<?= site_url('rent'); ?>" class="btn-custom2">Book Now</a>
@@ -76,7 +78,8 @@
                                 <h3>Bus Coach Service</h3>
                             </div>
                             <article class="">
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                                <?php $bus = get_page_by_slug('home-page-bus-coach-service') ?>
+                                <?= $bus->desc ?>
                             </article>
                             <a href="<?= site_url('price'); ?>" class="btn-custom1">View Prices</a>
                             <a href="<?= site_url('rent'); ?>" class="btn-custom2">Book Now</a>
@@ -98,7 +101,8 @@
                                 <h3>Chauffer Service</h3>
                             </div>
                             <article class="">
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                                <?php $chauffeurs_service = get_page_by_slug('home-page-chauffeurs-service'); ?>
+                                <?= $chauffeurs_service->desc ?>
                             </article>
                             <a href="<?= site_url('price'); ?>" class="btn-custom1">View Prices</a>
                             <a href="<?= site_url('rent'); ?>" class="btn-custom2">Book Now</a>
@@ -120,7 +124,10 @@
                                 <h3>Excursion</h3>
                             </div>
                             <article class="">
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                                <article class="">
+                                    <?php $excursion_service = get_page_by_slug('home-page-excursions'); ?>
+                                    <?= $excursion_service->desc ?>
+                                </article>
                             </article>
                             <a href="<?= site_url('price'); ?>" class="btn-custom1">View Prices</a>
                             <a href="<?= site_url('rent'); ?>" class="btn-custom2">Book Now</a>
@@ -142,7 +149,8 @@
                                 <h3>Group Travel</h3>
                             </div>
                             <article class="">
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                                <?php $group_travel_service = get_page_by_slug('home-page-group-travel'); ?>
+                                <?= $group_travel_service->desc ?>
                             </article>
                             <a href="<?= site_url('price'); ?>" class="btn-custom1">View Prices</a>
                             <a href="<?= site_url('rent'); ?>" class="btn-custom2">Book Now</a>
@@ -164,7 +172,8 @@
                                 <h3>Other Services</h3>
                             </div>
                             <article class="">
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                                <?php $other_services = get_page_by_slug('home-page-other-services'); ?>
+                                <?= $other_services->desc ?>
                             </article>
                             <a href="<?= site_url('price'); ?>" class="btn-custom1">View Prices</a>
                             <a href="<?= site_url('rent'); ?>" class="btn-custom2">Book Now</a>

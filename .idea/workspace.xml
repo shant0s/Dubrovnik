@@ -3,6 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="643428c3-c0b0-4f64-9ae0-84701d9dc4ac" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/controllers/admin/Zone_manager.php" afterPath="$PROJECT_DIR$/application/controllers/admin/Zone_manager.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/admin/include/navbar.php" afterPath="$PROJECT_DIR$/application/views/admin/include/navbar.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/frontend/home.php" afterPath="$PROJECT_DIR$/application/views/frontend/home.php" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -37,8 +39,8 @@
       <file leaf-file-name="navbar.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/application/views/admin/include/navbar.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="136">
-              <caret line="8" column="3" lean-forward="false" selection-start-line="8" selection-start-column="3" selection-end-line="8" selection-end-column="3" />
+            <state relative-caret-position="629">
+              <caret line="37" column="22" lean-forward="true" selection-start-line="37" selection-start-column="22" selection-end-line="37" selection-end-column="22" />
               <folding />
             </state>
           </provider>
@@ -47,23 +49,22 @@
       <file leaf-file-name="home.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/application/views/frontend/home.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="109">
-              <caret line="169" column="95" lean-forward="false" selection-start-line="169" selection-start-column="95" selection-end-line="169" selection-end-column="95" />
+            <state relative-caret-position="408">
+              <caret line="175" column="51" lean-forward="false" selection-start-line="175" selection-start-column="51" selection-end-line="175" selection-end-column="51" />
               <folding>
-                <element signature="n#style#0;n#section#0;n#!!top" expanded="true" />
-                <marker date="1515128851672" expanded="true" signature="9577:9603" ph="..." />
-                <marker date="1515128851672" expanded="true" signature="9693:9719" ph="..." />
-                <marker date="1515128851672" expanded="true" signature="9814:9840" ph="..." />
+                <marker date="1515131932096" expanded="true" signature="8970:8996" ph="..." />
+                <marker date="1515131932096" expanded="true" signature="9086:9112" ph="..." />
+                <marker date="1515131932096" expanded="true" signature="9207:9233" ph="..." />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Content.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/application/controllers/admin/Content.php">
+      <file leaf-file-name="fleet.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/application/views/frontend/pages/fleet.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-680">
-              <caret line="8" column="33" lean-forward="true" selection-start-line="8" selection-start-column="33" selection-end-line="8" selection-end-column="33" />
+            <state relative-caret-position="306">
+              <caret line="51" column="18" lean-forward="true" selection-start-line="51" selection-start-column="18" selection-end-line="51" selection-end-column="18" />
               <folding />
             </state>
           </provider>
@@ -73,8 +74,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>start</find>
-      <find>holidays_model</find>
       <find>$session_two_way_total_fare</find>
       <find>ComputerateAndStoreInSession</find>
       <find>!$is_edit</find>
@@ -103,6 +102,8 @@
       <find>pages_model</find>
       <find>content</find>
       <find>about</find>
+      <find>services</find>
+      <find>airport</find>
     </findStrings>
     <replaceStrings>
       <replace>fleet_manager</replace>
@@ -138,7 +139,6 @@
         <option value="$PROJECT_DIR$/application/views/admin/zone_manager/zone_update.php" />
         <option value="$PROJECT_DIR$/application/models/Zone_model.php" />
         <option value="$PROJECT_DIR$/../driver-chauffeur/application/controllers/admin/zone_manager.php" />
-        <option value="$PROJECT_DIR$/application/controllers/admin/Zone_manager.php" />
         <option value="$USER_HOME$/AppData/Local/Temp/fz3temp-3/_sms_job_remove_assigned.php" />
         <option value="$PROJECT_DIR$/application/views/admin/zone_manager/zones.php" />
         <option value="$PROJECT_DIR$/application/views/admin/fleet/navtab-parts/tab3.php" />
@@ -182,6 +182,7 @@
         <option value="$PROJECT_DIR$/application/views/admin/content/about_us.php" />
         <option value="$PROJECT_DIR$/application/views/admin/content/about.php" />
         <option value="$PROJECT_DIR$/application/views/admin/include/navbar.php" />
+        <option value="$PROJECT_DIR$/application/controllers/admin/Zone_manager.php" />
         <option value="$PROJECT_DIR$/application/views/frontend/home.php" />
       </list>
     </option>
@@ -234,19 +235,6 @@
               <item name="Dubrovnik" type="b2602c69:ProjectViewProjectNode" />
               <item name="Dubrovnik" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="application" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="controllers" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="Dubrovnik" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Dubrovnik" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="application" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="controllers" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="admin" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="Dubrovnik" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Dubrovnik" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="application" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="views" type="2a2b976b:PhpTreeStructureProvider$1" />
             </path>
             <path>
@@ -255,6 +243,19 @@
               <item name="application" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="views" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="frontend" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="Dubrovnik" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Dubrovnik" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="application" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="views" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="frontend" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="pages" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="Dubrovnik" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Dubrovnik" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="assets" type="2a2b976b:PhpTreeStructureProvider$1" />
             </path>
           </expand>
           <select />
@@ -310,12 +311,12 @@
       <workItem from="1514966625405" duration="12555000" />
       <workItem from="1515037030102" duration="3047000" />
       <workItem from="1515040340787" duration="25813000" />
-      <workItem from="1515122894760" duration="5922000" />
+      <workItem from="1515122894760" duration="8997000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="152395000" />
+    <option name="totallyTimeSpent" value="155470000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-4" y="-4" width="1374" height="732" extended-state="6" />
@@ -430,6 +431,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-50">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -445,6 +447,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -462,19 +465,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/controllers/admin/Fleet_manager.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="476">
-          <caret line="146" column="38" lean-forward="false" selection-start-line="146" selection-start-column="38" selection-end-line="146" selection-end-column="38" />
-          <folding>
-            <marker date="1510638720544" expanded="true" signature="4580:4639" ph="SELECT *,ST_... zones" />
-            <marker date="1510638720544" expanded="true" signature="5708:5767" ph="SELECT *,ST_... zones" />
-            <marker date="1510638720544" expanded="true" signature="6090:6200" ph="SELECT * FRO... zones_rate" />
-            <marker date="1510638720544" expanded="true" signature="6873:6983" ph="SELECT * FRO... zones_rate" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/system/libraries/Session/drivers/Session_files_driver.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="391">
@@ -487,6 +477,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -494,6 +485,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="425">
           <caret line="25" column="24" lean-forward="false" selection-start-line="25" selection-start-column="24" selection-end-line="25" selection-end-column="24" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -501,6 +493,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -516,6 +509,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -544,13 +538,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="442">
           <caret line="29" column="89" lean-forward="false" selection-start-line="29" selection-start-column="89" selection-end-line="29" selection-end-column="89" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/frontend/pages/fleet.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1275">
-          <caret line="75" column="0" lean-forward="false" selection-start-line="75" selection-start-column="0" selection-end-line="75" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -574,6 +562,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="51">
           <caret line="3" column="13" lean-forward="true" selection-start-line="3" selection-start-column="13" selection-end-line="3" selection-end-column="13" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -622,19 +611,6 @@
         <state relative-caret-position="153">
           <caret line="9" column="34" lean-forward="false" selection-start-line="9" selection-start-column="34" selection-end-line="9" selection-end-column="34" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/controllers/admin/Zone_manager.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="16" column="5" lean-forward="true" selection-start-line="16" selection-start-column="5" selection-end-line="16" selection-end-column="5" />
-          <folding>
-            <marker date="1510569756060" expanded="true" signature="256:315" ph="SELECT *,ST_... zones" />
-            <marker date="1510569756060" expanded="true" signature="2247:2364" ph="INSERT INTO zones... " />
-            <marker date="1510569756060" expanded="true" signature="2833:2939" ph="UPDATE zones... " />
-            <marker date="1510569756060" expanded="true" signature="3105:3164" ph="SELECT *,ST_... zones" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -744,22 +720,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/admin/include/navbar.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="8" column="3" lean-forward="false" selection-start-line="8" selection-start-column="3" selection-end-line="8" selection-end-column="3" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/controllers/admin/Content.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-680">
-          <caret line="8" column="33" lean-forward="true" selection-start-line="8" selection-start-column="33" selection-end-line="8" selection-end-column="33" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/application/views/admin/content/page_form.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1581">
@@ -768,15 +728,59 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/admin/include/navbar.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="629">
+          <caret line="37" column="22" lean-forward="true" selection-start-line="37" selection-start-column="22" selection-end-line="37" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/controllers/admin/Content.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-187">
+          <caret line="10" column="0" lean-forward="true" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/controllers/admin/Fleet_manager.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1037">
+          <caret line="146" column="38" lean-forward="false" selection-start-line="146" selection-start-column="38" selection-end-line="146" selection-end-column="38" />
+          <folding>
+            <marker date="1510638720544" expanded="true" signature="4580:4639" ph="SELECT *,ST_... zones" />
+            <marker date="1510638720544" expanded="true" signature="5708:5767" ph="SELECT *,ST_... zones" />
+            <marker date="1510638720544" expanded="true" signature="6090:6200" ph="SELECT * FRO... zones_rate" />
+            <marker date="1510638720544" expanded="true" signature="6873:6983" ph="SELECT * FRO... zones_rate" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/controllers/admin/Zone_manager.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="326">
+          <caret line="155" column="11" lean-forward="true" selection-start-line="155" selection-start-column="11" selection-end-line="155" selection-end-column="11" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/frontend/pages/fleet.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="51" column="18" lean-forward="true" selection-start-line="51" selection-start-column="18" selection-end-line="51" selection-end-column="18" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/application/views/frontend/home.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="109">
-          <caret line="169" column="95" lean-forward="false" selection-start-line="169" selection-start-column="95" selection-end-line="169" selection-end-column="95" />
+        <state relative-caret-position="408">
+          <caret line="175" column="51" lean-forward="false" selection-start-line="175" selection-start-column="51" selection-end-line="175" selection-end-column="51" />
           <folding>
-            <element signature="n#style#0;n#section#0;n#!!top" expanded="true" />
-            <marker date="1515128851672" expanded="true" signature="9577:9603" ph="..." />
-            <marker date="1515128851672" expanded="true" signature="9693:9719" ph="..." />
-            <marker date="1515128851672" expanded="true" signature="9814:9840" ph="..." />
+            <marker date="1515131932096" expanded="true" signature="8970:8996" ph="..." />
+            <marker date="1515131932096" expanded="true" signature="9086:9112" ph="..." />
+            <marker date="1515131932096" expanded="true" signature="9207:9233" ph="..." />
           </folding>
         </state>
       </provider>
