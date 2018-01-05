@@ -19,6 +19,12 @@
                                 </tr>
                                 <tr>
                                     <td>
+                                        <label>Address <span class="text-danger">*</span></label>
+                                        <input type="text" placeholder="Enter Full Name" class="form-control required" name="address" value="<?php echo!$isNew ? $testimonial->address : '' ?>" required>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
                                         <label>Content <span class="text-danger">*</span></label>
                                         <textarea name="content" placeholder="Enter Content" rows="4" class="form-control required" required><?php echo!$isNew ? $testimonial->content : '' ?></textarea>
                                         <label class="error" style="display:none;">This field is required</label>                                      

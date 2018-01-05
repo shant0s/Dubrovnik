@@ -16,7 +16,8 @@
                         <tr>
                             <th style="width:3%"></th>
                             <th>Designation</th>
-                            <th>Content</th>                          
+                            <th>Address</th>
+                            <th>Content</th>
                             <th width="12%">Action</th>
                         </tr>
                     </thead>
@@ -29,7 +30,8 @@
                                     <td><?php echo $count++; ?></td>
                                     
                                     <td><?php echo $testimonial->designation ?></td>
-                                    <td><?php echo $testimonial->content ?></td>                    
+                                    <td><?php echo $testimonial->address ?></td>
+                                    <td><?php echo $testimonial->content ?></td>
                                     <td>
                                         <a class="btn btn-sm btn-info" href="<?php echo site_url('admin/content/add_update_testimonial/' . $testimonial->id) ?>">Edit</a>
                                         <a class="btn btn-sm btn-danger" href="<?php echo site_url('admin/content/delete_testimonial/' . $testimonial->id) ?>" onclick="return confirm('Are you sure?')">Delete</a>

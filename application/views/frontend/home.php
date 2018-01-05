@@ -287,30 +287,20 @@
     <div class="container">
         <h2 class="prime-title">Testimonial</h2>
         <div class="testimonial-slider">
+            <?php foreach ($testimonials as $testimonial): ?>
             <div class="testimonial-item">
-                <article>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</article>
+                <article><?= $testimonial->content ?></article>
                 <div class="media">
                     <div class="media-left media-middle">
                         <img src="assets/images/testimonial.jpg" class="media-object" alt="testimonials">
                     </div>
                     <div class="media-body">
-                        <h4 class="media-heading">Mladenka Marušić</h4>
-                        <span>Michaelkirchstr. 28, 31559 Haste</span>
+                        <h4 class="media-heading"><?= $testimonial->designation ?></h4>
+                        <span><?= $testimonial->address ?></span>
                     </div>
                 </div>
             </div>
-            <div class="testimonial-item">
-                <article>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</article>
-                <div class="media">
-                    <div class="media-left media-middle">
-                        <img src="assets/images/testimonial.jpg" class="media-object" alt="testimonials">
-                    </div>
-                    <div class="media-body">
-                        <h4 class="media-heading">Mladenka Marušić</h4>
-                        <span>Michaelkirchstr. 28, 31559 Haste</span>
-                    </div>
-                </div>
-            </div>
+            <?php endforeach; ?>
         </div>
     </div>
 </section>

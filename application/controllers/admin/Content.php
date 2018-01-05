@@ -153,6 +153,8 @@ class Content extends Admin_Controller {
 
         $testimonial_id = segment(4);
         $post = $this->input->post();
+
+
         if ($post) {
 
             if ($testimonial_id == '') {              
