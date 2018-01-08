@@ -34,8 +34,7 @@ class Public_Controller extends MY_Controller {
         $this->load->model('passenger_model');               
         $this->data['passenger'] = $this->passenger_model->get(array('id' => $this->session->userdata('logged_in_passenger')));
 
-        $this->load->model('contact_model');
-        $this->data['contacts'] = $this->contact_model->get_all();
+
 
         $this->load->model('pages_model');
         $this->data['pages'] = $this->pages_model->get_all();

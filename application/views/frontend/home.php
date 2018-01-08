@@ -1,4 +1,3 @@
-<?= flash(); ?>
 <div class="home-slider">
     <?php foreach ($banner as $result): ?>
         <?php $imageurl = 'uploads/banner/' . $result->filename; ?>

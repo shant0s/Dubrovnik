@@ -9,8 +9,6 @@ class Index extends Public_Controller {
         $this->load->model('passenger_model');
         $this->load->model('qualities_model');
         $this->load->model('testimonials_model');
-//        $this->load->model('contact_model');
-//        $this->load->model('pages_model');
     }
 
     function index() {
@@ -19,8 +17,6 @@ class Index extends Public_Controller {
         $this->data['qualities'] = $this->qualities_model->get(array('id' => 1));
         $this->data['banner'] = $this->banners_model->get_all();        
         $this->data['testimonials'] = $this->testimonials_model->get_all();        
-//        $this->data['contacts'] = $this->contact_model->get_all();
-//        $this->data['pages'] = $this->pages_model->get_all();
         $this->data['main_content'] = 'frontend/home';
         $this->load->view(FRONTEND, $this->data);
         

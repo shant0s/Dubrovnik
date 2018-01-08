@@ -8,7 +8,6 @@ class Content extends Admin_Controller {
         $this->load->model('qualities_model');
         $this->load->model('pages_model');
         $this->load->model('testimonials_model');
-        $this->load->model('contact_model');
     }
 
     function pages() {
@@ -273,42 +272,6 @@ class Content extends Admin_Controller {
 //        redirect('admin/content/qualities');
 //    }
 
-    function contact() {
 
-        $this->data['contacts'] = $this->contact_model->get_all();
-
-        $this->data['main_content'] = 'admin/content/index';
-        $this->data['sub_content'] = 'admin/content/contact';
-        $this->load->view(BACKEND, $this->data);
-    }
-
-    function add_update_contact() {
-
-        $contact_id = segment(4);
-        $post = $this->input->post();
-
-        if ($post) {
-
-            if ($contact_id == '') {
-                $this->data['contacts'] = $this->contact_model->insert($post);
-            } else {
-                $this->data['contacts'] = $this->contact_model->update($post, array('id' => $contact_id));
-            }
-            
-            $this->session->set_flashdata('msg', 'Contact Saved');
-
-            return redirect('admin/content/contact');
-        } else {
-            $this->data['main_content'] = 'admin/content/index';
-            $this->data['sub_content'] = 'admin/content/contact_form';
-            $this->data['isNew'] = true;
-            if ($contact_id != '') {
-                $this->data['isNew'] = false;
-                $this->data['contact'] = $this->contact_model->get(array('id' => segment(4)));
-            }
-
-            $this->load->view(BACKEND, $this->data);
-        }
-    }
 
 }
