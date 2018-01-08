@@ -5,9 +5,9 @@
         <?php flash() ?>
         <div class="box">
             <div class="box-header">
-                <h3 class="box-title">Fleet Manager</h3>
+                <h3 class="box-title">Fleet</h3>
                 <span class="pull-right add-new">
-                    <a href="<?php echo base_url('admin/fleet_manager/add_update') ?>"
+                    <a href="<?php echo base_url('admin/fleet/add_update') ?>"
                        class="btn btn-success">Add New</a>
                 </span>
             </div><!-- /.box-header -->
@@ -37,9 +37,9 @@
                             </td>
                             <td>
                                 <a class="btn btn-sm btn-info"
-                                   href="<?php echo base_url('admin/fleet_manager/add_update/' . $fleet->id) ?>">Edit</a>
+                                   href="<?php echo base_url('admin/fleet/add_update/' . $fleet->id) ?>">Edit</a>
                                 <a class="btn btn-sm btn-danger"
-                                   href="<?php echo base_url('admin/fleet_manager/delete/' . $fleet->id) ?>"
+                                   href="<?php echo base_url('admin/fleet/delete/' . $fleet->id) ?>"
                                    onclick="return confirm('Are you sure?')">Delete</a>
                             </td>
                         </tr>
