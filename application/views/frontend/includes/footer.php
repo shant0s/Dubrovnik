@@ -6,11 +6,11 @@
                     <div class="footer-item">
                         <h4>Quick Links</h4>
                         <ul>
-                            <li><a href="index.php">Home</a></li>
-                            <li><a href="fleet.php">Fleet</a></li>
-                            <li><a href="price.php">Price</a></li>
-                            <li><a href="contact.php">Contact</a></li>
-                            <li><a href="rent.php">Rent a car</a></li>
+                            <li><a href="<?= site_url(); ?>">Home</a></li>
+                            <li><a href="<?= site_url('fleet'); ?>">Fleet</a></li>
+                            <li><a href="<?= site_url('price'); ?>">Price</a></li>
+                            <li><a href="<?= site_url('contact'); ?>">Contact</a></li>
+                            <li><a href="<?= site_url('rent'); ?>">Rent a car</a></li>
                         </ul>
                     </div>
                 </div>
@@ -18,13 +18,13 @@
                     <div class="footer-item xtra">
                         <h4>Service</h4>
                         <ul>
-                            <li><a href="service-template.php">Airport transfers</a></li>
-                            <li><a href="service-template.php">Minibus Service</a></li>
-                            <li><a href="service-template.php">Bus (coach) service</a></li>
-                            <li><a href="service-template.php">Chauffer Service</a></li>
-                            <li><a href="service-template.php">Excursions</a></li>
-                            <li><a href="service-template.php">Group Travel</a></li>
-                            <li><a href="service-template.php">Other Services</a></li>
+                            <li><a href="<?= site_url('airport-transfer') ?>">Airport transfers</a></li>
+                            <li><a href="<?= site_url('minibus-service') ?>">Minibus Service</a></li>
+                            <li><a href="<?= site_url('bus-coach-service') ?>">Bus (coach) service</a></li>
+                            <li><a href="<?= site_url('chauffer-service') ?>">Chauffer Service</a></li>
+                            <li><a href="<?= site_url('excursions') ?>">Excursions</a></li>
+                            <li><a href="<?= site_url('group-travel') ?>">Group Travel</a></li>
+                            <li><a href="<?= site_url('other-services') ?>">Other Services</a></li>
                         </ul>
                     </div>
                 </div>

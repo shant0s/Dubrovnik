@@ -30,7 +30,7 @@
                     <li class="<?php echo segment(3) == 'qualities' ? "active" : "" ?>"><a href="<?php echo site_url('admin/content/qualities') ?>"><i class="fa fa-circle-o"></i> <span>Qualities</span></a></li>
                 </ul>
             </li>                        
-            <li class="<?php echo segment(2) == 'Fleet_' ? "active" : "" ?>"><a href="<?php echo site_url('admin/fleet_manager') ?>"><i class="fa fa-cab"></i> <span>Fleet</span></a></li>
+            <li class="<?php echo segment(2) == 'Fleet_' ? "active" : "" ?>"><a href="<?php echo site_url('admin/fleet') ?>"><i class="fa fa-cab"></i> <span>Fleet</span></a></li>
 <!--            <li class="--><?php //echo segment(2) == 'zone_manager' ? "active" : "" ?><!--"><a href="--><?php //echo site_url('admin/zone_manager') ?><!--"><i class="fa fa-globe"></i><span>Zone Manager</span></a></li>-->
             <!--<li class="<?php echo segment(2) == 'menu_manager' ? "active" : "" ?>"><a href="<?php echo site_url('admin/menu_manager') ?>"><i class="fa fa-navicon"></i><span>Menu Manager</span></a></li>-->
             <li class="<?php echo segment(2) == 'config' ? "active" : "" ?>"><a href="<?php echo site_url('admin/config') ?>"><i class="fa fa-cogs"></i> <span>Admin User Manager</span></a></li>
