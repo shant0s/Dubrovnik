@@ -149,7 +149,7 @@ h1.text span { color: #65ae7f; }
 .fleet-inner article { margin-bottom: 20px; }
 .fleet-inner ul li i { color: #65ae7f; }
 .fleet-inner .btn-custom1 { margin-top: 20px; }
-.fleet-inner figure img { height: 280px; }
+.fleet-inner figure img { width: 100%; }
 .fleet-inner:last-child { margin-bottom: 0; }
 
 /****** pricing ******/

@@ -112,7 +112,9 @@ class Mail extends Public_Controller
         $emailer = common_emogrifier($this->load->view('emailer/_emailer_rent', array('data' => $post), true));
 //        die($emailer);
 
-        email_help('santosh_@mailinator.com', 'test', $emailer, SITE_EMAIL);
+        email_help('santosh_@mailinator.com', 'Vehicle Reservation', $emailer, SITE_EMAIL);
+        $this->session->set_flashdata('msg', 'Your Reservation Has Been Made.');
+        redirect();
     }
 
 }

@@ -43,14 +43,8 @@
                 <div class="col-sm-3 col-xs-6">
                     <div class="footer-item">
                         <h4>Contact</h4>
-                        <ul>
-                            <?php foreach($contacts as $contact): ?>
-                            <li><span>A:</span><?php echo $contact->address; ?></li>
-                            <li><span>T:</span><a href="tel:+385 0 959 060 606"><?php echo $contact->telephone; ?></a></li>
-                            <li><span>M:</span><a href="mailto:info@dubrovnik-transfers.com"><?php echo $contact->mail1; ?></a></li>
-                            <li><span></span><a href="mailto:info@dubrovniktransfers.com"><?php echo $contact->mail2; ?></a></li>
-                            <?php endforeach; ?>
-                        </ul>
+                        <?php $footer_contact = get_page_by_slug('footer-contact'); ?>
+                        <?= $footer_contact->desc; ?>
                         <div class="icons-center">
                             <ul class="icons">
                                 <li><a href="#"><i class="fa fa-facebook"></i></a></li>

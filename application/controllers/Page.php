@@ -54,10 +54,12 @@ class Page extends Public_Controller
                 $this->data['main_content'] = 'frontend/pages/price-inner';
                 $this->load->view(FRONTEND, $this->data);
                 break;
+
             case "rent":
                 $this->data['main_content'] = 'frontend/pages/rent';
                 $this->load->view(FRONTEND, $this->data);
                 break;
+
 
             case"contact":
                 $this->data['main_content'] = 'frontend/pages/contact';
