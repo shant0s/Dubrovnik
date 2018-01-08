@@ -26,9 +26,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
  */
 
 if (ENVIRONMENT == 'development') {
-    $config['base_url'] = 'http://localhost/Dubrovnik/';
+    $config['base_url'] = 'http://localhost:/Dubrovnik/';
 } elseif (ENVIRONMENT == 'testing') {
-    $config['base_url'] = 'http://localhost/Dubrovnik/';
+    $config['base_url'] = 'http://localhost:/Dubrovnik/';
 }
 
 /*

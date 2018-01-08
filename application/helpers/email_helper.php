@@ -9,9 +9,13 @@ if (!function_exists('email_help')) {
         require_once APPPATH . 'third_party/swiftmailer/lib/swift_required.php';
 
         if (ENVIRONMENT == 'development') {
-            $transport = Swift_SmtpTransport::newInstance('smtp.gmail.com', 465, 'ssl')
-                    ->setUsername(SWIFT_EMAIL)
-                    ->setPassword(SWIFT_PASS);
+//            $transport = Swift_SmtpTransport::newInstance('smtp.gmail.com', 465, 'ssl')
+//                    ->setUsername(SWIFT_EMAIL)
+//                    ->setPassword(SWIFT_PASS);
+            $transport = Swift_SmtpTransport::newInstance('lv-shared03.cpanelplatform.com', 465, 'ssl')
+                ->setUsername('demo@workupdate.net')
+                ->setPassword('c0redreams1984');
+
         } else if (ENVIRONMENT == 'testing') {
             $transport = Swift_SmtpTransport::newInstance('lv-shared03.cpanelplatform.com', 465, 'ssl')
                     ->setUsername('demo@workupdate.net')

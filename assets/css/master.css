@@ -278,3 +278,7 @@ td, th { border: 1px solid #ccc; padding: 6px 10px; width: 20%; }
 .contact-form-style{
   margin-top: 45px;
 }
+
+.home-slider .a-slide{
+    width: 100%;
+}

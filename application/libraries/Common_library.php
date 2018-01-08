@@ -12,6 +12,7 @@ class Common_library
 
     function upload_image($fld_name, $full_image_path, $file_name, $resize_detail = '')
     {
+//        die('upload');
         if (!file_exists($full_image_path)) {
             mkdir($full_image_path, DIR_WRITE_MODE, true);
         }
@@ -22,6 +23,7 @@ class Common_library
         $config['upload_path'] = $full_image_path;
         $config['max_size'] = '10240';
         $config['overwrite'] = TRUE;
+        
         if(count($_FILES[$fld_name]['name']) <= 1)
             $config['file_name'] = $file_name;
         $files = $_FILES[$fld_name];
@@ -119,6 +121,7 @@ class Common_library
             }
             return $file_names;
         } else {
+          
             if ($this->CI->upload->do_upload($fld_name)) {
 //                                      ini_set('display_errors', 1);
 //ini_set('display_startup_errors', 1);

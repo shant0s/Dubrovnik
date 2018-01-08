@@ -44,10 +44,12 @@
                     <div class="footer-item">
                         <h4>Contact</h4>
                         <ul>
-                            <li><span>A:</span>Dubrovnik, Crotia</li>
-                            <li><span>T:</span><a href="tel:+385 0 959 060 606">+385 0 959 060 606</a></li>
-                            <li><span>M:</span><a href="mailto:info@dubrovnik-transfers.com">info@dubrovnik-transfers.com</a></li>
-                            <li><span></span><a href="mailto:info@dubrovniktransfers.com">info@dubrovniktransfers.com</a></li>
+                            <?php foreach($contacts as $contact): ?>
+                            <li><span>A:</span><?php echo $contact->address; ?></li>
+                            <li><span>T:</span><a href="tel:+385 0 959 060 606"><?php echo $contact->telephone; ?></a></li>
+                            <li><span>M:</span><a href="mailto:info@dubrovnik-transfers.com"><?php echo $contact->mail1; ?></a></li>
+                            <li><span></span><a href="mailto:info@dubrovniktransfers.com"><?php echo $contact->mail2; ?></a></li>
+                            <?php endforeach; ?>
                         </ul>
                         <div class="icons-center">
                             <ul class="icons">

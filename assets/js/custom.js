@@ -40,6 +40,18 @@ $(document).ready(function () {
         prevArrow: "<img class='a-left control-c prev slick-prev' src='assets/images/button-left.png'>",
         nextArrow: "<img class='a-right control-c next slick-next' src='assets/images/button-right.png'>",
     });
+    
+    $('.home-slider').slick({
+        dots: true,
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        autoplay: true,
+        autoplaySpeed: 5000,
+        adaptiveHeight: true
+//        arrows: true,
+//        prevArrow: "<img class='a-left control-c prev slick-prev' src='assets/images/button-left.png'>",
+//        nextArrow: "<img class='a-right control-c next slick-next' src='assets/images/button-right.png'>",
+    });
 });
 $(window).scroll(function () {
     $(this).scrollTop() > 1 ? $(window).width() < 640 ? $("header").removeClass("sticky") : $("header").addClass("sticky") : $("header").removeClass("sticky")

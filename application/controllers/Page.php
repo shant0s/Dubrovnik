@@ -12,6 +12,7 @@ class Page extends Public_Controller
         $this->load->model('menu_model');
         $this->load->model('submenu_model');
         $this->load->model('pages_model');
+       
     }
 
     public function index()
@@ -39,6 +40,7 @@ class Page extends Public_Controller
                 break;
 
             case "fleet":
+                $this->data['fleets'] = $this->fleet_model->get_all();
                 $this->data['main_content'] = 'frontend/pages/fleet';
                 $this->load->view(FRONTEND, $this->data);
                 break;

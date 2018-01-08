@@ -1,99 +1,69 @@
-    <section class="banner-inner" style="background: url(assets/images/fleets.jpg);">
-        <div class="container">
-            <h1 class="text">Our <span>Fleet</span>
-            </h1>
-        </div>
-    </section>
+<section class="banner-inner" style="background: url(assets/images/fleets.jpg);">
+    <div class="container">
+        <h1 class="text">Our <span>Fleet</span>
+        </h1>
+    </div>
+</section>
 
-    <section class="section">
-        <div class="container">
-            <div class="fleet-inner">
-                <div class="row">
-                    <div class="col-md-6 col-sm-6">
-                        <article>
-                            <h3 class="tertiary-title">Economy Class</h3>
-                            <h5>Mercedes-Benz C Class, Toyota Prius, VW Passat, Vauxhall Insignia, or similar</h5>
-                            <article>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa.</article>
-                            <ul class="list-inline">
-                                <li><i class="fa fa-users"></i> Max 3</li>
-                                <li><i class="fa fa-suitcase"></i> Max 2</li>
-                            </ul>
-                            <a href="" class="btn-custom1">Book Now</a>
-                        </article>
-                    </div>
-                    <div class="col-md-6 col-sm-6">
-                        <figure class="text-center">
-                            <img src="assets/images/economy.png" alt="Economy Class">
-                        </figure>
-                    </div>
-                </div>
-            </div>
-            <div class="fleet-inner">
-                <div class="row">
+<section class="section">
+    <div class="container">
+        <?php
+        $counter = 0;
+        foreach ($fleets as $fleet):
 
-                    <div class="col-md-6 col-sm-6">
-                        <figure class="text-center">
-                            <img src="assets/images/economy.png" alt="Economy Class">
-                        </figure>
+            if ($counter % 2 == 0) {
+                ?> 
+                <div class="fleet-inner">
+                    <div class="row">
+                        <div class="col-md-6 col-sm-6">
+                            <article>
+                                <h3 class="tertiary-title"><?php echo $fleet->title; ?></h3>
+                                <h5>Mercedes-Benz C Class, Toyota Prius, VW Passat, Vauxhall Insignia, or similar</h5>
+                                <article><?php echo $fleet->desc; ?></article>
+                                <ul class="list-inline">
+                                    <li><i class="fa fa-users"></i> Max <?php echo $fleet->passengers; ?></li>
+                                    <li><i class="fa fa-suitcase"></i> Max <?php echo $fleet->luggage; ?></li>
+                                </ul>
+                                <a href="<?php echo site_url('rent'); ?>" class="btn-custom1">Book Now</a>
+                            </article>
+                        </div>
+                        <div class="col-md-6 col-sm-6">
+                            <figure class="text-center">
+                                <img src="<?php echo base_url('uploads/fleet/'.$fleet->img_name); ?>" alt="Economy Class">
+                            </figure>
+                        </div>
                     </div>
-                    <div class="col-md-6 col-sm-6">
-                        <article>
-                            <h3 class="tertiary-title">Economy Class</h3>
-                            <h5>Mercedes-Benz C Class, Toyota Prius, VW Passat, Vauxhall Insignia, or similar</h5>
-                            <article>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa.</article>
-                            <ul class="list-inline">
-                                <li><i class="fa fa-users"></i> Max 3</li>
-                                <li><i class="fa fa-suitcase"></i> Max 2</li>
-                            </ul>
-                            <a href="" class="btn-custom1">Book Now</a>
-                        </article>
-                    </div>
-                </div>
-            </div>
-            <div class="fleet-inner">
-                <div class="row">
-                    <div class="col-md-6 col-sm-6">
-                        <article>
-                            <h3 class="tertiary-title">Economy Class</h3>
-                            <h5>Mercedes-Benz C Class, Toyota Prius, VW Passat, Vauxhall Insignia, or similar</h5>
-                            <article>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa.</article>
-                            <ul class="list-inline">
-                                <li><i class="fa fa-users"></i> Max 3</li>
-                                <li><i class="fa fa-suitcase"></i> Max 2</li>
-                            </ul>
-                            <a href="" class="btn-custom1">Book Now</a>
-                        </article>
-                    </div>
-                    <div class="col-md-6 col-sm-6">
-                        <figure class="text-center">
-                            <img src="assets/images/economy.png" alt="Economy Class">
-                        </figure>
-                    </div>
-                </div>
-            </div>
-            <div class="fleet-inner">
-                <div class="row">
 
-                    <div class="col-md-6 col-sm-6">
-                        <figure class="text-center">
-                            <img src="assets/images/economy.png" alt="Economy Class">
-                        </figure>
-                    </div>
-                    <div class="col-md-6 col-sm-6">
-                        <article>
-                            <h3 class="tertiary-title">Economy Class</h3>
-                            <h5>Mercedes-Benz C Class, Toyota Prius, VW Passat, Vauxhall Insignia, or similar</h5>
-                            <article>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa.</article>
-                            <ul class="list-inline">
-                                <li><i class="fa fa-users"></i> Max 3</li>
-                                <li><i class="fa fa-suitcase"></i> Max 2</li>
-                            </ul>
-                            <a href="" class="btn-custom1">Book Now</a>
-                        </article>
+                </div>
+            <?php } else { ?>
+                <div class="fleet-inner">
+                    <div class="row">
+
+                        <div class="col-md-6 col-sm-6">
+                            <figure class="text-center">
+                                <img src="<?php echo base_url('uploads/fleet/'.$fleet->img_name); ?>" alt="Economy Class">
+                            </figure>
+                        </div>
+                        <div class="col-md-6 col-sm-6">
+                            <article>
+                                <h3 class="tertiary-title"><?php echo $fleet->title; ?></h3>
+                                <h5>Mercedes-Benz C Class, Toyota Prius, VW Passat, Vauxhall Insignia, or similar</h5>
+                                <article><?php echo $fleet->desc; ?></article>
+                                <ul class="list-inline">
+                                    <li><i class="fa fa-users"></i> Max <?php echo $fleet->passengers; ?></li>
+                                    <li><i class="fa fa-suitcase"></i> Max <?php echo $fleet->luggage; ?></li>
+                                </ul>
+                                <a href="<?php echo site_url('rent'); ?>" class="btn-custom1">Book Now</a>
+                            </article>
+                        </div>
                     </div>
                 </div>
-            </div>
-        </div>
-    </section>
+            <?php
+            }
+            $counter++;
+        endforeach;
+        ?>
+    </div>
+</section>
 
 

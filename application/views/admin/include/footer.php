@@ -12,9 +12,11 @@
 <script src="<?= base_url('assets/admin') ?>/plugins/jQuery/jquery-2.2.3.min.js"></script>
 <!-- jQuery UI 1.11.4 -->
 <script src="https://code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
+<script src="<?php echo base_url('assets/admin/js/jquery.validate.js');?>"></script>
 <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
 <script>
-    $.widget.bridge('uibutton', $.ui.button);
+//  $('.forms').validate();
+//    $.widget.bridge('uibutton', $.ui.button);
 </script>
 <!-- Bootstrap 3.3.6 -->
 <script src="<?= base_url('assets/admin') ?>/bootstrap/js/bootstrap.min.js"></script>

@@ -89,10 +89,10 @@ define('BACKEND', 'admin/include/template');
 define('FRONTEND', 'frontend/includes/template');
 define('PASSENGER', 'accounts/passenger/inc/template');
 
-define('SITE_EMAIL', 'info@lutonairport.cab');
+define('SITE_EMAIL', 'info@dubrovnik-transfers.com');
 define('WEBSITE_NAME', 'www.lutonairportcab.com');
 define('SITE_NUMBER', '033 0333 92 62');
-define('SITE_NAME', 'Luton Airport Taxis');
+define('SITE_NAME', 'Dubrovnik Transfers');
 define('ADDRESS_NAME', "96 Redbridge, Stantonbury, Luton Airport, <br>Buckinghamshire, England, MK14 6BS");
 
 

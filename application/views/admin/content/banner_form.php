@@ -38,10 +38,24 @@ if ($this->uri->segment(4) != '') {
                         <tbody id="p_scents">
                             <tr>
                                 <td>
-                                    <textarea class="form-control" name="caption" placeholder="Enter banner caption"><?= !$isNew ? $banner->caption: '' ?></textarea>
+                                    <textarea class="form-control" name="caption" placeholder="Enter banner caption"><?= !$isNew ? $banner->caption : '' ?></textarea>
                                 </td>
                             </tr>
                         </tbody>
+                        <tr>
+                            <td>
+                                <label>Banner Description <span class="text-danger">*</span></label>
+                                <textarea name="description" placeholder="Enter banner description" class="form-control required" id="description"><?php echo!$isNew ? $banner->description : '' ?></textarea>
+                                <label for="description" class="error" style="display:none;">This field is required</label>
+                                <script type="text/javascript">
+                                    var editor = CKEDITOR.replace('description',
+                                            {
+                                                customConfig: '<?php echo base_url('assets/admin/js/plugins/ckeditor/my_config.js') ?>'
+                                            });
+                                    CKFinder.setupCKEditor(editor, '<?php echo base_url('assets/admin/js/plugins/ckfinder/') ?>');
+                                </script>
+                            </td>
+                        </tr>
                         <tr>
                             <td>
                                 <input class="btn btn-primary" type="submit" value="Save">

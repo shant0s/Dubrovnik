@@ -378,6 +378,7 @@ class CI_Upload {
 		{
 			$_file = $_FILES[$field];
 		}
+                
 		// Does the field name contain array notation?
 		elseif (($c = preg_match_all('/(?:^[^\[]+)|\[[^]]*\]/', $field, $matches)) > 1)
 		{
@@ -394,7 +395,6 @@ class CI_Upload {
 				$_file = $_file[$field];
 			}
 		}
-
 		if ( ! isset($_file))
 		{
 			$this->set_error('upload_no_file_selected', 'debug');
@@ -443,22 +443,24 @@ class CI_Upload {
 
 			return FALSE;
 		}
-
 		// Set the uploaded data as class variables
+                
+                
+		$this->file_type = $_file['type'];
 		$this->file_temp = $_file['tmp_name'];
 		$this->file_size = $_file['size'];
-
 		// Skip MIME type detection?
-		if ($this->detect_mime !== FALSE)
-		{
-			$this->_file_mime_type($_file);
-		}
-
+//		if ($this->detect_mime !== FALSE)
+//		{
+//			$this->_file_mime_type($_file);
+//		}
+//print_r($_file);die;
 		$this->file_type = preg_replace('/^(.+?);.*$/', '\\1', $this->file_type);
 		$this->file_type = strtolower(trim(stripslashes($this->file_type), '"'));
 		$this->file_name = $this->_prep_filename($_file['name']);
 		$this->file_ext	 = $this->get_extension($this->file_name);
 		$this->client_name = $this->file_name;
+
 
 		// Is the file type allowed to be uploaded?
 		if ( ! $this->is_allowed_filetype())

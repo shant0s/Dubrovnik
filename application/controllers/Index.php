@@ -7,16 +7,21 @@ class Index extends Public_Controller {
         $this->load->model('fleet_model');
         $this->load->model('banners_model');
         $this->load->model('passenger_model');
+        $this->load->model('qualities_model');
         $this->load->model('testimonials_model');
+        $this->load->model('contact_model');
     }
 
     function index() {
 //        $this->session->sess_destroy();
         $this->data['fleets'] = $this->fleet_model->get_all();
-        $this->data['banner_imgs'] = $this->banners_model->get_all();        
+        $this->data['qualities'] = $this->qualities_model->get(array('id' => 1));
+        $this->data['banner'] = $this->banners_model->get_all();        
         $this->data['testimonials'] = $this->testimonials_model->get_all();        
+        $this->data['contacts'] = $this->contact_model->get_all();        
         $this->data['main_content'] = 'frontend/home';
         $this->load->view(FRONTEND, $this->data);
+        
     }
 
     function rest_password() {

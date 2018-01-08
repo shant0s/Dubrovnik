@@ -5,8 +5,10 @@ class Content extends Admin_Controller {
     function __construct() {
         parent::__construct();
         $this->load->model('banners_model');
+        $this->load->model('qualities_model');
         $this->load->model('pages_model');
         $this->load->model('testimonials_model');
+        $this->load->model('contact_model');
     }
 
     function pages() {
@@ -95,23 +97,30 @@ class Content extends Admin_Controller {
 
 
             $banner = $_FILES['banner'];
+
             $banner_name = '';
+//            print_r($banner);
+//                exit;
 
             if (!empty($banner['name'])) {
-                $banner = $this->banners_model->get(array('id' => segment(4)));
 
-                if ($banner) {
+                if ($banner_id) {
+                    $banner = $this->banners_model->get(array('id' => segment(4)));
+
                     $url = 'uploads/banner/' . $banner->filename;
                     if (file_exists($url))
                         unlink($url);
                 }
                 $files_data = $this->common_library->upload_image('banner', 'uploads/banner/', 'banner_' . time());
+
                 $banner_name = $files_data['filename'];
                 $post['filename'] = $banner_name;
             }
 
             if ($banner_id == '') {
+
                 $post['filename'] = $banner_name;
+
                 $this->banners_model->insert($post);
             } else {
                 $this->banners_model->update($post, array('id' => $banner_id));
@@ -193,11 +202,113 @@ class Content extends Admin_Controller {
             $this->load->view(BACKEND, $this->data);
         }
     }
-      function delete_testimonial() {
-        $id = segment(4);      
+
+    function delete_testimonial() {
+        $id = segment(4);
         $this->testimonials_model->delete($id);
         $this->session->set_flashdata('msg', 'Successfully! Testimonial deleted');
         redirect('admin/content/testimonials');
+    }
+
+    function qualities() {
+        $this->data['main_content'] = 'admin/content/index';
+        $this->data['sub_content'] = 'admin/content/qualities_form';
+
+        $this->data['qualities'] = $this->qualities_model->get(array('id' => 1));
+
+        $post = $this->input->post();
+
+        if ($post) {
+
+            $this->form_validation->set_rules('title1', 'Title1', 'required');
+            $this->form_validation->set_rules('title2', 'Title2', 'required');
+            $this->form_validation->set_rules('title3', 'Title3', 'required');
+            if ($this->form_validation->run() == false) {
+                $this->load->view(BACKEND, $this->data);
+            } else {
+                $this->qualities_model->update($post, array('id' => 1));
+                $this->session->set_flashdata('msg', "Quality Saved.");
+
+                redirect('admin/content/qualities');
+            }
+        } else {
+
+            $this->load->view(BACKEND, $this->data);
+        }
+    }
+
+//    function add_update_qualities() {
+//        
+//        die('hello');
+//        $qualities_id = segment(4);
+//         $post = $this->input->post();
+//        if ($post) {
+//
+//            $this->form_validation->set_rules('title', 'Title', 'required');
+//            if ($this->form_validation->run() == false) {
+//                $this->load->view(BACKEND, $this->data);
+//            } else {
+//                if ($qualities_id == '') {
+//                    $this->qualities_model->insert($post);
+//                } else {
+//                    $this->qualities_model->update($post, array('id' => 1));
+//                }
+//                $this->session->set_flashdata('msg', "Quality Saved.");
+//
+//                redirect('admin/content/qualities');
+//            }
+//        } else {
+//             redirect('admin/content/qualities');
+//        }
+//    }
+//
+//    function delete_qualities() {
+//        $qualities_id = segment(4);
+//        $qualities = $this->qualities_model->get($qualities_id);
+//        $url = 'uploads/qualities/' . $qualities->filename;
+//        if (file_exists($url))
+//            unlink($url);
+//        $this->qualities_model->delete($qualities_id);
+//        $this->session->set_flashdata('msg', 'Successfully! Banner deleted');
+//        redirect('admin/content/qualities');
+//    }
+
+    function contact() {
+
+        $this->data['contacts'] = $this->contact_model->get_all();
+
+        $this->data['main_content'] = 'admin/content/index';
+        $this->data['sub_content'] = 'admin/content/contact';
+        $this->load->view(BACKEND, $this->data);
+    }
+
+    function add_update_contact() {
+
+        $contact_id = segment(4);
+        $post = $this->input->post();
+
+        if ($post) {
+
+            if ($contact_id == '') {
+                $this->data['contacts'] = $this->contact_model->insert($post);
+            } else {
+                $this->data['contacts'] = $this->contact_model->update($post, array('id' => $contact_id));
+            }
+            
+            $this->session->set_flashdata('msg', 'Contact Saved');
+
+            return redirect('admin/content/contact');
+        } else {
+            $this->data['main_content'] = 'admin/content/index';
+            $this->data['sub_content'] = 'admin/content/contact_form';
+            $this->data['isNew'] = true;
+            if ($contact_id != '') {
+                $this->data['isNew'] = false;
+                $this->data['contact'] = $this->contact_model->get(array('id' => segment(4)));
+            }
+
+            $this->load->view(BACKEND, $this->data);
+        }
     }
 
 }
