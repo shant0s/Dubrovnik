@@ -51,7 +51,7 @@
         </div>
     </section>
 
-    <section class="contact  section-contact">
+    <section class="contact">
         <div class="container">
             <div class="contact-form">
                 <div class="row">
@@ -101,7 +101,7 @@
             </div>
     </section>
 
-    <section class="contact  section-contact">
+    <section class="contact">
         <div class="container">
             <div class="contact-form">
                 <div class="row">
@@ -125,10 +125,9 @@
                                 </div>
 
                             </div>
-                        </div>
-                        <div>
-
-                            <input class="btn btn-primary" type="submit" value="Save">
+                            <div class="text-right">
+                                <button type="submit" class="btn-custom1" type="submit">Submit Now</button>
+                            </div>
                         </div>
                         </div>
                     </div>

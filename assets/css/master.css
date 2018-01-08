@@ -282,3 +282,7 @@ td, th { border: 1px solid #ccc; padding: 6px 10px; width: 20%; }
 .home-slider .a-slide{
     width: 100%;
 }
+
+.contact{
+  padding: 20px 0px!important;
+}

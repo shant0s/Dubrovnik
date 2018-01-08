@@ -16,8 +16,8 @@
                     <article>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor.
                         Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes.
                     </article>
-                    <a href="#" class="btn-custom1">View Prices</a>
-                    <a href="#" class="btn-custom2">Book Now</a>
+                    <a href="<?= site_url('price'); ?>" class="btn-custom1">View Prices</a>
+                    <a href="<?= site_url('rent'); ?>" class="btn-custom2">Book Now</a>
                 </div>
             </div>
             <div class="col-sm-6">
