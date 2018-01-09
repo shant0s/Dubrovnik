@@ -12,7 +12,8 @@ class Page extends Public_Controller
         $this->load->model('menu_model');
         $this->load->model('submenu_model');
         $this->load->model('pages_model');
-       
+
+
     }
 
     public function index()
@@ -46,11 +47,17 @@ class Page extends Public_Controller
                 break;
 
             case "price":
+                $price = get_page_by_slug('price-details');
+                $this->data['title'] = $price->name;
+                $this->data['description'] = $price->desc;
                 $this->data['main_content'] = 'frontend/pages/price';
                 $this->load->view(FRONTEND, $this->data);
                 break;
 
             case "price-inner":
+                $price = get_page_by_slug('price-details');
+                $this->data['title'] = $price->name;
+                $this->data['description'] = $price->desc;
                 $this->data['main_content'] = 'frontend/pages/price-inner';
                 $this->load->view(FRONTEND, $this->data);
                 break;

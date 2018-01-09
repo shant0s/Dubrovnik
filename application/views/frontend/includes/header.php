@@ -9,12 +9,12 @@
     <title>Dubrovnik</title>
 
     <!-- Bootstrap -->
-    <link href="assets/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="assets/slick/slick/slick.css"/>
-    <link rel="stylesheet" type="text/css" href="assets/slick/slick/slick-theme.css"/>
+    <link href="<?= base_url('assets/bootstrap/css/bootstrap.min.css'); ?>" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="<?= base_url('assets/slick/slick/slick.css')?>"/>
+    <link rel="stylesheet" type="text/css" href="<?= base_url('assets/slick/slick/slick-theme.css')?>"/>
     <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,500,600,700,800,900|Muli:300,400,600,700,800,900" rel="stylesheet">
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
-    <link href="assets/css/master.css" rel="stylesheet">
+    <link href="<?= base_url('assets/css/master.css'); ?>" rel="stylesheet">
 
 </head>
 <body>
