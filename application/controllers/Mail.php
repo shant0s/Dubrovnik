@@ -105,15 +105,24 @@ class Mail extends Public_Controller
 
     function rent_email()
     {
-
-
         $post = $this->input->post();
 
         $emailer = common_emogrifier($this->load->view('emailer/_emailer_rent', array('data' => $post), true));
 
-        email_help('santosh_@mailinator.com', 'Vehicle Reservation', $emailer, SITE_EMAIL);
+        email_help(array('santosh_@mailinator.com', 'sangachhen@gmail.com'), 'Vehicle Reservation', $emailer, SITE_EMAIL);
         $this->session->set_flashdata('msg', 'Your Reservation Has Been Made.');
         redirect('rent');
+    }
+
+    function contact_email(){
+
+        $post = $this->input->post();
+
+        $emailer = common_emogrifier($this->load->view('emailer/_emailer_contact', array('data' => $post), true));
+
+        email_help(array('santosh_@mailinator.com', 'sangachhen@gmail.com'), 'Booking Inquiry', $emailer, SITE_EMAIL);
+        $this->session->set_flashdata('msg', 'Your Message Has Been Recieved');
+        redirect('contact');
     }
 
 }

@@ -6,7 +6,7 @@
                     <td class="section header">
                         <table>
                             <tr>
-                                <td><h4><img src="<?= base_url() ?>assets/images/logo.png" alt="<?=SITE_NAME?>" style="width:150px "></h4></td>
+                                <td><h4><img src="<?= base_url() ?>assets/images/dubrovnik-logo.png" alt="<?=SITE_NAME?>" style="width:150px "></h4></td>
 
                                 <td class="text-right">
                                     <h4>Email: <a href="mailto:<?= SITE_EMAIL; ?>"></a><?php echo SITE_EMAIL; ?></h4>

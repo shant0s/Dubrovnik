@@ -12,17 +12,16 @@
                                     <th colspan="2" class="table-details-title">Contact Information</th>
                                 </tr>
                                 <tr>
-                                    <th>Name</th>
-                                    <td><?= $data['full_name'] ?></td>
+                                    <th>Firstname</th>
+                                    <td><?= $data['fname'] ?></td>
+                                </tr><tr>
+                                    <th>Lastname</th>
+                                    <td><?= $data['fname'] ?></td>
                                 </tr>
                                 <tr>
                                     <th>Email</th>
                                     <td><?= $data['email'] ?></td>
                                 </tr>
-                                <tr>
-                                    <th>Contact Number</th>
-                                    <td><?= $data['phone'] ?></td>
-                                </tr>                              
                                 <tr>
                                     <th>Message</th>
                                     <td><?= $data['message'] ?></td>
