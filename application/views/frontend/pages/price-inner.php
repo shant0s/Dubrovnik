@@ -1,7 +1,7 @@
 <?php
 $slug = segment(2);
 ?>
-<section class="banner-inner" style="background: url(assets/images/price.jpg);">
+<section class="banner-inner" style="background: url(<?= base_url('assets/images/price.jpg')?>);">
     <div class="container">
         <h1 class="text">Our <span>Pricing</span>
         </h1>
@@ -54,7 +54,7 @@ $slug = segment(2);
     </div>
 </section>
 
-<section class="book-xtra" style="background: url(assets/images/booking-bg.jpg);">
+<section class="book-xtra" style="background: url(<?= base_url('assets/images/booking-bg.jpg'); ?>);">
     <div class="container">
         <article>Have a awesome ride with us.</article>
         <a href="<?= site_url('rent'); ?>" class="btn-custom3 pull-right">Book now</a>
