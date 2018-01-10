@@ -43,16 +43,14 @@
                 <div class="col-sm-3 col-xs-6">
                     <div class="footer-item">
                         <h4>Contact</h4>
-                        <?php $footer_contact = get_page_by_slug('footer-contact'); ?>
-                        <?= $footer_contact->desc; ?>
+                        <ul>
+                           <?php $footer_contact = get_page_by_slug('footer-contact'); ?>
+                            <?= $footer_contact->desc; ?>
+                        </ul>
                         <div class="icons-center">
                             <ul class="icons">
-                                <li><a href=""><i class="fa fa-facebook"></i>
-
-                                    </a></li>
-                                <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                                <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
-                                <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+                                <?php $footer_social_links = get_page_by_slug('social-media-links'); ?>
+                                <?= $footer_social_links->desc; ?>
                             </ul>
                         </div>
                     </div>

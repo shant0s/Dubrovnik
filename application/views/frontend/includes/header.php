@@ -23,10 +23,8 @@
         <div class="container">
             <div class="social-icons">
                 <ul>
-                    <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                    <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                    <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
-                    <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+                   <?php $head_social_links = get_page_by_slug('social-media-links'); ?>
+                   <?= $head_social_links->desc; ?>
                 </ul>
             </div>
             <div class="contacts-info">

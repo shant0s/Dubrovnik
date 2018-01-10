@@ -19,7 +19,7 @@ class Public_Controller extends MY_Controller {
         parent::__construct();
         $this->load->model('visitorcount_model');
 //        debug($this->session->all_userdata());
-        //normal visitor 
+        //normal visitor
         $month_year = date('M,Y');
         $data['view'] = $this->visitorcount_model->get(array('title' => $month_year));
         //debug($views);
@@ -31,11 +31,14 @@ class Public_Controller extends MY_Controller {
             $this->visitorcount_model->update(array('no_views' => $count), array('title' => $month_year));
         }
 
-        $this->load->model('passenger_model');               
+        $this->load->model('passenger_model');
         $this->data['passenger'] = $this->passenger_model->get(array('id' => $this->session->userdata('logged_in_passenger')));
 
         $this->load->model('pages_model');
         $this->data['pages'] = $this->pages_model->get_all();
+
+//        $social = get_page_by_slug('header-social-media-links');
+//        $this->data['header_social_links'] = $social->desc;
 
     }
 
