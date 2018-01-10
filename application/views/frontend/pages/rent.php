@@ -1,4 +1,3 @@
-
     <section class="banner-inner" style="background: url(assets/images/rent.jpg);">
         <div class="container">
             <h1 class="text">Booking <span>Forms</span>
@@ -90,8 +89,10 @@
                                     <div class="col-sm-12">
                                         <select class="form-control" name="vehicleType">
                                             <option value="">Select Vehicle Type</option>
-                                            <option value="test1">asdsad</option>
-                                            <option value="test2">asdasdsad</option>
+                                            <?php foreach($fleets as $fleet): ?>
+                                                <option value="<?= $fleet->title; ?>"><?= $fleet->title; ?></option>
+                                            <?php endforeach; ?>
+
                                         </select>
                                     </div>
 
@@ -116,9 +117,9 @@
                                     <div class="col-sm-12">
                                         <select class="form-control" name="paymentType">
                                             <option value="">Select Payment Type</option>
-                                            <option value="card">card</option>
-                                            <option value="cash">Cash</option>
-                                            <option value="paypal">Paypal</option>
+                                            <option value="Card">Card</option>
+                                            <option value="Cash">Cash</option>
+                                            <option value="Paypal">Paypal</option>
                                         </select>
                                     </div>
 

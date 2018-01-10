@@ -64,6 +64,7 @@ class Page extends Public_Controller
                 break;
 
             case "rent":
+                $this->data['fleets'] = $this->fleet_model->get_all();
                 $this->data['main_content'] = 'frontend/pages/rent';
                 $this->load->view(FRONTEND, $this->data);
                 break;
