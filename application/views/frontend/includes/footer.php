@@ -76,3 +76,10 @@
 <script src="assets/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
 </body>
 </html>
+<script>
+    $(document).ready(function(){
+
+        $('.form').validate();
+
+    });
+</script>
