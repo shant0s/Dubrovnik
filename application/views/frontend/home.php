@@ -52,8 +52,9 @@
                                 <?php $airport = get_page_by_slug('home-page-airport-transfer') ?>
                                 <?= $airport->desc ?>
                             </article>
-                            <a href="<?= site_url('price'); ?>" class="btn-custom1">View Prices</a>
-                            <a href="<?= site_url('rent'); ?>" class="btn-custom2">Book Now</a>
+<!--                            <a href="--><?//= site_url('price'); ?><!--" class="btn-custom1">View Prices</a>-->
+<!--                            <a href="--><?//= site_url('rent'); ?><!--" class="btn-custom2">Book Now</a>-->
+                            <a href="<?= site_url('rent'); ?>" class="btn-custom1">Book Now</a>
                         </div>
                     </div>
                 </div>
@@ -75,8 +76,9 @@
                                 <?php $minibus = get_page_by_slug('home-page-minibus-service') ?>
                                 <?= $minibus->desc ?>
                             </article>
-                            <a href="<?= site_url('price'); ?>" class="btn-custom1">View Prices</a>
-                            <a href="<?= site_url('rent'); ?>" class="btn-custom2">Book Now</a>
+                            <!--                            <a href="--><?//= site_url('price'); ?><!--" class="btn-custom1">View Prices</a>-->
+                            <!--                            <a href="--><?//= site_url('rent'); ?><!--" class="btn-custom2">Book Now</a>-->
+                            <a href="<?= site_url('rent'); ?>" class="btn-custom1">Book Now</a>
                         </div>
                     </div>
                 </div>
@@ -98,8 +100,9 @@
                                 <?php $bus = get_page_by_slug('home-page-bus-coach-service') ?>
                                 <?= $bus->desc ?>
                             </article>
-                            <a href="<?= site_url('price'); ?>" class="btn-custom1">View Prices</a>
-                            <a href="<?= site_url('rent'); ?>" class="btn-custom2">Book Now</a>
+                            <!--                            <a href="--><?//= site_url('price'); ?><!--" class="btn-custom1">View Prices</a>-->
+                            <!--                            <a href="--><?//= site_url('rent'); ?><!--" class="btn-custom2">Book Now</a>-->
+                            <a href="<?= site_url('rent'); ?>" class="btn-custom1">Book Now</a>
                         </div>
                     </div>
                 </div>
@@ -121,8 +124,9 @@
                                 <?php $chauffeurs_service = get_page_by_slug('home-page-chauffeurs-service'); ?>
                                 <?= $chauffeurs_service->desc ?>
                             </article>
-                            <a href="<?= site_url('price'); ?>" class="btn-custom1">View Prices</a>
-                            <a href="<?= site_url('rent'); ?>" class="btn-custom2">Book Now</a>
+                            <!--                            <a href="--><?//= site_url('price'); ?><!--" class="btn-custom1">View Prices</a>-->
+                            <!--                            <a href="--><?//= site_url('rent'); ?><!--" class="btn-custom2">Book Now</a>-->
+                            <a href="<?= site_url('rent'); ?>" class="btn-custom1">Book Now</a>
                         </div>
                     </div>
                 </div>
@@ -146,8 +150,9 @@
                                     <?= $excursion_service->desc ?>
                                 </article>
                             </article>
-                            <a href="<?= site_url('price'); ?>" class="btn-custom1">View Prices</a>
-                            <a href="<?= site_url('rent'); ?>" class="btn-custom2">Book Now</a>
+                            <!--                            <a href="--><?//= site_url('price'); ?><!--" class="btn-custom1">View Prices</a>-->
+                            <!--                            <a href="--><?//= site_url('rent'); ?><!--" class="btn-custom2">Book Now</a>-->
+                            <a href="<?= site_url('rent'); ?>" class="btn-custom1">Book Now</a>
                         </div>
                     </div>
                 </div>
@@ -169,8 +174,9 @@
                                 <?php $group_travel_service = get_page_by_slug('home-page-group-travel'); ?>
                                 <?= $group_travel_service->desc ?>
                             </article>
-                            <a href="<?= site_url('price'); ?>" class="btn-custom1">View Prices</a>
-                            <a href="<?= site_url('rent'); ?>" class="btn-custom2">Book Now</a>
+                            <!--                            <a href="--><?//= site_url('price'); ?><!--" class="btn-custom1">View Prices</a>-->
+                            <!--                            <a href="--><?//= site_url('rent'); ?><!--" class="btn-custom2">Book Now</a>-->
+                            <a href="<?= site_url('rent'); ?>" class="btn-custom1">Book Now</a>
                         </div>
                     </div>
                 </div>
@@ -192,8 +198,9 @@
                                 <?php $other_services = get_page_by_slug('home-page-other-services'); ?>
                                 <?= $other_services->desc ?>
                             </article>
-                            <a href="<?= site_url('price'); ?>" class="btn-custom1">View Prices</a>
-                            <a href="<?= site_url('rent'); ?>" class="btn-custom2">Book Now</a>
+                            <!--                            <a href="--><?//= site_url('price'); ?><!--" class="btn-custom1">View Prices</a>-->
+                            <!--                            <a href="--><?//= site_url('rent'); ?><!--" class="btn-custom2">Book Now</a>-->
+                            <a href="<?= site_url('rent'); ?>" class="btn-custom1">Book Now</a>
                         </div>
                     </div>
                 </div>
