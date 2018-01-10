@@ -8,7 +8,7 @@
 <div>
     <?= flash(); ?>
 </div>
-<form action="<?php echo site_url('mail/rent_email'); ?>" method="post" class="form">
+<form action="<?= site_url('mail/rent_email'); ?>" method="post" class="form">
     <section class="contact ">
         <div class="container">
 

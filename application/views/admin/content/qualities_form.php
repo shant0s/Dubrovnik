@@ -14,16 +14,18 @@
                         <tbody>
                             <tr>
                                 <td>
+                                    <div class="form-horizontal">
                                     <label>Title 1<span class="text-danger">*</span></label>
-                                    <input type="type" name="title1" class="required" value="<?php echo $qualities->title1; ?>">
+                                    <input type="type" name="title1" class="required" value="<?php echo $qualities->title1; ?>" required>
                                     <?php echo form_error('title1', '<div class="error">', '</div>'); ?>
+                                    </div>
                                 </td>
                                 
                             </tr>
                             <tr>
                                 <td>
                                     <label>Title 2<span class="text-danger">*</span></label>
-                                    <input type="type" name="title2" class="required" value="<?php echo $qualities->title2; ?>">
+                                    <input type="type" name="title2" class="required" value="<?php echo $qualities->title2; ?>" required>
                                     <?php echo form_error('title2', '<div class="error">', '</div>'); ?>
                                 </td>
                                 
@@ -31,7 +33,7 @@
                             <tr>
                                 <td>
                                     <label>Title 3<span class="text-danger">*</span></label>
-                                    <input type="type" name="title3" class="required" value="<?php echo $qualities->title3; ?>">
+                                    <input type="type" name="title3" class="required" value="<?php echo $qualities->title3; ?>" required>
                                     <?php echo form_error('title3', '<div class="error">', '</div>'); ?>
                                 </td>
                                 

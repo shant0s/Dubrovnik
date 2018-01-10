@@ -31,10 +31,10 @@ class Page extends Public_Controller
         }
 
         switch ($slug) {
-            case "about":
-                $this->data['main_content'] = 'frontend/pages/about';
-                $this->load->view(FRONTEND, $this->data);
-                break;
+//            case "about":
+//                $this->data['main_content'] = 'frontend/pages/about';
+//                $this->load->view(FRONTEND, $this->data);
+//                break;
 
 //            case "services":
 //                $this->data['main_content'] = 'frontend/pages/services';

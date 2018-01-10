@@ -58,7 +58,7 @@
             </div>
         </div>
     </div>
-    <article class="copyright text-center">Copyright © <a href="index.php">Dubrovnik Transfer</a> 2017</article>
+    <article class="copyright text-center">Copyright © <a href="<?= site_url(); ?>"><?= SITE_NAME; ?></a> <?= date('Y'); ?></article>
 </footer>
 
 
@@ -76,10 +76,3 @@
 <script src="assets/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
 </body>
 </html>
-<script>
-    $(document).ready(function(){
-
-        $('.form').validate();
-
-    });
-</script>
