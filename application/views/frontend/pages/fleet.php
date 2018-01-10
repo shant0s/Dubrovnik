@@ -24,7 +24,7 @@
                                     <li><i class="fa fa-users"></i> Max <?php echo $fleet->passengers; ?></li>
                                     <li><i class="fa fa-suitcase"></i> Max <?php echo $fleet->luggage; ?></li>
                                 </ul>
-                                <a href="<?php echo site_url('rent'); ?>" class="btn-custom1">Book Now</a>
+                                <a href="<?php echo site_url('rent#booking-form'); ?>" class="btn-custom1">Book Now</a>
                             </article>
                         </div>
                         <div class="col-md-6 col-sm-6">
@@ -53,7 +53,7 @@
                                     <li><i class="fa fa-users"></i> Max <?php echo $fleet->passengers; ?></li>
                                     <li><i class="fa fa-suitcase"></i> Max <?php echo $fleet->luggage; ?></li>
                                 </ul>
-                                <a href="<?php echo site_url('rent'); ?>" class="btn-custom1">Book Now</a>
+                                <a href="<?php echo site_url('rent#booking-form'); ?>" class="btn-custom1">Book Now</a>
                             </article>
                         </div>
                     </div>

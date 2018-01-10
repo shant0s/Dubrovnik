@@ -15,7 +15,7 @@
                     <?= $service_data->desc; ?>
 <!--                    <a href="--><?//= site_url('price'); ?><!--" class="btn-custom1">View Prices</a>-->
 <!--                    <a href="--><?//= site_url('rent'); ?><!--" class="btn-custom2">Book Now</a>-->
-                    <a href="<?= site_url('rent'); ?>" class="btn-custom1">Book Now</a>
+                    <a href="<?= site_url('rent#booking-form'); ?>" class="btn-custom1">Book Now</a>
                 </div>
             </div>
             <div class="col-sm-6">

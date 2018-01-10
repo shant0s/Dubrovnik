@@ -54,7 +54,7 @@
                             </article>
 <!--                            <a href="--><?//= site_url('price'); ?><!--" class="btn-custom1">View Prices</a>-->
 <!--                            <a href="--><?//= site_url('rent'); ?><!--" class="btn-custom2">Book Now</a>-->
-                            <a href="<?= site_url('rent'); ?>" class="btn-custom1">Book Now</a>
+                            <a href="<?= site_url('rent#booking-form'); ?>" class="btn-custom1">Book Now</a>
                         </div>
                     </div>
                 </div>
@@ -78,7 +78,7 @@
                             </article>
                             <!--                            <a href="--><?//= site_url('price'); ?><!--" class="btn-custom1">View Prices</a>-->
                             <!--                            <a href="--><?//= site_url('rent'); ?><!--" class="btn-custom2">Book Now</a>-->
-                            <a href="<?= site_url('rent'); ?>" class="btn-custom1">Book Now</a>
+                            <a href="<?= site_url('rent#booking-form'); ?>" class="btn-custom1">Book Now</a>
                         </div>
                     </div>
                 </div>
@@ -102,7 +102,7 @@
                             </article>
                             <!--                            <a href="--><?//= site_url('price'); ?><!--" class="btn-custom1">View Prices</a>-->
                             <!--                            <a href="--><?//= site_url('rent'); ?><!--" class="btn-custom2">Book Now</a>-->
-                            <a href="<?= site_url('rent'); ?>" class="btn-custom1">Book Now</a>
+                            <a href="<?= site_url('rent#booking-form'); ?>" class="btn-custom1">Book Now</a>
                         </div>
                     </div>
                 </div>
@@ -126,7 +126,7 @@
                             </article>
                             <!--                            <a href="--><?//= site_url('price'); ?><!--" class="btn-custom1">View Prices</a>-->
                             <!--                            <a href="--><?//= site_url('rent'); ?><!--" class="btn-custom2">Book Now</a>-->
-                            <a href="<?= site_url('rent'); ?>" class="btn-custom1">Book Now</a>
+                            <a href="<?= site_url('rent#booking-form'); ?>" class="btn-custom1">Book Now</a>
                         </div>
                     </div>
                 </div>
@@ -152,7 +152,7 @@
                             </article>
                             <!--                            <a href="--><?//= site_url('price'); ?><!--" class="btn-custom1">View Prices</a>-->
                             <!--                            <a href="--><?//= site_url('rent'); ?><!--" class="btn-custom2">Book Now</a>-->
-                            <a href="<?= site_url('rent'); ?>" class="btn-custom1">Book Now</a>
+                            <a href="<?= site_url('rent#booking-form'); ?>" class="btn-custom1">Book Now</a>
                         </div>
                     </div>
                 </div>
@@ -176,7 +176,7 @@
                             </article>
                             <!--                            <a href="--><?//= site_url('price'); ?><!--" class="btn-custom1">View Prices</a>-->
                             <!--                            <a href="--><?//= site_url('rent'); ?><!--" class="btn-custom2">Book Now</a>-->
-                            <a href="<?= site_url('rent'); ?>" class="btn-custom1">Book Now</a>
+                            <a href="<?= site_url('rent#booking-form'); ?>" class="btn-custom1">Book Now</a>
                         </div>
                     </div>
                 </div>
@@ -200,7 +200,7 @@
                             </article>
                             <!--                            <a href="--><?//= site_url('price'); ?><!--" class="btn-custom1">View Prices</a>-->
                             <!--                            <a href="--><?//= site_url('rent'); ?><!--" class="btn-custom2">Book Now</a>-->
-                            <a href="<?= site_url('rent'); ?>" class="btn-custom1">Book Now</a>
+                            <a href="<?= site_url('rent#booking-form'); ?>" class="btn-custom1">Book Now</a>
                         </div>
                     </div>
                 </div>
@@ -256,7 +256,7 @@
 <section class="book-xtra" style="background: url(assets/images/booking-bg.jpg);">
     <div class="container">
         <article>Have a awesome ride with us.</article>
-        <a href="<?= site_url('rent') ?>" class="btn-custom3 pull-right">Book now</a>
+        <a href="<?= site_url('rent#booking-form') ?>" class="btn-custom3 pull-right">Book now</a>
     </div>
 </section>
 

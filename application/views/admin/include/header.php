@@ -62,7 +62,7 @@
                     <!-- mini logo for sidebar mini 50x50 pixels -->
                     <span class="logo-mini"><b>ATM</b></span>
                     <!-- logo for regular state and mobile devices -->
-                    <span class="logo-lg"><img src="<?= base_url('assets') ?>/images/logo.png" style="width:60%;"></span>
+                    <span class="logo-lg"><img src="<?= base_url('assets') ?>/images/dubrovnik-logo.png" style="width:60%;"></span>
                 </a>
                 <!-- Header Navbar: style can be found in header.less -->
                 <nav class="navbar navbar-static-top">
