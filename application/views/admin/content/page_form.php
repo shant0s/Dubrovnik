@@ -5,6 +5,7 @@ if (segment(4) != '') {
     $isNew = false;
     $name = $page->name;
     $desc = $page->desc;
+    $long_desc = $page->long_desc;
     $is_active = $page->is_active;
 }
 ?>
@@ -31,11 +32,25 @@ if (segment(4) != '') {
                                 </tr>
                                 <tr>
                                     <td>
-                                        <label>Page Description <span class="text-danger">*</span></label>
+                                        <label>Page Description 1<span class="text-danger">*</span></label>
                                         <textarea name="desc" placeholder="Enter page description" class="form-control required" id="desc"><?php echo!$isNew ? $desc : '' ?></textarea>
                                         <label for="desc" class="error" style="display:none;">This field is required</label>
                                         <script type="text/javascript">
                                             var editor = CKEDITOR.replace('desc',
+                                                    {
+                                                        customConfig: '<?php echo base_url('assets/admin/js/plugins/ckeditor/my_config.js') ?>'
+                                                    });
+                                            CKFinder.setupCKEditor(editor, '<?php echo base_url('assets/admin/js/plugins/ckfinder/') ?>');
+                                        </script>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <label>Page Description 2<span class="text-danger">*</span></label>
+                                        <textarea name="long_desc" placeholder="Enter page description" class="form-control required" id="long_desc"><?php echo!$isNew ? $long_desc : '' ?></textarea>
+                                        <label for="desc" class="error" style="display:none;">This field is required</label>
+                                        <script type="text/javascript">
+                                            var editor = CKEDITOR.replace('long_desc',
                                                     {
                                                         customConfig: '<?php echo base_url('assets/admin/js/plugins/ckeditor/my_config.js') ?>'
                                                     });
@@ -60,7 +75,8 @@ if (segment(4) != '') {
                                             <select name="template" class="form-control" required="">
                                                 <option value="<?php echo !$isNew ? $page->template : '' ?>"><?= !$isNew ? ucwords(str_replace('_', ' ', $page->template)) : 'Select Template'?></option>
                                                 <option value="normal_page">Normal Page</option>
-                                                <option value="airport_page">Airport Page</option>
+<!--                                                <option value="airport_page">Airport Page</option>-->
+                                                <option value="service_page">Service Page</option>
                                             </select>
                                         </td>
                                     </tr>

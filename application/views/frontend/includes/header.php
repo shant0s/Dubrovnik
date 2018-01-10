@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <link rel="icon" type="image/png" href="assets/images/favicon.png" />
+    <link rel="icon" type="image/png" href="<?= base_url('assets/images/favicon.png'); ?>" />
     <title>Dubrovnik</title>
 
     <!-- Bootstrap -->
@@ -31,8 +31,8 @@
             </div>
             <div class="contacts-info">
                 <ul>
-                    <li><img src="assets/images/mail.png" alt="mail"><a href="mailto:info@dubrovnik-transfers.com">info@dubrovnik-transfers.com</a></li>
-                    <li class="xtra"><img src="assets/images/mail.png" alt="mail"><a href="mailto:info@dubrovniktransfers.com">info@dubrovniktransfers.com</a></li>
+                    <li><img src="<?= base_url('assets/images/mail.png');?>" alt="mail"><a href="mailto:info@dubrovnik-transfers.com">info@dubrovnik-transfers.com</a></li>
+                    <li class="xtra"><img src="<?= base_url('assets/images/mail.png'); ?>" alt="mail"><a href="mailto:info@dubrovniktransfers.com">info@dubrovniktransfers.com</a></li>
                     <li class="hiden"><a href="tel:+385 0 959 060 606"><i class="fa fa-phone"></i> +385 0 959 060 606</a></li>
                 </ul>
                 <div class="clearfix"></div>
@@ -49,7 +49,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="<?= site_url(); ?>"> <img src="assets/images/dubrovnik-logo.png"></a>
+                <a class="navbar-brand" href="<?= site_url(); ?>"> <img src="<?= base_url('assets/images/dubrovnik-logo.png');?>"></a>
             </div>
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -57,7 +57,7 @@
                     <li>
                         <div class="row">
                             <div class="col-sm-2">
-                                <img src="assets/images/phone.png">
+                                <img src="<?= base_url('assets/images/phone.png'); ?>">
                             </div>
                             <div class="col-sm-10">
                                 <h4>Call us anytime</h4>

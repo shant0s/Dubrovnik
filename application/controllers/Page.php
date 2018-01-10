@@ -20,11 +20,12 @@ class Page extends Public_Controller
     {
         $slug = $this->uri->segment(1);
 
-        $data['result'] = $this->pages_model->get(array('slug' => $slug, 'template' => 'airport_page'));
+        $data['result'] = $this->pages_model->get(array('slug' => $slug, 'template' => 'service_page'));
+
 
         if ($data['result']) {
-            $this->data['airport_data'] = $data['result'];
-            $this->data['main_content'] = 'frontend/pages/home';
+            $this->data['service_data'] = $data['result'];
+            $this->data['main_content'] = 'frontend/templates/service';
             $this->load->view(FRONTEND, $this->data);
             return;
         }
@@ -35,10 +36,10 @@ class Page extends Public_Controller
                 $this->load->view(FRONTEND, $this->data);
                 break;
 
-            case "services":
-                $this->data['main_content'] = 'frontend/pages/services';
-                $this->load->view(FRONTEND, $this->data);
-                break;
+//            case "services":
+//                $this->data['main_content'] = 'frontend/pages/services';
+//                $this->load->view(FRONTEND, $this->data);
+//                break;
 
             case "fleet":
                 $this->data['fleets'] = $this->fleet_model->get_all();
@@ -74,16 +75,18 @@ class Page extends Public_Controller
                 break;
 
             default:
-                $page = $this->pages_model->get(array('slug' => $slug));
-
-                if ($page) {
-                    $this->data['page'] = $page;
-                    $this->data['main_content'] = 'frontend/templates/service';
-                    $this->load->view(FRONTEND, $this->data);
-                } else {
-                    $this->data['main_content'] = 'frontend/pages/404';
-                    $this->load->view(FRONTEND, $this->data);
-                }
+//                $page = $this->pages_model->get(array('slug' => $slug));
+//
+//                if ($page) {
+//                    $this->data['page'] = $page;
+//                    $this->data['main_content'] = 'frontend/templates/service';
+//                    $this->load->view(FRONTEND, $this->data);
+//                } else {
+//                    $this->data['main_content'] = 'frontend/pages/404';
+//                    $this->load->view(FRONTEND, $this->data);
+//                }
+                $this->data['main_content'] = 'frontend/pages/404';
+                $this->load->view(FRONTEND, $this->data);
                 break;
         }
     }
