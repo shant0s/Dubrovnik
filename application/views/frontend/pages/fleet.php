@@ -12,7 +12,7 @@
         foreach ($fleets as $fleet):
 
             if ($counter % 2 == 0) {
-                ?> 
+                ?>
                 <div class="fleet-inner">
                     <div class="row">
                         <div class="col-md-6 col-sm-6">
@@ -29,7 +29,8 @@
                         </div>
                         <div class="col-md-6 col-sm-6">
                             <figure class="text-center">
-                                <img src="<?php echo base_url('uploads/fleet/'.$fleet->img_name); ?>" alt="Economy Class">
+                                <img src="<?php echo base_url('uploads/fleet/' . $fleet->img_name); ?>"
+                                     alt="Economy Class">
                             </figure>
                         </div>
                     </div>
@@ -41,7 +42,8 @@
 
                         <div class="col-md-6 col-sm-6">
                             <figure class="text-center">
-                                <img src="<?php echo base_url('uploads/fleet/'.$fleet->img_name); ?>" alt="Economy Class">
+                                <img src="<?php echo base_url('uploads/fleet/' . $fleet->img_name); ?>"
+                                     alt="Economy Class">
                             </figure>
                         </div>
                         <div class="col-md-6 col-sm-6">
@@ -58,7 +60,7 @@
                         </div>
                     </div>
                 </div>
-            <?php
+                <?php
             }
             $counter++;
         endforeach;

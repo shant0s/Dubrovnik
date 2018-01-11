@@ -25,7 +25,7 @@ if ($this->uri->segment(4) != '') {
                             <tr>
                                 <td>
                                     <label>Banner Image <span class="text-danger">*</span></label>
-                                    <input type="file" name="banner" class="<?php echo ($isNew) ? 'required' : '' ?>" >
+                                    <input type="file" name="banner" class="<?php echo ($isNew) ? 'required' : '' ?>" required>
                                 </td>
                             </tr>
                             <?php if (!$isNew) { ?>

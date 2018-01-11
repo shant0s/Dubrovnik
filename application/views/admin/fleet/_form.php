@@ -47,7 +47,7 @@
                     <div class="col-md-12">
                         <label>Vehicle Description <span class="text-danger">*</span></label>
                         <textarea name="desc" placeholder="Enter Vehicle description" rows="5"
-                                  class="form-control"><?php echo ($is_edit) ? $fleet->desc : '' ?></textarea>
+                                  class="form-control" required><?php echo ($is_edit) ? $fleet->desc : '' ?></textarea>
                     </div>
                 </div>
                 <div class="login-box-body">

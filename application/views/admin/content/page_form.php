@@ -33,7 +33,7 @@ if (segment(4) != '') {
                                 <tr>
                                     <td>
                                         <label>Page Description 1<span class="text-danger">*</span></label>
-                                        <textarea name="desc" placeholder="Enter page description" class="form-control required" id="desc"><?php echo!$isNew ? $desc : '' ?></textarea>
+                                        <textarea name="desc" placeholder="Enter page description" class="form-control required" id="desc" required><?php echo!$isNew ? $desc : '' ?></textarea>
                                         <label for="desc" class="error" style="display:none;">This field is required</label>
                                         <script type="text/javascript">
                                             var editor = CKEDITOR.replace('desc',
@@ -46,7 +46,7 @@ if (segment(4) != '') {
                                 </tr>
                                 <tr>
                                     <td>
-                                        <label>Page Description 2<span class="text-danger">*</span></label>
+                                        <label>Page Description 2</label>
                                         <textarea name="long_desc" placeholder="Enter page description" class="form-control required" id="long_desc"><?php echo!$isNew ? $long_desc : '' ?></textarea>
                                         <label for="desc" class="error" style="display:none;">This field is required</label>
                                         <script type="text/javascript">

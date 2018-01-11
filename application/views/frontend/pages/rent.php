@@ -98,7 +98,8 @@
                                         <?= form_error('date', '<div class="is-error">', '</div>'); ?>
                                     </div>
                                     <div class="col-sm-6 pad-5-left">
-                                        <input type="text" class="form-control" name="pickupTime" id="timepicker" required
+                                        <input type="text" class="form-control" name="pickupTime" id="timepicker"
+                                               required
                                                placeholder="Select Pick Up Time">
                                         <?= form_error('pickupTime', '<div class="is-error">', '</div>'); ?>
                                     </div>
