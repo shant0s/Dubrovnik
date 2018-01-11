@@ -210,7 +210,6 @@
 <section class="choose section" style="background: url(assets/images/why-choose.jpg);">
     <div class="container">
         <ul class="">
-
             <li>
                 <i class="fa fa-star"></i>
                 <h4><?php echo (!empty($qualities->title1)) ? $qualities->title1 : ''; ?></h4>

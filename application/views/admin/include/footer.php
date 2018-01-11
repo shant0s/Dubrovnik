@@ -15,7 +15,7 @@
 <script src="<?php echo base_url('assets/admin/js/jquery.validate.js');?>"></script>
 <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
 <script>
-  $('.forms').validate();
+//  $('.forms').validate();
     $.widget.bridge('uibutton', $.ui.button);
 </script>
 <!-- Bootstrap 3.3.6 -->

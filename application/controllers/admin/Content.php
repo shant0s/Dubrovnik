@@ -219,10 +219,7 @@ class Content extends Admin_Controller {
 
         if ($post) {
 
-            $this->form_validation->set_rules('title1', 'Title1', 'required');
-            $this->form_validation->set_rules('title2', 'Title2', 'required');
-            $this->form_validation->set_rules('title3', 'Title3', 'required');
-            if ($this->form_validation->run() == false) {
+            if ($this->form_validation->run('qualities_rules') == false) {
                 $this->load->view(BACKEND, $this->data);
             } else {
                 $this->qualities_model->update($post, array('id' => 1));

@@ -11,6 +11,10 @@ class Mail extends Public_Controller
         $this->email->set_newline("\r\n");
         $this->load->helper('form');
         $this->load->model('admin_model');
+
+        //for rent and contact form:
+        $this->load->model('fleet_model');
+        $this->load->model('qualities_model');
     }
 
     function common($emailer)
@@ -105,24 +109,53 @@ class Mail extends Public_Controller
 
     function rent_email()
     {
+        $this->data['fleets'] = $this->fleet_model->get_all();
+        $this->data['qualities'] = $this->qualities_model->get(array('id'=>1));
+        $this->data['main_content'] = 'frontend/pages/rent';
+
         $post = $this->input->post();
 
-        $emailer = common_emogrifier($this->load->view('emailer/_emailer_rent', array('data' => $post), true));
+        if ($post) {
 
-        email_help(array('santosh_@mailinator.com', 'sangachhen@gmail.com'), 'Vehicle Reservation', $emailer, SITE_EMAIL);
-        $this->session->set_flashdata('msg', 'Your Reservation Has Been Made.');
-        redirect('rent');
+            if ($this->form_validation->run('rent_rules') == false) {
+
+                $this->load->view(FRONTEND, $this->data);
+            } else {
+                $emailer = common_emogrifier($this->load->view('emailer/_emailer_rent', array('data' => $post), true));
+
+                email_help(array('santosh_@mailinator.com', 'sangachhen@gmail.com'), 'Vehicle Reservation', $emailer, SITE_EMAIL);
+                $this->session->set_flashdata('msg', 'Your Reservation Has Been Made.');
+                redirect('rent');
+            }
+        } else {
+            $this->load->view(FRONTEND, $this->data);
+        }
+
+
     }
 
-    function contact_email(){
+    function contact_email()
+    {
 
         $post = $this->input->post();
 
-        $emailer = common_emogrifier($this->load->view('emailer/_emailer_contact', array('data' => $post), true));
+        if ($post) {
 
-        email_help(array('santosh_@mailinator.com', 'sangachhen@gmail.com'), 'Booking Inquiry', $emailer, SITE_EMAIL);
-        $this->session->set_flashdata('msg', 'Your Message Has Been Recieved');
-        redirect('contact');
+            if ($this->form_validation->run('booking_enquiry_rules') == false) {
+                $this->data['main_content'] = 'frontend/pages/contact';
+                $this->load->view(FRONTEND, $this->data);
+            } else {
+                $emailer = common_emogrifier($this->load->view('emailer/_emailer_contact', array('data' => $post), true));
+
+                email_help(array('santosh_@mailinator.com', 'sangachhen@gmail.com'), 'Booking Inquiry', $emailer, SITE_EMAIL);
+                $this->session->set_flashdata('msg', 'Your Message Has Been Recieved');
+                redirect('contact');
+            }
+        } else {
+            $this->load->view(FRONTEND, $this->data);
+        }
+
+
     }
 
 }

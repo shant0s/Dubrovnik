@@ -74,5 +74,17 @@
 <script src="assets/js/custom.js"></script>
 <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>-->
 <script src="assets/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="<?php echo base_url('assets/admin/js/jquery.validate.js');?>"></script>
+<script src="<?php echo base_url('assets/admin/js/jquery.validate.js');?>"></script>
+<script src="<?php echo base_url('assets/admin/js/jquery.timepicker.js');?>"></script>
+
+<script>
+    $('.form').validate();
+
+    $('#datepicker').datepicker();
+
+    $('#timepicker').timepicker();
+
+</script>
 </body>
 </html>

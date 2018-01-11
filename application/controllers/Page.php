@@ -12,6 +12,7 @@ class Page extends Public_Controller
         $this->load->model('menu_model');
         $this->load->model('submenu_model');
         $this->load->model('pages_model');
+        $this->load->model('qualities_model');
 
 
     }
@@ -65,6 +66,7 @@ class Page extends Public_Controller
 
             case "rent":
                 $this->data['fleets'] = $this->fleet_model->get_all();
+                $this->data['qualities'] = $this->qualities_model->get(array('id'=>1));
                 $this->data['main_content'] = 'frontend/pages/rent';
                 $this->load->view(FRONTEND, $this->data);
                 break;

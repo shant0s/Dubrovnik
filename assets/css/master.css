@@ -286,3 +286,20 @@ td, th { border: 1px solid #ccc; padding: 6px 10px; width: 20%; }
 .contact{
   padding: 20px 0px!important;
 }
+
+
+
+/*error style*/
+.error{
+  color: #b10000;
+  font-size: 11px;
+  text-align: left;
+  font-weight: 600;
+}
+.ui-state-default, .ui-widget-content .ui-state-default, .ui-widget-header .ui-state-default, .ui-button, html .ui-button.ui-state-disabled:hover, html .ui-button.ui-state-disabled:active {
+  width: 36px;
+  text-align: center;
+}
+.ui-timepicker-wrapper {
+  width: 534px !important;
+}

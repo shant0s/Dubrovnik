@@ -1,4 +1,4 @@
-<section class="banner-inner" style="background: url(assets/images/rent.jpg);">
+<section class="banner-inner" style="background: url(<?= base_url('assets/images/rent.jpg') ?>);">
     <div class="container">
         <h1 class="text">Booking <span>Forms</span>
         </h1>
@@ -24,11 +24,17 @@
                                 <div class="row">
                                     <div class="col-sm-6 pad-5-right">
                                         <input type="text" class="form-control" name="fname" placeholder="First Name"
-                                               required>
+                                               required
+                                               value="<?= set_value('fname'); ?>"
+                                        >
+                                        <?= form_error('fname', '<div class="is-error">', '</div>'); ?>
                                     </div>
                                     <div class="col-sm-6 pad-5-left">
                                         <input type="text" class="form-control" name="lname" placeholder="Last Name"
-                                               required>
+                                               required
+                                               value="<?= set_value('lname'); ?>"
+                                        >
+                                        <?= form_error('lname', '<div class="is-error">', '</div>'); ?>
                                     </div>
                                 </div>
                             </div>
@@ -36,12 +42,16 @@
                                 <div class="row">
                                     <div class="col-sm-6 pad-5-right">
                                         <!--                                        <input type="email" class="form-control" name="email" placeholder="Enter Your Email">-->
-                                        <input type="email" class="form-control" name="email"
-                                               placeholder="Enter Your Email" required/>
+                                        <input type="email" class="form-control" name="email" required
+                                               value="<?= set_value('email'); ?>"
+                                               placeholder="Enter Your Email"/>
+                                        <?= form_error('email', '<div class="is-error">', '</div>'); ?>
                                     </div>
                                     <div class="col-sm-6 pad-5-left">
-                                        <input type="text" class="form-control" name="phone"
-                                               placeholder="Enter Your Phone Number" required>
+                                        <input type="text" class="form-control" name="phone" required
+                                               value="<?= set_value('phone'); ?>"
+                                               placeholder="Enter Your Phone Number">
+                                        <?= form_error('lname', '<div class="is-error">', '</div>'); ?>
                                     </div>
                                 </div>
                             </div>
@@ -66,24 +76,31 @@
                             <div class="form-group">
                                 <div class="row">
                                     <div class="col-sm-6 pad-5-right">
-                                        <input type="text" class="form-control" name="pickupAddress"
-                                               placeholder="Enter Pick Up Address" required>
+                                        <input type="text" class="form-control" name="pickupAddress" required
+                                               value="<?= set_value('pickupAddress'); ?>"
+                                               placeholder="Enter Pick Up Address">
+                                        <?= form_error('pickupAddress', '<div class="is-error">', '</div>'); ?>
                                     </div>
                                     <div class="col-sm-6 pad-5-left">
                                         <input type="text" class="form-control" name="dropoffAddress"
-                                               placeholder="Enter Drop Off Address" required>
+                                               value="<?= set_value('dropoffAddress'); ?>"
+                                               placeholder="Enter Drop Off Address">
+                                        <?= form_error('dropoffAddress', '<div class="is-error">', '</div>'); ?>
                                     </div>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <div class="row">
                                     <div class="col-sm-6 pad-5-right">
-                                        <input type="date" class="form-control" name="date"
-                                               placeholder="Select Pick Up Date" required>
+                                        <input type="text" class="form-control" name="date" id="datepicker" required
+                                               value="<?= set_value('date'); ?>"
+                                               placeholder="Select Pick Up Date">
+                                        <?= form_error('date', '<div class="is-error">', '</div>'); ?>
                                     </div>
                                     <div class="col-sm-6 pad-5-left">
-                                        <input type="time" class="form-control" name="pickupTime"
-                                               placeholder="Select Pick Up Time" required>
+                                        <input type="text" class="form-control" name="pickupTime" id="timepicker" required
+                                               placeholder="Select Pick Up Time">
+                                        <?= form_error('pickupTime', '<div class="is-error">', '</div>'); ?>
                                     </div>
                                 </div>
                             </div>
@@ -95,8 +112,8 @@
                                             <?php foreach ($fleets as $fleet): ?>
                                                 <option value="<?= $fleet->title; ?>"><?= $fleet->title; ?></option>
                                             <?php endforeach; ?>
-
                                         </select>
+                                        <?= form_error('vehicleType', '<div class="is-error">', '</div>'); ?>
                                     </div>
 
                                 </div>
@@ -124,6 +141,7 @@
                                             <option value="Cash">Cash</option>
                                             <option value="Paypal">Paypal</option>
                                         </select>
+                                        <?= form_error('paymentType', '<div class="is-error">', '</div>'); ?>
                                     </div>
 
                                 </div>
@@ -138,20 +156,20 @@
             </div>
         </div>
     </section>
-    <section class="choose section" style="background: url(assets/images/why-choose.jpg);">
+    <section class="choose section" style="background: url(<?= base_url('assets/images/why-choose.jpg') ?>);">
         <div class="container">
             <ul class="">
                 <li>
                     <i class="fa fa-star"></i>
-                    <h4>Best Service</h4>
+                    <h4><?= (!empty($qualities->title1)) ? $qualities->title1 : ''; ?></h4>
                 </li>
                 <li>
                     <i class="fa fa-money"></i>
-                    <h4>Reasonable Price</h4>
+                    <h4><?= (!empty($qualities->title2)) ? $qualities->title2 : ''; ?></h4>
                 </li>
                 <li>
                     <i class="fa fa-clock-o"></i>
-                    <h4>Punctual Service</h4>
+                    <h4><?= (!empty($qualities->title3)) ? $qualities->title3 : ''; ?></h4>
                 </li>
             </ul>
         </div>
